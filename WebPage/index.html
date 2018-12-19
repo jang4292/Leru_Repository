@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="home_icon.png">
+
+    <title>202BPM Test Page</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- MS에서 제공하는 기능이 바로 "호환성 보기" 라는 기능입니다. 
+                                                                    "호환성 보기" 라는 기능을 통해서 IE 버전이 다르더라도 같은 화면을 볼 수 있도록 합니다. 
+                                                                    호환성 보기를 다른 말로 쿼크모드라고 합니다.-->
+    <!-- IE=edge는 가장 최신 버전으로 랜더링 하겠다는 의미입니다. 
+                                                                    예를 들어서 IE8을 사용하고 있는 사용자라면, 
+                                                                    IE8이 가지고 있는 가장 최신의 랜더링 방법으로 웹 문서를 보여주겠다는 의미가 됩니다. -->
+    <meta name="author" content="202bpm Inc." />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--jQuery 라이브러리 적용-->
+
+
+    <style>
+        body {
+            margin: 0
+        }
+        
+        #wrap {
+            padding: 0
+        }
+        
+        #index .bg {
+            background-image: url('./img/main_image.jpg');
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+        }
+        
+        #index .logo {
+            position: absolute;
+            width: 15%;
+            height: 10%;
+            left: 15%;
+            top: 2%;
+            margin: 0 1%;
+            background-image: url('./img/202bpm_logo_(green)_transparent.png');
+            background-size: cover;
+        }
+        
+        #index p.index_text {
+            position: absolute;
+            left: 16%;
+            top: 47%;
+            margin: 0;
+            line-height: 250%;
+        }
+        
+        #index p.index_text strong {
+            font-size: 2.5em
+        }
+        
+        #index p.index_text span {
+            font-size: 1.2em
+        }
+        
+        #index nav.gnb {
+            position: absolute;
+            width: 35%;
+            right: 10%;
+            top: 6%;
+        }
+        
+        #index nav.gnb ul {
+            list-style: none
+        }
+        
+        #index nav.gnb ul li {
+            float: left;
+            width: 25%;
+            height: 15%;
+            font-size: 1.5em;
+            text-align: center;
+            font-family: 'Malgun Gothic', Arial, Helvetica, sans-serif;
+            color: black
+        }
+        
+        #index p.copyright {
+            position: absolute;
+            right: 0;
+            bottom: 0.5%;
+            margin: 0;
+            width: 40%;
+            height: 2%;
+            color: white;
+        }
+        
+        .mainVideo {
+            display: block;
+            width: 100%;
+        }
+        
+        #footer .footer {
+            width: 100%;
+            height: auto;
+            position: relative;
+            background-color: #000;
+            list-style-type: none;
+            line-height: 200%;
+            font-size: 1rem;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+        
+        #footer .adress_bg {
+            color: #ddd;
+            border-bottom: 0.0020833333333333rem solid #333;
+        }
+        
+        #footer .copy_bg {
+            color: #aaa;
+        }
+        
+        #footer .phone_bg {
+            color: #fff;
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <!-- 메인 화면 -->
+        <section class="panel" id="index">
+            <script type="text/javascript">
+                $("#index").height($(window).height());
+                //$("#index").width($(window).width());
+            </script>
+            <div class="bg">
+                <div class="container">
+                    <div class="logo"> </div>
+                    <nav class="gnb">
+                        <ul>
+                            <!-- <li><a class="panel_link link_about" href="#about"><span>ABOUT</span></a></li>
+                            <li><a class="panel_link link_works" href="#works"><span>WORKS</span></a></li>
+                            <li><a class="panel_link link_contact" href="#contact"><span>CONTACT US</span></a></li>
+                            <li><a class="panel_link link_partners" href="#partners"><span>PARTNER</span></a></li> -->
+                            <li><a class="panel_link link_about" href="#"><span>ABOUT US</span></a></li>
+                            <li><a class="panel_link link_works" href="#"><span>BUFF UP</span></a></li>
+                            <li><a class="panel_link link_partners" href="#"><span>NEWS</span></a></li>
+                            <li><a class="panel_link link_contact" href="#"><span>CONTACT US</span></a></li>
+
+                        </ul>
+                    </nav>
+                    <p class="index_text">
+                        <strong>202BPM Inc. is an ICT home fitness entertainment device and contents producer.</strong>
+                        <br>
+                        <span>After the development of "BUFF-UP" indoor exercise equipment linked to smartphone for 2
+                            year,
+                            <br>
+                            we established a corporation in 2016.
+                            <br>
+                            Recently, we have successfully completed domestic crowdfunding
+                            <br>
+                            and are preparing to export through an affiliated Japanese and American company at overseas
+                            exhibitions.</span>
+                    </p>
+                    <p class="copyright">⊙ Copyright(c)2016 by 202BPM inc. all rights reserved. All Page content is property of 202BPM inc.</p>
+                </div>
+        </section>
+
+
+
+        <section class="mainVideo" id="mainVideo">
+            <script type="text/javascript">
+                $("#mainVideo").height($(window).height());
+            </script>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/jqzRP1rl2qQ"> </iframe>
+            <section>
+                </div>
+                <footer id="footer">
+                    <ul class="footer">
+                        <li class="phone_bg"> TEL. 053-716-0775 | FAX. 053-289-0485 </li>
+                        <li class="adress_bg">대구광역시 서구 북비산로6길 13 (이현동 42-326)</li>
+                        <li class="copy_bg">⊙ Copyright&copy;2016 by 202BPM inc. all rights reserved. All Page content is property of 202BPM inc.</li>
+                    </ul>
+                </footer>
+</body>
+
+</html>
