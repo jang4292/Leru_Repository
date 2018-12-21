@@ -1,44 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kr">
 
-<head>
+<head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="#">
+    <title>Player Test</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Player Test</title>
-    <link href="Main.css" rel="styleSheet" />
-    <script src="jquery-1.10.2.min.js"></script>
-
-
-
-
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.js" integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA=" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" type="text/css" href="./css/Main.css?11">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
     <div id="bg">
 
         <div id="blackLayer"></div>
-        <img src="Poster1.jpg" />
+        <img src="./img/Poster1.jpg" />
     </div>
 
 
     <div id="main">
         <div id="image">
-            <img src="Poster1.jpg" />
+            <img src="./img/Poster1.jpg" />
         </div>
         <div id="player">
             <div id="songTitle">Demo</div>
             <div id="buttons">
-
-                <button id="pre" onclick="pre()"> <img src="Pre.png" height="90%" width="90%"/></button>
-                <button id="play" onclick="playOrPauseSong()">  <img src="Play.png"/></button>
-                <button id="next" onclick="next()"> <img src="Next.png" height="90%" width="90%"/></button>
+                <button id="pre" onclick="pre()"> <img src="./img/pre.png" height="90%" width="90%" /></button>
+                <button id="play" onclick="playOrPauseSong()"> <img src="./img/play.png" /></button>
+                <button id="next" onclick="next()"> <img src="./img/next.png" height="90%" width="90%" /></button>
             </div>
             <div id="seek-bar">
                 <div id="fill"></div>
                 <div id="handle"></div>
-
             </div>
         </div>
     </div>
@@ -47,8 +41,9 @@
 
 
 <script type="text/javascript">
-    var songs = ["song1.mp3", "song2.mp3", "song3.mp3"];
-    var poster = ["Poster1.jpg", "Poster1.jpg", "Poster1.jpg"]
+    var songs = ["./audio/song1.mp3", "./audio/song2.mp3", "./audio/song3.mp3"];
+    var songTitles = ["song1.mp3", "song2.mp3", "song3.mp3"];
+    var poster = ["./img/Poster1.jpg", "./img/Poster1.jpg", "./img/Poster1.jpg"]
 
     var songTitle = document.getElementById("songTitle");
     var fillBar = document.getElementById("fill");
@@ -60,17 +55,17 @@
 
     function playSong() {
         song.src = songs[currentSong]; // set the source of 0th song
-        songTitle.textContent = songs[currentSong]; // set the title of song
+        songTitle.textContent = songTitles[currentSong]; // set the title of song
         song.play(); // play the song
     }
 
     function playOrPauseSong() {
         if (song.paused) {
             song.play();
-            $("#play img").attr("src", "Pause.png");
+            $("#play img").attr("src", "./img/pause.png");
         } else {
             song.pause();
-            $("#play img").attr("src", "Play.png");
+            $("#play img").attr("src", "./img/play.png");
         }
     }
 
@@ -86,7 +81,7 @@
             currentSong = 0;
         }
         playSong();
-        $("#play img".attr("src", "Pause.png"));
+        $("#play img").attr("src", "./img/pause.png");
         $("#image img").attr("src", poster[currentSong]);
         $("#bg img").attr("src", poster[currentSong]);
     }
@@ -97,7 +92,7 @@
             currentSong = 2;
         }
         playSong();
-        $("#play img".attr("src", "Pause.png"));
+        $("#play img").attr("src", "./img/pause.png");
         $("#image img").attr("src", poster[currentSong]);
         $("#bg img").attr("src", poster[currentSong]);
     }
