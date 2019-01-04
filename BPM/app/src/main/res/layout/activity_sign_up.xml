@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/streakColorPrimary">
+
+        <include
+            android:id="@+id/top_layer"
+            layout="@layout/layout_title_app_bar"/>
+
+        <ImageView
+            android:id="@+id/iv_shadow"
+            android:layout_below="@id/top_layer"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/shape_shadow"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/iv_shadow">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <ImageButton
+                    android:id="@+id/iv_profile_image"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    app:srcCompat="@drawable/ic_account_circlel"
+                    android:background="@null"/>
+
+                <TextView
+                    android:id="@+id/tv_nick_label"
+                    style="@style/sign_up_label_text"
+                    android:layout_below="@+id/iv_profile_image"
+                    android:text="@string/sign_up_nick" />
+
+                <LinearLayout
+                    android:id="@+id/nick_layer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_nick_label"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/et_nick"
+                        style="@style/sign_up_edit_text"
+                        android:layout_marginRight="20dp"
+                        android:layout_weight="1"
+                        android:hint="@string/sign_up_nick_hint"
+                        android:inputType="text"/>
+
+                    <Button
+                        android:id="@+id/btn_nick_check"
+                        style="@style/side_button_style"
+                        android:text="@string/button_confirm_text"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_height_label"
+                    style="@style/sign_up_label_text"
+                    android:layout_below="@+id/nick_layer"
+                    android:text="@string/sign_up_height" />
+
+                <EditText
+                    android:id="@+id/et_height"
+                    style="@style/sign_up_edit_text"
+                    android:layout_below="@+id/tv_height_label"
+                    android:hint="@string/sign_up_height_hint"
+                    android:inputType="number"
+                    android:maxLength="3"/>
+
+                <TextView
+                    android:id="@+id/tv_weight_label"
+                    style="@style/sign_up_label_text"
+                    android:layout_below="@+id/et_height"
+                    android:text="@string/sign_up_weight"/>
+
+                <EditText
+                    android:id="@+id/et_weight"
+                    style="@style/sign_up_edit_text"
+                    android:layout_below="@+id/tv_weight_label"
+                    android:hint="@string/sign_up_weight_hint"
+                    android:inputType="number"
+                    android:maxLength="3"/>
+
+                <TextView
+                    android:id="@+id/tv_age_label"
+                    style="@style/sign_up_label_text"
+                    android:layout_below="@+id/et_weight"
+                    android:text="@string/sign_up_age"/>
+
+                <EditText
+                    android:id="@+id/et_age"
+                    style="@style/sign_up_edit_text"
+                    android:layout_below="@+id/tv_age_label"
+                    android:hint="@string/sign_up_age_hint"
+                    android:inputType="number"
+                    android:maxLength="3"/>
+
+                <TextView
+                    android:id="@+id/tv_sex_label"
+                    style="@style/sign_up_label_text"
+                    android:layout_below="@+id/et_age"
+                    android:text="@string/sign_up_gender"/>
+
+                <RadioGroup
+                    android:id="@+id/radio_group_sex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_sex_label"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/check_male"
+                        style="@style/gender_radio_btn"
+                        android:text="@string/man"
+                        android:checked="true"/>
+
+                    <RadioButton
+                        android:id="@+id/check_female"
+                        style="@style/gender_radio_btn"
+                        android:text="@string/woman"/>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"/>
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tv_location_label"
+                    style="@style/sign_up_label_text"
+                    android:layout_below="@+id/radio_group_sex"
+                    android:text="@string/sign_up_location"/>
+
+                <LinearLayout
+                    android:id="@+id/layer_region"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_location_label"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_region"
+                        style="@style/sign_up_edit_text"
+                        android:layout_weight="1"
+                        android:layout_below="@+id/tv_location_label"
+                        android:hint="@string/sign_up_location_hint"/>
+
+                    <Button
+                        android:id="@+id/btn_region_search"
+                        style="@style/side_button_style"
+                        android:text="@string/button_search_text"/>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btn_sign_up"
+                    style="@style/main_button_style"
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layer_region"
+                    android:text="@string/sign_up_complete"/>
+
+            </RelativeLayout>
+
+        </ScrollView>
+    </RelativeLayout>
+</layout>

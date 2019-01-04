@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_weight_label"
+        style="@style/number_picker_label_tv"
+        android:layout_marginBottom="8dp"
+        android:text="@string/schedules_kg"
+        app:layout_constraintBottom_toTopOf="@+id/numberPicker1"
+        app:layout_constraintEnd_toEndOf="@+id/numberPicker1"
+        app:layout_constraintStart_toStartOf="@+id/numberPicker1" />
+
+    <TextView
+        android:id="@+id/tv_count_label"
+        style="@style/number_picker_label_tv"
+        android:layout_marginBottom="8dp"
+        android:text="@string/schedules_rest"
+        app:layout_constraintBottom_toTopOf="@+id/numberPicker2"
+        app:layout_constraintEnd_toEndOf="@+id/numberPicker2"
+        app:layout_constraintStart_toStartOf="@+id/numberPicker2" />
+
+    <TextView
+        android:id="@+id/tv_set_label"
+        style="@style/number_picker_label_tv"
+        android:layout_marginBottom="8dp"
+        android:text="@string/schedules_set"
+        app:layout_constraintBottom_toTopOf="@+id/numberPicker3"
+        app:layout_constraintEnd_toEndOf="@+id/numberPicker3"
+        app:layout_constraintStart_toStartOf="@+id/numberPicker3" />
+
+    <TextView
+        android:id="@+id/tv_rest_label"
+        style="@style/number_picker_label_tv"
+        android:layout_marginBottom="8dp"
+        android:text="@string/schedules_count"
+        app:layout_constraintBottom_toTopOf="@+id/numberPicker4"
+        app:layout_constraintEnd_toEndOf="@+id/numberPicker4"
+        app:layout_constraintStart_toStartOf="@+id/numberPicker4" />
+
+    <NumberPicker
+        android:id="@+id/numberPicker1"
+        style="@style/number_picker_thee"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/numberPicker2"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <NumberPicker
+        android:id="@+id/numberPicker2"
+        style="@style/number_picker_thee"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/numberPicker1"
+        app:layout_constraintEnd_toStartOf="@id/numberPicker3"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <NumberPicker
+        android:id="@+id/numberPicker3"
+        style="@style/number_picker_thee"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/numberPicker2"
+        app:layout_constraintEnd_toStartOf="@id/numberPicker4"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <NumberPicker
+        android:id="@+id/numberPicker4"
+        style="@style/number_picker_thee"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/numberPicker3"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_cancel"
+        style="@style/main_button_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="cancel"
+        app:layout_constraintStart_toStartOf="@+id/numberPicker1"
+        app:layout_constraintEnd_toStartOf="@id/btn_ok"
+        app:layout_constraintTop_toBottomOf="@+id/numberPicker1" />
+
+    <Button
+        android:id="@+id/btn_ok"
+        style="@style/main_button_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="ok"
+        app:layout_constraintStart_toEndOf="@+id/btn_cancel"
+        app:layout_constraintEnd_toEndOf="@+id/numberPicker4"
+        app:layout_constraintTop_toBottomOf="@+id/numberPicker4" />
+
+</android.support.constraint.ConstraintLayout>

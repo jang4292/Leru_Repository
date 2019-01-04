@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- error message -->
+    <string name="email_duplicate_check_msg">이메일 중복검사를 실행해 주세요</string>
+    <string name="email_confirm_msg">사용 가능한 이메일 입니다.</string>
+    <string name="email_duplicate_msg">중복된 이메일 입니다.</string>
+    <string name="email_is_not_valid_msg">이메일 형식이 올바르지 않습니다.</string>
+    <string name="email_code_confirm_msg">코드가 확인되었습니다.</string>
+    <string name="email_code_failed_msg">코드가 올바르지 않습니다.</string>
+    <string name="please_enter_your_email_msg">이메일을 입력해 주세요.</string>
+    <string name="please_enter_your_password_msg">비밀번호를 입력해 주세요.</string>
+    <string name="password_do_not_match">비밀번호가 일치하지 않습니다.</string>
+    <string name="nick_check_duplicate_msg">닉네임 중복검사를 실행해 주세요</string>
+    <string name="nick_duplicate_msg">중복된 닉네임 입니다.</string>
+    <string name="nick_confirm_msg">사용 가능한 닉네임 입니다.</string>
+    <string name="post_password_mail_msg">비밀번호를 메일로 전송하였습니다.</string>
+    <string name="change_password_msg">비밀번호가 변경되었습니다.</string>
+    <string name="modify_msg">수정 성공</string>
+    <string name="select_exercise_msg">시작할 운동을 선택해 주세요</string>
+    <string name="empty_schedules_msg">나에게 맞는 일정을 잡고\n시작하세요</string>
+
+    <string name="exit_button">버튼을 한 번 더 누르면 종료됩니다.</string>
+
+
+    <string name="error_msg">!에러 메시지 입력</string>
+    <string name="login_callback_error">!에러 메시지 입력</string>
+    <string name="password_EncodingException_msg">!sha1 암호화 예외 에러 입력</string>
+
+    <string name="user_null_message">!유저 정보가 사라졌을때 메시지 입력</string>
+
+    <string name="network_error">!네트워크 에러</string>
+
+
+
+</resources>

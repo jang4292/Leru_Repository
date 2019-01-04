@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/streakColorPrimary">
+
+        <include
+            android:id="@+id/layout_title"
+            layout="@layout/layout_title_app_bar" />
+
+        <ImageView
+            android:id="@+id/iv_shadow"
+            android:layout_below="@id/layout_title"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/shape_shadow"/>
+
+        <LinearLayout
+            android:layout_below="@id/iv_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/tv_terms_of_service_label"
+                style="@style/sign_up_label_text"
+                android:text="@string/terms_of_service"/>
+
+            <WebView
+                android:id="@+id/wv_terms_of_service_contents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <CheckBox
+                android:id="@+id/cb_terms_of_service"
+                android:fontFamily="@font/nanum_font_family"
+                android:textStyle="normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv_privacy_policy_label"
+                style="@style/sign_up_label_text"
+                android:text="@string/privacy_policy"/>
+            <WebView
+                android:id="@+id/wv_privacy_policy_contents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <CheckBox
+                android:id="@+id/cb_privacy_policy"
+                android:fontFamily="@font/nanum_font_family"
+                android:textStyle="normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btn_next"
+                style="@style/main_button_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_next_text"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

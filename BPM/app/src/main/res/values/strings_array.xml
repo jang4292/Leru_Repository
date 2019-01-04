@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="menu_change_password">비밀번호 변경</string>
+    <string name="menu_my_info">나의 정보</string>
+    <string name="menu_term_see">약관 보기</string>
+    <string name="menu_logout">로그아웃</string>
+    <string name="menu_secession">회원탈퇴</string>
+    <string-array name="setting_menu_list_for_email">
+        <item>@string/menu_change_password</item>
+        <item>@string/menu_my_info</item>
+        <item>@string/menu_term_see</item>
+        <item>@string/menu_logout</item>
+        <item>@string/menu_secession</item>
+    </string-array>
+    <string-array name="setting_menu_list_for_sns">
+        <item>@string/menu_my_info</item>
+        <item>@string/menu_term_see</item>
+        <item>@string/menu_logout</item>
+        <item>@string/menu_secession</item>
+    </string-array>
+
+
+    <string name="photo_shoot">사진 촬영</string>
+    <string name="photo_gallery">사진 앨범</string>
+    <string-array name="photo_select_str_arr">
+        <item>@string/photo_shoot</item>
+        <item>@string/photo_gallery</item>
+    </string-array>
+
+
+    <string name="sunday">일</string>
+    <string name="monday">월</string>
+    <string name="tuesday">화</string>
+    <string name="wednesday">수</string>
+    <string name="thursday">목</string>
+    <string name="friday">금</string>
+    <string name="saturday">토</string>
+    <string-array name="day_of_week_list">
+        <item>@string/sunday</item>
+        <item>@string/monday</item>
+        <item>@string/tuesday</item>
+        <item>@string/wednesday</item>
+        <item>@string/thursday</item>
+        <item>@string/friday</item>
+        <item>@string/saturday</item>
+    </string-array>
+
+    <string name="year">년</string>
+    <string name="month">월</string>
+    <string name="day">일</string>
+</resources>

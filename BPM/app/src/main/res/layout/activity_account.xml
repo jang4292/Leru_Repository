@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/streakColorPrimary"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/top_layer"
+            layout="@layout/layout_title_app_bar"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/divider_shape"/>
+
+    <ScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <ImageButton
+                android:id="@+id/iv_profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_account_circlel" />
+
+            <TextView
+                android:id="@+id/tv_nick_label"
+                style="@style/sign_up_label_text"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/nanum_font_family"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_profile_image" />
+
+            <TextView
+                android:id="@+id/tv_height_label"
+                style="@style/sign_up_label_text"
+                android:layout_marginTop="8dp"
+                android:text="@string/sign_up_height"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_nick_label" />
+
+            <EditText
+                android:id="@+id/et_height"
+                style="@style/sign_up_edit_text"
+                android:hint="@string/sign_up_height_hint"
+                android:inputType="number"
+                android:maxLength="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_height_label" />
+
+            <TextView
+                android:id="@+id/tv_weight_label"
+                style="@style/sign_up_label_text"
+                android:text="@string/sign_up_weight"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_height" />
+
+            <EditText
+                android:id="@+id/et_weight"
+                style="@style/sign_up_edit_text"
+                android:hint="@string/sign_up_weight_hint"
+                android:inputType="number"
+                android:maxLength="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_weight_label" />
+
+            <TextView
+                android:id="@+id/tv_age_label"
+                style="@style/sign_up_label_text"
+                android:text="@string/sign_up_age"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_weight" />
+
+            <EditText
+                android:id="@+id/et_age"
+                style="@style/sign_up_edit_text"
+                android:hint="@string/sign_up_age_hint"
+                android:inputType="number"
+                android:maxLength="3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_age_label" />
+
+            <TextView
+                android:id="@+id/tv_sex_label"
+                style="@style/sign_up_label_text"
+                android:text="@string/sign_up_gender"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_age" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_sex_label">
+
+                <RadioButton
+                    android:id="@+id/check_male"
+                    style="@style/gender_radio_btn"
+                    android:checked="true"
+                    android:text="@string/man" />
+
+                <RadioButton
+                    android:id="@+id/check_female"
+                    style="@style/gender_radio_btn"
+                    android:text="@string/woman" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tv_region_label"
+                style="@style/sign_up_label_text"
+                android:text="@string/sign_up_location"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+            <TextView
+                android:id="@+id/tv_region"
+                android:layout_width="0dp"
+                android:layout_height="22dp"
+                android:textColor="@color/textColor"
+                android:textColorHint="@color/textColor"
+                android:fontFamily="@font/nanum_font_family"
+                android:textStyle="normal"
+                android:hint="@string/sign_up_location_hint"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_region_search"
+                app:layout_constraintEnd_toStartOf="@+id/btn_region_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_region_search" />
+
+            <Button
+                android:id="@+id/btn_region_search"
+                style="@style/main_button_style"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/button_search_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_region_label" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_min="66dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_region_search">
+
+                <Button
+                    android:id="@+id/btn_modify"
+                    style="@style/main_button_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="bottom"
+                    android:text="@string/button_modify" />
+            </FrameLayout>
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+    </LinearLayout>
+</layout>

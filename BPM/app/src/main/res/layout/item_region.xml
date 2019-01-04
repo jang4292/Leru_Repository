@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button
+        android:id="@+id/btn_region"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:fontFamily="@font/nanum_font_family"
+        android:textStyle="normal"
+        style="@style/main_button_style"
+        android:gravity="center"
+        android:text="지역" />
+</layout>

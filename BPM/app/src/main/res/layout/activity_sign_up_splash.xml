@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/streakColorPrimary">
+
+        <include
+            android:id="@+id/top_layer"
+            layout="@layout/layout_title_app_bar" />
+
+        <ImageView
+            android:id="@+id/iv_shadow"
+            android:layout_below="@id/top_layer"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/shape_shadow"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/iv_shadow"
+            android:fillViewport="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/iv_shadow"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <TextView
+                    android:id="@+id/tv_email_label"
+                    style="@style/sign_up_label_text"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/email_sign_up_text" />
+
+                <EditText
+                    android:id="@+id/et_email"
+                    style="@style/sign_up_edit_text"
+                    android:layout_below="@+id/tv_email_label"
+                    android:hint="@string/email_input_hint"
+                    android:inputType="textEmailAddress" />
+
+                <Button
+                    android:id="@+id/btn_duplicate"
+                    style="@style/sign_up_button"
+                    android:layout_below="@+id/et_email"
+                    android:text="@string/button_duplicate_text" />
+
+                <TextView
+                    android:id="@+id/tv_email_code_label"
+                    style="@style/sign_up_label_text"
+                    android:layout_below="@+id/btn_duplicate"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/sign_up_email_code_confirm" />
+
+                <EditText
+                    android:id="@+id/et_email_code"
+                    style="@style/sign_up_edit_text"
+                    android:layout_below="@+id/tv_email_code_label"
+                    android:hint="@string/code_input_hint"
+                    android:inputType="text"
+                    tools:ignore="TextFields" />
+
+                <Button
+                    android:id="@+id/btn_code_confirm"
+                    style="@style/sign_up_button"
+                    android:layout_below="@+id/et_email_code"
+                    android:text="@string/button_confirm_text" />
+
+
+                <EditText
+                    android:id="@+id/et_pw"
+                    style="@style/sign_up_edit_text"
+                    android:layout_below="@+id/btn_code_confirm"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/password_input_hint"
+                    android:inputType="textPassword" />
+
+                <EditText
+                    android:id="@+id/et_pw_comp"
+                    style="@style/sign_up_edit_text"
+                    android:layout_below="@+id/et_pw"
+                    android:hint="@string/password_comp_input_hint"
+                    android:inputType="textPassword" />
+
+                <Button
+                    android:id="@+id/btn_next"
+                    style="@style/sign_up_button"
+                    android:layout_below="@+id/et_pw_comp"
+                    android:text="@string/button_next_text" />
+
+                <TextView
+                    android:id="@+id/tv_sns_sign_up_label"
+                    style="@style/sign_up_label_text"
+                    android:layout_below="@+id/btn_next"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/sns_sign_up_text" />
+
+                <ImageButton
+                    android:id="@+id/google_sign_in_btn"
+                    style="@style/ibtn_google"
+                    android:layout_below="@+id/tv_sns_sign_up_label" />
+
+                <ImageButton
+                    android:id="@+id/naver_sign_btn"
+                    style="@style/ibtn_naver"
+                    android:layout_alignBottom="@+id/google_sign_in_btn"
+                    android:layout_toRightOf="@id/google_sign_in_btn"
+                    android:background="@drawable/naver_login_icon_white" />
+
+                <ImageButton
+                    android:id="@+id/kakao_sign_btn"
+                    style="@style/ibtn_kakao"
+                    android:layout_alignBottom="@+id/google_sign_in_btn"
+                    android:layout_toRightOf="@+id/naver_sign_btn" />
+
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
+</layout>

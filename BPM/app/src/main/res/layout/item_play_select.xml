@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="70dp"
+    android:layout_height="match_parent">
+
+    <com.bpm.bpm_ver4.util.anim.CircleView
+        android:id="@+id/ibtn_exercise"
+        style="@style/ibtn_exercise_icon"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:button="@null"
+        app:srcCompat="@drawable/play_select_src"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

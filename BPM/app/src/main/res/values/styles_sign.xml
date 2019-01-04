@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="mw">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- login style -->
+    <style name="et_login_input" parent="mw">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textColorHint">@color/textColor</item>
+        <item name="android:theme">@style/EditTheme</item>
+        <item name="android:fontFamily">@font/nanum_font_family</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+
+    <style name="ibtn_login">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="ibtn_google" parent="ibtn_login">
+        <item name="android:background">@drawable/ripple_effect_sns_icon</item>
+        <item name="android:src">@drawable/googleg_standard_color_18</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+
+    <style name="ibtn_kakao" parent="ibtn_login">
+        <item name="android:background">@drawable/ripple_effect_sns_icon</item>
+        <item name="android:src">@drawable/kakao_account_logo</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="ibtn_naver" parent="ibtn_login">
+        <item name="android:background">@drawable/naver_login_icon_white</item>
+    </style>
+
+
+    <!-- sign up style -->
+    <style name="sign_up_label_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:fontFamily">@font/nanum_font_family</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="sign_up_edit_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textColorHint">@color/textColor</item>
+        <item name="android:theme">@style/EditTheme</item>
+        <item name="android:fontFamily">@font/nanum_font_family</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="sign_up_button" parent="main_button_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
+    <style name="gender_radio_btn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:fontFamily">@font/nanum_font_family</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:buttonTint">@color/textColor</item>
+    </style>
+
+
+</resources>

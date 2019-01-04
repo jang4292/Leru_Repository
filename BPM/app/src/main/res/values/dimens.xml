@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="dimen_100">100dp</dimen>
+    <dimen name="exercise_list_height">240dp</dimen>
+    <dimen name="exercise_text_view_height">30dp</dimen>
+    <dimen name="dimen_40">40dp</dimen>
+
+    <dimen name="dimen_150">150dp</dimen>
+    <dimen name="dimen_5">10dp</dimen>
+    <dimen name="dimen_10">10dp</dimen>
+    <dimen name="dimen_70">70dp</dimen>
+    <dimen name="dimen_69">69dp</dimen>
+
+    <dimen name="play_circle_size">210dp</dimen>
+    <dimen name="play_circle_stroke">3dp</dimen>
+</resources>

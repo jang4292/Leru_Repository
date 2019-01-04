@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/streakColorPrimary">
+
+
+    <ImageView
+        android:id="@+id/iv_exercise_icon"
+        style="@style/ibtn_exercise_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_exercise_name"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_exercise_name"
+        app:layout_constraintStart_toStartOf="@+id/tv_weight_num"
+        app:layout_constraintTop_toTopOf="@+id/tv_exercise_name"
+        app:srcCompat="@drawable/ic_example_run" />
+
+    <TextView
+        android:id="@+id/tv_exercise_name"
+        style="@style/schedule_exercise_tv"
+        android:text="Knee Push-Up\nBalance board"
+        app:layout_constraintLeft_toRightOf="@+id/iv_exercise_icon"
+        app:layout_constraintRight_toRightOf="@id/tv_count_num"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_weight_num"
+        style="@style/schedule_num_tv"
+        android:text="25"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_rest_num"
+        app:layout_constraintTop_toBottomOf="@+id/tv_exercise_name" />
+
+    <TextView
+        android:id="@+id/tv_rest_num"
+        style="@style/schedule_num_tv"
+        android:text="15"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toRightOf="@+id/tv_weight_num"
+        app:layout_constraintRight_toLeftOf="@+id/tv_set_num"
+        app:layout_constraintTop_toTopOf="@+id/tv_weight_num" />
+
+    <TextView
+        android:id="@+id/tv_set_num"
+        style="@style/schedule_num_tv"
+        android:text="03"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintLeft_toRightOf="@+id/tv_rest_num"
+        app:layout_constraintRight_toLeftOf="@+id/tv_count_num"
+        app:layout_constraintTop_toTopOf="@+id/tv_rest_num" />
+
+    <TextView
+        android:id="@+id/tv_count_num"
+        style="@style/schedule_num_tv"
+        android:text="30"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/tv_set_num"
+        app:layout_constraintTop_toTopOf="@+id/tv_set_num" />
+
+    <TextView
+        android:id="@+id/tv_weight_label"
+        style="@style/schedule_label_tv"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_weight_num"
+        app:layout_constraintStart_toStartOf="@+id/tv_weight_num"
+        app:layout_constraintTop_toBottomOf="@+id/tv_weight_num" />
+
+    <TextView
+        android:id="@+id/tv_rest_label"
+        style="@style/schedule_label_tv"
+        app:layout_constraintEnd_toEndOf="@+id/tv_rest_num"
+        app:layout_constraintStart_toStartOf="@+id/tv_rest_num"
+        app:layout_constraintTop_toBottomOf="@+id/tv_rest_num" />
+
+    <TextView
+        android:id="@+id/tv_set_label"
+        style="@style/schedule_label_tv"
+        app:layout_constraintEnd_toEndOf="@+id/tv_set_num"
+        app:layout_constraintStart_toStartOf="@+id/tv_set_num"
+        app:layout_constraintTop_toBottomOf="@+id/tv_set_num" />
+
+    <TextView
+        android:id="@+id/tv_count_label"
+        style="@style/schedule_label_tv"
+        app:layout_constraintEnd_toEndOf="@+id/tv_count_num"
+        app:layout_constraintStart_toStartOf="@+id/tv_count_num"
+        app:layout_constraintTop_toBottomOf="@+id/tv_count_num" />
+
+    <ImageButton
+        android:id="@+id/ibtn_delete"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@null"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close" />
+
+    <ImageView
+        android:id="@+id/iv_move"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:padding="8dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_headline" />
+</android.support.constraint.ConstraintLayout>

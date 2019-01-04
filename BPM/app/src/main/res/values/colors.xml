@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <!--<color name="colorAccent">#FF4081</color>-->
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <!--<color name="streakColorPrimary">#ff714d</color>-->
+    <!--<color name="streakColorPrimary">#ff704c</color>-->
+    <color name="streakColorPrimary">#ffffff</color>
+    <!--<color name="streakColorPrimaryDark">#d66545</color>-->
+    <!--<color name="streakColorPrimaryDark">#e56544</color>-->
+    <color name="streakColorPrimaryDark">#ffffff</color>
+    <!--<color name="streakInnerColor">#e35531</color>-->
+    <color name="streakInnerColor">#d66545</color>
+
+    <color name="lineColor">#8b00ff</color>
+    <color name="buttonColor">#8b00ff</color>
+
+    <!--<color name="streakWhiteColor">#ffffff</color>-->
+    <color name="streakWhiteColor">#000000</color>
+
+    <color name="icColor">#FF000000</color>
+    <color name="icColorWhite">#FFffffff</color>
+    <color name="textColor">#000000</color>
+    <color name="textColorAccent">#8b00ff</color>
+
+    <color name="positive_color">#78a169</color>
+    <color name="negative_color">#ff7e7e</color>
+</resources>
