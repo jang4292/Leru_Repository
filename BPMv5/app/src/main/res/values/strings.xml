@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BPMv5</string>
+    <string name="splash_text">202bpm\n스플래시 스크린\nClick!</string>
+    <string name="email_input_hint">이메일을 입력해주세요.</string>
+    <string name="password_input_hint">비밀번호를 입력해주세요.</string>
+
+    <string name="sign_in_button_text">로그인</string>
+    <string name="sign_up_button_text">회원가입</string>
+
+    <string name="password_find_button_text">비밀번호 찾기</string>
+</resources>
