@@ -1,4 +1,7 @@
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
+
     <string name="app_name">BPMv5</string>
     <string name="splash_text">202bpm\n스플래시 스크린\nClick!</string>
     <string name="email_input_hint">이메일을 입력해주세요.</string>
@@ -8,4 +11,22 @@
     <string name="sign_up_button_text">회원가입</string>
 
     <string name="password_find_button_text">비밀번호 찾기</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Navigation menu string -->
+    <string name="menu_exercise">운동</string>
+    <string name="menu_history">기록</string>
+    <string name="menu_schedules">일정</string>
+    <string name="menu_setting">설정</string>
+
+
+    <string name="exit_button">버튼을 한 번 더 누르면 종료됩니다.</string>
+
+
 </resources>

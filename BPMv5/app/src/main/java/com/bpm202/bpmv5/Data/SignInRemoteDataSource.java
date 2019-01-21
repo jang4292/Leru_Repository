@@ -41,9 +41,11 @@ public class SignInRemoteDataSource implements SignInDataSource {
 
 
                 SignInRemoteDataSource.Info info = new SignInRemoteDataSource.Info();
+                Log.d(TAG + " Test signInWithEmail", "info");
                 if (!isErrorChecked(response, info)) {
                     //MemberObj memberObj = apiObj.obj;
                     //callback.onResponse(token, memberObj);
+                    Log.d(TAG + " Test signInWithEmail", info.memberObj.toString());
                     callback.onResponse(info.token, info.memberObj);
                 }
 

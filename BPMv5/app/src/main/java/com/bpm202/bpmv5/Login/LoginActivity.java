@@ -1,5 +1,6 @@
 package com.bpm202.bpmv5.Login;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.bpm202.bpmv5.API.SignInRepository;
 import com.bpm202.bpmv5.BaseActivity;
 import com.bpm202.bpmv5.Data.SignInDataSource;
+import com.bpm202.bpmv5.Exercise.ExerciseActivity;
 import com.bpm202.bpmv5.R;
 import com.bpm202.bpmv5.Util.QMsg;
 import com.bpm202.bpmv5.ValueObject.EmailInfoObj;
@@ -21,12 +23,13 @@ public class LoginActivity extends BaseActivity {
 
     public static final String TAG = SignInRepository.class.getSimpleName();
 
+    public static final boolean IS_TEST = false;
+
     private Button login_btn;
     private Button sign_btn;
     private TextView tv_find_pw;
     private EditText et_email;
     private EditText et_pw;
-
 
 
     @Override
@@ -36,7 +39,7 @@ public class LoginActivity extends BaseActivity {
         initListener();
     }
 
-    private void initView () {
+    private void initView() {
         setContentView(R.layout.activity_login);
 
         login_btn = findViewById(R.id.login_btn);
@@ -56,25 +59,32 @@ public class LoginActivity extends BaseActivity {
         @Override
         public void onClick(View v) {
 
+            if (IS_TEST) {
+                Intent intent = new Intent(LoginActivity.this, ExerciseActivity.class);
+                startActivity(intent);
+                finish();
+                return;
+            }
+
             String email = et_email.getText().toString().trim();
             String password = et_pw.getText().toString().trim();
 
-            Log.d(TAG,"OnClicked Login Button");
+            Log.d(TAG, "OnClicked Login Button");
 
-            if(email == null ||email.isEmpty()) {
+            if (email == null || email.isEmpty()) {
                 QMsg.ShowMessage(getApplicationContext(), R.string.email_input_hint);
-            } else if(password == null || password.isEmpty()) {
+            } else if (password == null || password.isEmpty()) {
                 QMsg.ShowMessage(getApplicationContext(), R.string.email_input_hint);
             } else {
                 //view.showLoading(true);
                 //mEmail = email;
 
-                final EmailInfoObj mEmailInfoObj = new EmailInfoObj(email,password);
+                final EmailInfoObj mEmailInfoObj = new EmailInfoObj(email, password);
 
-                Log.d(TAG,"Before Handler");
+                Log.d(TAG, "Before Handler");
 
                 new Handler().postDelayed(() -> {
-                    Log.d(TAG,"send Handler");
+                    Log.d(TAG, "send Handler");
                     SignInRepository.getInstance().signInWithEmail(mEmailInfoObj, callback);
 //                    SignInRetrofit.getInstance().signInWithEmail(mEmailInfoObj, callback);
                 }, 500);
@@ -91,6 +101,11 @@ public class LoginActivity extends BaseActivity {
         public void onResponse(String token, MemberObj memberObj) {
             Log.d(TAG, "token : " + token);
             Log.d(TAG, "member : " + memberObj.toString());
+
+            Intent intent = new Intent(LoginActivity.this, ExerciseActivity.class);
+            startActivity(intent);
+            finish();
+
         }
 
         @Override
@@ -98,23 +113,4 @@ public class LoginActivity extends BaseActivity {
             Log.d(TAG, "onDataNotAvailable");
         }
     };
-    /*
-    @Override
-    public void onResponse(String token, MemberObj memberObj) {
-        new AppPref(view.getContext().getApplicationContext()).setStringPref(AppPref.KEY_TOKEN, token);
-        App.setToken(token);
-        Log.d(getClass().getSimpleName(), "TOKEN: " + token);
-
-        App.setMember(memberObj);
-        App.setEmail(mEmail);
-        view.showLoading(false);
-        view.loginSuccessView();
-        SignInRepository.destroyInstance();
-    }
-
-    @Override
-    public void onDataNotAvailable() {
-        *//*view.showLoading(false);
-        view.showMessage(R.string.login_callback_error);*//*
-    }*/
 }
