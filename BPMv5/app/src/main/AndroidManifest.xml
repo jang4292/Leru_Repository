@@ -18,8 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.LoginActivity" />
-        <activity android:name=".Exercise.ExerciseActivity" />
+        <activity android:name=".Account.LoginActivity" />
+        <activity android:name=".Exercise.MainActivity" />
+        <activity android:name=".Account.FindPasswordActivity" />
+        <activity android:name=".Account.JoinActivity" android:windowSoftInputMode="stateHidden"/>
+
     </application>
 
 </manifest>

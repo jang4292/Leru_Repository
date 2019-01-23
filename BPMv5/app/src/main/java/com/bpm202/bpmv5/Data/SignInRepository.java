@@ -1,21 +1,11 @@
-package com.bpm202.bpmv5.API;
+package com.bpm202.bpmv5.Data;
 
 import android.support.annotation.NonNull;
 import android.util.Log;
 
 
-import com.bpm202.bpmv5.Data.SignInDataSource;
-import com.bpm202.bpmv5.Data.SignInRemoteDataSource;
 import com.bpm202.bpmv5.RetrofitAPI.SignInInterface;
-import com.bpm202.bpmv5.RetrofitAPI.SignInRetrofit;
-import com.bpm202.bpmv5.ValueObject.ApiObj;
 import com.bpm202.bpmv5.ValueObject.EmailInfoObj;
-import com.bpm202.bpmv5.ValueObject.MemberObj;
-import com.bpm202.bpmv5.ValueObject.SnsInfoObj;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class SignInRepository implements SignInDataSource {

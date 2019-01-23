@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.bpm202.bpmv5.Login.LoginActivity;
+import com.bpm202.bpmv5.Account.LoginActivity;
 
 public class SplashActivity extends BaseActivity {
 

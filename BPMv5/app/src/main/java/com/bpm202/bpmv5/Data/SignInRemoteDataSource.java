@@ -64,6 +64,7 @@ public class SignInRemoteDataSource implements SignInDataSource {
                 if (response == null || response.headers() == null) {
                     callback.onDataNotAvailable();
                     Log.e(TAG + " signInWithEmail", "header null");
+                    Log.e(TAG + " signInWithEmail", "it's not connected database servers");
                     return true;
                 }
 

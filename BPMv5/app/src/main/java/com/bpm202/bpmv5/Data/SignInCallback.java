@@ -1,4 +1,4 @@
-package com.bpm202.bpmv5.API;
+package com.bpm202.bpmv5.Data;
 
 import com.bpm202.bpmv5.ValueObject.MemberObj;
 

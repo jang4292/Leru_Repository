@@ -85,4 +85,23 @@
 
     <style name="AppTheme.ActionBar" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- sign up style -->
+    <style name="sign_up_label_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="sign_up_edit_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textColorHint">@color/textColor</item>
+        <item name="android:theme">@style/EditTheme</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+
 </resources>
