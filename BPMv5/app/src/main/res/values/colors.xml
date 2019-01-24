@@ -9,6 +9,7 @@
     <color name="textColor">#000000</color>
     <color name="icColor">#FF000000</color>
 
+    <color name="lineColor">#8b00ff</color>
     <color name="buttonColor">#8b00ff</color>
 
 </resources>

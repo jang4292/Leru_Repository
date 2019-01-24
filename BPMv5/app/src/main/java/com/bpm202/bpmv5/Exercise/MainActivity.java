@@ -1,6 +1,7 @@
 package com.bpm202.bpmv5.Exercise;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -162,6 +163,9 @@ public class MainActivity extends BaseActivity {
                 case R.id.navigation_menu_item_setting:
                     //mActivity.startActivity(new Intent(mActivity, SettingActivity.class));
                     toolbar.setTitle(R.string.menu_setting);
+                    if (fm instanceof SettingFragment) {
+                        break;
+                    }
                     break;
             }
             drawerLayout.closeDrawer(GravityCompat.START);

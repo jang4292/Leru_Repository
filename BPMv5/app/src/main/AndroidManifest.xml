@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".Account.LoginActivity" />
         <activity android:name=".Exercise.MainActivity" />
+        <activity android:name=".Exercise.SettingActivity"/>
         <activity android:name=".Account.FindPasswordActivity" />
         <activity android:name=".Account.JoinActivity" android:windowSoftInputMode="stateHidden"/>
 
