@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/streakColorPrimary">
+
+<!--    <include
+        android:id="@+id/top_layer"
+        layout="@layout/layout_action_bar" />-->
+
+    <ImageView
+        android:id="@+id/iv_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/top_layer"
+        android:background="@color/lineColor" />
+
+    <Button
+        android:id="@+id/btn_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_shadow"
+        android:text="비밀번호변경"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_my_infomation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_password"
+        android:text="나의정보"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_rule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_my_infomation"
+        android:text="약관보기"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_log_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_rule"
+        android:text="로그아웃"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_withdraw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_log_out"
+        android:text="회원탈퇴"
+        android:textSize="20dp" />
+
+
+    <!--<android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/iv_shadow" />-->
+
+
+</RelativeLayout>

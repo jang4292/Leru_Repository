@@ -1,0 +1,53 @@
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
+
+    <string name="app_name">SensorProject</string>
+    <string name="splash_text">202bpm\n스플래시 스크린\nClick!</string>
+    <string name="email_input_hint">이메일을 입력해주세요.</string>
+    <string name="password_input_hint">비밀번호를 입력해주세요.</string>
+    <string name="password_comp_input_hint">비밀번호를 확인해주세요.</string>
+    <string name="post_password_mail_msg">비밀번호를 메일로 전송하였습니다.</string>
+
+
+    <string name="sign_in_button_text">로그인</string>
+    <string name="sign_up_button_text">회원가입</string>
+    <string name="password_find_button_text">비밀번호 찾기</string>
+    <string name="email_sign_up_text">이메일 가입</string>
+    <string name="sns_sign_up_text">SNS 가입</string>
+    <string name="button_duplicate_text">중복 확인</string>
+    <string name="sign_up_email_code_confirm">이메일 코드 확인</string>
+    <string name="code_input_hint">코드를 입력해주세요.</string>
+
+    <string name="button_next_text">다음</string>
+    <string name="button_confirm_text">확인</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Navigation menu string -->
+    <string name="menu_exercise">운동</string>
+    <string name="menu_history">기록</string>
+    <string name="menu_schedules">일정</string>
+    <string name="menu_setting">설정</string>
+
+
+    <string name="exit_button">버튼을 한 번 더 누르면 종료됩니다.</string>
+
+    <string name="email_duplicate_check_msg">이메일 중복검사를 실행해 주세요</string>
+    <string name="email_code_confirm_msg">코드가 확인되었습니다.</string>
+    <string name="email_code_failed_msg">코드가 올바르지 않습니다.</string>
+    <string name="password_do_not_match">비밀번호가 일치하지 않습니다.</string>
+    <string name="email_duplicate_msg">중복된 이메일 입니다.</string>
+    <string name="email_confirm_msg">사용 가능한 이메일 입니다.</string>
+    <string name="email_is_not_valid_msg">이메일 형식이 올바르지 않습니다.</string>
+
+    <string name="error_msg">!에러 메시지 입력</string>
+
+
+    <!-- popup -->
+    <string name="popup_title_secession">회원탈퇴</string>
+    <string name="popup_contents_secession">정말로 회원탈퇴 하시겠습니까?</string>
+    <string name="menu_secession">회원탈퇴</string>
+</resources>
