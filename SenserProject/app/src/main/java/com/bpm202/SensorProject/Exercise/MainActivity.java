@@ -1,7 +1,6 @@
 package com.bpm202.SensorProject.Exercise;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -11,9 +10,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 
 
@@ -32,7 +31,6 @@ public class MainActivity extends BaseActivity {
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navivationView;
-    private CustomActionBarDrawerToggle toggle;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -45,21 +43,21 @@ public class MainActivity extends BaseActivity {
     private void initView() {
         setContentView(R.layout.activity_exercise);
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.textColor, null));
-        toolbar.setTitle(R.string.menu_exercise);
+        setSupportActionBar(toolbar);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(R.string.menu_exercise);
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white, null));
 
 
         navivationView = findViewById(R.id.navivation_view);
         navivationView.setNavigationItemSelectedListener(onNavigationItemSelected);
         drawerLayout = findViewById(R.id.drawer_layout);
-
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        //fragmentTransaction.add(R.id.fragment_container, ExerciseFrgment.newInstance()).commit();
         fragmentTransaction.add(R.id.fragment_container, ExerciseFrgment.newInstance()).commit();
     }
 
     private void initListener() {
-        toggle = new CustomActionBarDrawerToggle(
+        new CustomActionBarDrawerToggle(
                 MainActivity.this,
                 drawerLayout, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -68,13 +66,6 @@ public class MainActivity extends BaseActivity {
         getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
             @Override
             public void onBackStackChanged() {
-                Log.d(TAG, "onBackStackChanged: ");
-
-                Log.d(TAG, "onBackStackChanged getFragmentManager().getBackStackEntryCount() : " + getSupportFragmentManager().getBackStackEntryCount());
-
-                int i = getSupportFragmentManager().getBackStackEntryCount();
-
-                Log.d(TAG, "TEST , I : " + i);
             }
         });
     }
@@ -146,7 +137,7 @@ public class MainActivity extends BaseActivity {
                     if (fm instanceof SchedulesFrgment) {
                         break;
                     }
-                    replaceFragment(SchedulesFrgment.newInstance());
+                    replaceFragment(SchedulesFrgment.Instance());
 
                     break;
 

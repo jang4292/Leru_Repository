@@ -18,6 +18,7 @@ import com.bpm202.SensorProject.BaseActivity;
 import com.bpm202.SensorProject.Data.SignInDataSource;
 import com.bpm202.SensorProject.Exercise.MainActivity;
 import com.bpm202.SensorProject.R;
+import com.bpm202.SensorProject.Util.App;
 import com.bpm202.SensorProject.ValueObject.EmailInfoObj;
 import com.bpm202.SensorProject.ValueObject.MemberObj;
 import com.bpm202.SensorProject.Util.QMsg;
@@ -116,6 +117,7 @@ public class LoginActivity extends BaseActivity {
 
             new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.KEY_TOKEN, token);
             new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.KEY_AUTO_LOGIN, isChecked);
+            App.setToken(token);
 
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_modify"
+        android:icon="@drawable/ic_menu_moreoverflow_normal_holo_dark"
+        android:title="@string/button_edit"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/menu_modify"
+                android:title="수정" />
+            <item
+                android:id="@+id/menu_add"
+                android:title="추가" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/action_add"
+        android:icon="@drawable/ic_menu_close_clear_cancel"
+        android:title="@string/button_edit"
+        android:visible="false"
+        app:showAsAction="always" />
+</menu>
