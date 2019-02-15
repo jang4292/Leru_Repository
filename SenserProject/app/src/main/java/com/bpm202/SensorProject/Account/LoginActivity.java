@@ -8,7 +8,6 @@ import android.support.v7.widget.AppCompatCheckBox;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -16,7 +15,7 @@ import com.bpm202.SensorProject.Common.AppPreferences;
 import com.bpm202.SensorProject.Data.SignInRepository;
 import com.bpm202.SensorProject.BaseActivity;
 import com.bpm202.SensorProject.Data.SignInDataSource;
-import com.bpm202.SensorProject.Exercise.MainActivity;
+import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.App;
 import com.bpm202.SensorProject.ValueObject.EmailInfoObj;
@@ -90,6 +89,7 @@ public class LoginActivity extends BaseActivity {
             } else {
                 final EmailInfoObj mEmailInfoObj = new EmailInfoObj(email, password);
 
+                Util.LoadingProgress.show(LoginActivity.this);
                 new Handler().postDelayed(() -> {
                     SignInRepository.getInstance().signInWithEmail(mEmailInfoObj, callback);
                 }, 500);
@@ -121,12 +121,14 @@ public class LoginActivity extends BaseActivity {
 
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
+            Util.LoadingProgress.hide();
             finish();
         }
 
         @Override
         public void onDataNotAvailable() {
             Log.d(TAG, "onDataNotAvailable");
+            Util.LoadingProgress.hide();
         }
     };
 }

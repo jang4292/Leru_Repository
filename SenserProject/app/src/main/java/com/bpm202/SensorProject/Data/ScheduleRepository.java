@@ -126,6 +126,11 @@ public class ScheduleRepository implements ScheduleDataSource {
     }
 
     @Override
+    public void deleteSchedule(@NonNull ScheduleValueObject scheduleVo, CompleteCallback callback) {
+        mRemoteDataSource.deleteSchedule(scheduleVo, callback);
+    }
+
+    @Override
     public void sequenceSchedules(@NonNull List<ScheduleValueObject> scheduleVos) {
         mRemoteDataSource.sequenceSchedules(scheduleVos);
     }

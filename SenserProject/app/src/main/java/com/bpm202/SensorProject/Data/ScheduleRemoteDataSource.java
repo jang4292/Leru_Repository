@@ -177,6 +177,36 @@ public class ScheduleRemoteDataSource implements ScheduleDataSource {
                 });
     }
 
+    @Override
+    public void deleteSchedule(@NonNull ScheduleValueObject scheduleVo, CompleteCallback callback) {
+        ExerciseRetrofit.getInstance().deleteSchedules(App.getToken(), scheduleVo)
+                .enqueue(new Callback<ApiObj<Boolean>>() {
+                    @Override
+                    public void onResponse(Call<ApiObj<Boolean>> call, Response<ApiObj<Boolean>> response) {
+                        /*if (BuildConfig.DEBUG)
+                            Log.e(TAG + " deleteSchedule", response.body().toJson());*/
+
+                        if (response == null || response.body() == null)
+                            callback.onDataNotAvailable();
+
+                        ApiObj<Boolean> apiObj = response.body();
+                        if (apiObj.status.equals(Api.STATUS_FAIL))
+                            callback.onDataNotAvailable();
+
+                        Boolean cussess = apiObj.obj;
+                        if (cussess) {
+                            callback.onComplete();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ApiObj<Boolean>> call, Throwable t) {
+                        Log.e(TAG + " deleteSchedule", "onFailure");
+                        t.printStackTrace();
+                    }
+                });
+    }
+
     // 운동리스트 순서 변경
     @Override
     public void sequenceSchedules(@NonNull List<ScheduleValueObject> scheduleVos) {

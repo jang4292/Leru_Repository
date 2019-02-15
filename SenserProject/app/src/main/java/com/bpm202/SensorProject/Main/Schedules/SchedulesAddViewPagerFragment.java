@@ -1,4 +1,4 @@
-package com.bpm202.SensorProject.Exercise;
+package com.bpm202.SensorProject.Main.Schedules;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -17,8 +17,10 @@ import android.widget.TextView;
 
 import com.bpm202.SensorProject.Data.ScheduleDataSource;
 import com.bpm202.SensorProject.Data.ScheduleRepository;
+import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.MappingUtil;
+import com.bpm202.SensorProject.Util.UtilForApp;
 import com.bpm202.SensorProject.ValueObject.DayOfWeek;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
 import com.bpm202.SensorProject.ValueObject.TypeValueObject;
@@ -36,17 +38,7 @@ public class SchedulesAddViewPagerFragment extends Fragment {
         tabPosition = i;
     }
 
-    public void setDayOfWeekFromParent(DayOfWeek week) {
-        dayofweek = week;
-    }
-
-    public void setPositionFromParent(int i) {
-        position = i;
-    }
-
-    private DayOfWeek dayofweek;
     private int tabPosition;
-    private int position;
     private RecyclerView recyclerView;
 
     @Nullable
@@ -82,9 +74,7 @@ public class SchedulesAddViewPagerFragment extends Fragment {
         }
         ExerciseAddAdapter adpater = new ExerciseAddAdapter(getContext(), ListType);
         recyclerView.setAdapter(adpater);
-        DividerItemDecoration decoration = new DividerItemDecoration(getContext(), new LinearLayoutManager(getContext()).getOrientation());
-        decoration.setDrawable(getResources().getDrawable(R.drawable.divider_shape));
-        recyclerView.addItemDecoration(decoration);
+        UtilForApp.setDividerItemDecoration(getContext(), recyclerView, R.drawable.divider_shape);
     }
 
     private class ExerciseAddAdapter extends RecyclerView.Adapter<ExerciseAddAdapter.ViewHolder> {
@@ -134,8 +124,7 @@ public class SchedulesAddViewPagerFragment extends Fragment {
             repository.addSchedule(scheduleValueObject, new ScheduleDataSource.CompleteCallback() {
                 @Override
                 public void onComplete() {
-                    Log.i(MainActivity.TAG, "onCompleted Data");
-                    SchedulesFrgment.Instance().notifyDateSetChanged(SchedulesFrgment.STATE.DEFAULT);
+                    SchdulesManager.Instance().setSTATE(SchdulesManager.STATE.RELOAD);
                 }
 
                 @Override
@@ -144,18 +133,19 @@ public class SchedulesAddViewPagerFragment extends Fragment {
             });
         }
 
-        public ScheduleValueObject newSchedules(TypeValueObject type) {
+        private ScheduleValueObject newSchedules(TypeValueObject type) {
             final int INIT_COUNT = 1;
             final int INIT_SET = 1;
             final int INIT_REST = 5;
             ScheduleValueObject.Builder sb = new ScheduleValueObject.Builder();
             sb.setType(type);
-            sb.setDay(dayofweek);
+            sb.setDay(DayOfWeek.findByCode(SchdulesManager.Instance().getCurrentPageOfDay() + 1));
             sb.setCount(INIT_COUNT);
             sb.setSetCnt(INIT_SET);
             sb.setRest(INIT_REST);
             //sb.setPos(pos);
-            sb.setPos(0);
+            //Log.d(MainActivity.TAG, "TEST, Add Position : " + SchdulesManager.Instance().getCurrentPageOfDay());
+            //sb.setPos(SchdulesManager.Instance().getCurrentPageOfDay());
             return sb.create();
         }
     }

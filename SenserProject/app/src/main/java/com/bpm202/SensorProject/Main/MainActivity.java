@@ -1,4 +1,4 @@
-package com.bpm202.SensorProject.Exercise;
+package com.bpm202.SensorProject.Main;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -13,13 +13,23 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 
-
 import com.bpm202.SensorProject.BaseActivity;
+import com.bpm202.SensorProject.Data.ScheduleDataSource;
+import com.bpm202.SensorProject.Data.ScheduleRepository;
 import com.bpm202.SensorProject.Data.SignInRepository;
+import com.bpm202.SensorProject.Main.Exercise.ExerciseFrgment;
+import com.bpm202.SensorProject.Exercise.HistoryFrgment;
+import com.bpm202.SensorProject.Main.Schedules.SchedulesFrgment;
+import com.bpm202.SensorProject.Main.Settings.SettingFragment;
 import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.R;
+import com.bpm202.SensorProject.Util.Util;
+import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
+
+import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
@@ -37,6 +47,28 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         initView();
         initListener();
+        initData();
+    }
+
+    private void initData() {
+        ScheduleRepository repository = ScheduleRepository.getInstance();
+        Util.LoadingProgress.show(MainActivity.this);
+        repository.getSchedules(new ScheduleDataSource.LoadCallback() {
+            @Override
+            public void onLoaded(List<ScheduleValueObject> scheduleVos) {
+                Util.LoadingProgress.hide();
+                MainDataManager.Instance().setListScheduleValueObject(scheduleVos);
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.add(R.id.fragment_container, ExerciseFrgment.Instance()).commit();
+            }
+
+            @Override
+            public void onDataNotAvailable() {
+                Util.LoadingProgress.hide();
+                Log.e(MainActivity.TAG, "[SchedulesFragment] getSchedules onDataNotAvailable");
+            }
+        });
+
     }
 
 
@@ -48,12 +80,9 @@ public class MainActivity extends BaseActivity {
         actionBar.setTitle(R.string.menu_exercise);
         toolbar.setTitleTextColor(getResources().getColor(android.R.color.white, null));
 
-
         navivationView = findViewById(R.id.navivation_view);
         navivationView.setNavigationItemSelectedListener(onNavigationItemSelected);
         drawerLayout = findViewById(R.id.drawer_layout);
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragment_container, ExerciseFrgment.newInstance()).commit();
     }
 
     private void initListener() {
@@ -63,10 +92,7 @@ public class MainActivity extends BaseActivity {
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close
         );
 
-        getSupportFragmentManager().addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
-            @Override
-            public void onBackStackChanged() {
-            }
+        getSupportFragmentManager().addOnBackStackChangedListener(() -> {
         });
     }
 
@@ -82,6 +108,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
+        SchedulesFrgment.DestroyInstance();
         super.onDestroy();
     }
 
@@ -128,7 +155,7 @@ public class MainActivity extends BaseActivity {
                     if (fm instanceof ExerciseFrgment) {
                         break;
                     }
-                    replaceFragment(ExerciseFrgment.newInstance());
+                    replaceFragment(ExerciseFrgment.Instance());
                     break;
 
                 case R.id.navigation_menu_item_schedules:

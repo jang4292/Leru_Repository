@@ -41,6 +41,11 @@ public class ScheduleLocalDataSource implements ScheduleDataSource {
     }
 
     @Override
+    public void deleteSchedule(@NonNull ScheduleValueObject scheduleVos, CompleteCallback callback) {
+
+    }
+
+    @Override
     public void sequenceSchedules(@NonNull List<ScheduleValueObject> scheduleVos) {
 
     }

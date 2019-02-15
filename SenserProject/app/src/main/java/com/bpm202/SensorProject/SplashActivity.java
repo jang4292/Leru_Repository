@@ -11,7 +11,7 @@ import com.bpm202.SensorProject.Account.LoginActivity;
 import com.bpm202.SensorProject.Common.AppPreferences;
 import com.bpm202.SensorProject.Data.SignInDataSource;
 import com.bpm202.SensorProject.Data.SignInRepository;
-import com.bpm202.SensorProject.Exercise.MainActivity;
+import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.ValueObject.MemberObj;
 
 public class SplashActivity extends BaseActivity {

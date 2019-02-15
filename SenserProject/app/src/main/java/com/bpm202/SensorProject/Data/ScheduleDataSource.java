@@ -42,6 +42,8 @@ public interface ScheduleDataSource {
 
     void deleteSchedule(@NonNull ScheduleValueObject scheduleVos);
 
+    void deleteSchedule(@NonNull ScheduleValueObject scheduleVos, CompleteCallback callback);
+
     void sequenceSchedules(@NonNull List<ScheduleValueObject> scheduleVos);
 
 

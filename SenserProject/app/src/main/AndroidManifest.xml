@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Account.LoginActivity" />
-        <activity android:name=".Exercise.MainActivity" />
+        <activity android:name=".Main.MainActivity" />
         <activity android:name=".Account.FindPasswordActivity" />
         <activity android:name=".Account.JoinActivity" android:windowSoftInputMode="stateHidden"/>
 

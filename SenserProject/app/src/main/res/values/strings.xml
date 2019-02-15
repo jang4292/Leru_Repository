@@ -53,4 +53,19 @@
 
     <string name="button_edit">편집</string>
 
+    <string name="schedules_kg">kg</string>
+    <string name="schedules_rpm">rpm</string>
+    <string name="schedules_rest">rest</string>
+    <string name="schedules_set">set</string>
+    <string name="schedules_count">count</string>
+    <string name="schedules_times">times</string>
+
+
+    <string name="select_exercise_msg">시작할 운동을 선택해 주세요</string>
+
+    <string name="play_start_by_pressed">버튼을 눌러서 시작</string>
+    <string name="play_end_by_pressed">버튼을 눌러서 세트 종료</string>
+
+    <string name="play_good">GOOD</string>
+
 </resources>
