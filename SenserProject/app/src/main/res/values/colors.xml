@@ -12,4 +12,6 @@
     <color name="lineColor">#8b00ff</color>
     <color name="buttonColor">#8b00ff</color>
 
+    <color name="textColorAccent">#8b00ff</color>
+
 </resources>

@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.animation.Animation;
@@ -17,23 +18,24 @@ public class CircleView extends AppCompatImageView {
 
     private static final int START_ANGLE_POINT = -90;
 
-    private final Paint whiltePaint;
-    private final Paint paint;
-    private final RectF rect;
+    private Paint whiltePaint;
+    private Paint paint;
+    private RectF rect;
 
     private float angle;
     private float strokeWidth = 40;
 
     public CircleView(Context context) {
         super(context);
-        paint = createPaint(context.getResources().getColor(R.color.lineColor));
-        whiltePaint = createPaint(Color.LTGRAY);
-        rect = new RectF();
-        angle = 0;
+        init(context);
     }
 
     public CircleView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+        init(context);
+    }
+
+    private void init(Context context) {
         paint = createPaint(context.getResources().getColor(R.color.lineColor));
         whiltePaint = createPaint(Color.LTGRAY);
         rect = new RectF();

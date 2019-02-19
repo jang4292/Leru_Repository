@@ -1,22 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><!--
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>-->
 
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"    >
-
-
-    <TextView
+    <FrameLayout
+        android:id="@+id/child_fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="40dp"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="@string/menu_history"/>
+        android:layout_height="match_parent" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

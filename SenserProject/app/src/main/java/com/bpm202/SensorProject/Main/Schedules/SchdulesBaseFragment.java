@@ -18,7 +18,7 @@ public abstract class SchdulesBaseFragment extends Fragment implements Observer,
     public void update(Observable o, Object arg) {
         if (arg != null && arg instanceof SchdulesManager.StateClass) {
             SchdulesManager.STATE cur = ((SchdulesManager.StateClass) arg).getCurrentState();
-            SchdulesManager.STATE pre = ((SchdulesManager.StateClass) arg).getCurrentState();
+            SchdulesManager.STATE pre = ((SchdulesManager.StateClass) arg).getPreviousState();
             UpdateState(cur, pre);
         }
     }

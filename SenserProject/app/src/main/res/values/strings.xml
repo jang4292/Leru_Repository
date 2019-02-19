@@ -1,6 +1,4 @@
-<resources
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation">
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
     <string name="app_name">SensorProject</string>
     <string name="splash_text">202bpm\n스플래시 스크린\nClick!</string>
@@ -67,5 +65,26 @@
     <string name="play_end_by_pressed">버튼을 눌러서 세트 종료</string>
 
     <string name="play_good">GOOD</string>
+
+    <string name="year">년</string>
+    <string name="month">월</string>
+    <string name="day">일</string>
+
+    <string name="sunday">일</string>
+    <string name="monday">월</string>
+    <string name="tuesday">화</string>
+    <string name="wednesday">수</string>
+    <string name="thursday">목</string>
+    <string name="friday">금</string>
+    <string name="saturday">토</string>
+    <string-array name="day_of_week_list">
+        <item>@string/sunday</item>
+        <item>@string/monday</item>
+        <item>@string/tuesday</item>
+        <item>@string/wednesday</item>
+        <item>@string/thursday</item>
+        <item>@string/friday</item>
+        <item>@string/saturday</item>
+    </string-array>
 
 </resources>

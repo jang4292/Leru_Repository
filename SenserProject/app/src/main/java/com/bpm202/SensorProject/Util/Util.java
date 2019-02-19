@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
+import android.transition.Fade;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -70,6 +71,23 @@ public class Util {
             if (calendar == null)
                 calendar = Calendar.getInstance();
             return calendar;
+        }
+    }
+
+    public static class FadeAnimation {
+        public static void fadeIn(View... views) {
+            for (View view : views) {
+                view.setAlpha(0f);
+            }
+            for (View view : views) {
+                view.animate().alpha(1f).start();
+            }
+        }
+
+        public static void fadeOut(View... views) {
+            for (View view : views) {
+                view.animate().alpha(0f).start();
+            }
         }
     }
 }

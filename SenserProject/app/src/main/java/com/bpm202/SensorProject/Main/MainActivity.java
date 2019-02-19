@@ -21,7 +21,8 @@ import com.bpm202.SensorProject.Data.ScheduleDataSource;
 import com.bpm202.SensorProject.Data.ScheduleRepository;
 import com.bpm202.SensorProject.Data.SignInRepository;
 import com.bpm202.SensorProject.Main.Exercise.ExerciseFrgment;
-import com.bpm202.SensorProject.Exercise.HistoryFrgment;
+import com.bpm202.SensorProject.Main.History.HistoryCalendarFragment;
+import com.bpm202.SensorProject.Main.History.HistoryFragment;
 import com.bpm202.SensorProject.Main.Schedules.SchedulesFrgment;
 import com.bpm202.SensorProject.Main.Settings.SettingFragment;
 import com.bpm202.SensorProject.Util.QToast;
@@ -171,10 +172,10 @@ public class MainActivity extends BaseActivity {
                 case R.id.navigation_menu_item_history:
 
                     toolbar.setTitle(R.string.menu_history);
-                    if (fm instanceof HistoryFrgment) {
+                    if (fm instanceof HistoryCalendarFragment) {
                         break;
                     }
-                    replaceFragment(HistoryFrgment.newInstance());
+                    replaceFragment(HistoryFragment.newInstance());
                     break;
 
 

@@ -15,13 +15,14 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bpm202.SensorProject.CustomView.CircleAngleAnimation;
 import com.bpm202.SensorProject.CustomView.CircleView;
+import com.bpm202.SensorProject.Data.ExDataSrouce;
+import com.bpm202.SensorProject.Data.ExRepository;
+import com.bpm202.SensorProject.DataBase.ExVo;
 import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.Main.MainDataManager;
 import com.bpm202.SensorProject.R;
@@ -122,17 +123,25 @@ public class ExerciseFrgment extends Fragment {
 
         if (todaySchedules.size() == 0) {
             ((MainActivity) getActivity()).getSupportActionBar().setTitle("TODAY");
-            cl_has_exercise.setVisibility(View.GONE);
-            ll_no_exercise.setVisibility(View.VISIBLE);
+            setNoExerciseLayout(true);
         } else {
             ((MainActivity) getActivity()).getSupportActionBar().setTitle("SELECT");
-            cl_has_exercise.setVisibility(View.VISIBLE);
-            ll_no_exercise.setVisibility(View.GONE);
+            setNoExerciseLayout(false);
+
             ExerciseAdapter adpater = new ExerciseAdapter(getContext(), todaySchedules);
             recyclerView.setAdapter(adpater);
             UtilForApp.setDividerItemDecoration(getContext(), recyclerView, R.drawable.divider_shape);
         }
+    }
 
+    private void setNoExerciseLayout(boolean isNoData) {
+        if (isNoData) {
+            cl_has_exercise.setVisibility(View.GONE);
+            ll_no_exercise.setVisibility(View.VISIBLE);
+        } else {
+            cl_has_exercise.setVisibility(View.VISIBLE);
+            ll_no_exercise.setVisibility(View.GONE);
+        }
     }
 
     public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ExerciseViewHolder> {
@@ -287,7 +296,7 @@ public class ExerciseFrgment extends Fragment {
                             int i = scheduleVo.getSetCnt();
                             scheduleVo.setSetCnt(--i);
 
-                            //exercisePost(mScheduleVo, mScheduleVo.getSetCnt() - mPlayState.getSet());
+                            exercisePost(scheduleVo, i - scheduleVo.getSetCnt());
                             if (scheduleVo.getSetCnt() <= 0) {
                                 scheduleVo.setSuccess(true);
                                 notifyDataSetChanged();
@@ -330,6 +339,30 @@ public class ExerciseFrgment extends Fragment {
                 } else {
                     ibtnIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_example_run));
                 }
+            }
+
+            private void exercisePost(ScheduleValueObject scheduleVo, int set) {
+                ExVo.Builder builder = new ExVo.Builder();
+                builder.setCount(scheduleVo.getCount());
+                builder.setCountMax(scheduleVo.getCount());
+                builder.setSetCnt(set);
+                builder.setSetMax(scheduleVo.getSetCnt());
+                builder.setRest(scheduleVo.getRest());
+                builder.setType(scheduleVo.getType());
+                builder.setDuration((int) Util.Time.getDuration(startTime));
+                ExVo vo = builder.create();
+
+                ExRepository.getInstance().addExercise(vo, new ExDataSrouce.UploadCallback() {
+                    @Override
+                    public void onUploaded() {
+
+                    }
+
+                    @Override
+                    public void onDataNotAvailable() {
+
+                    }
+                });
             }
         }
     }
