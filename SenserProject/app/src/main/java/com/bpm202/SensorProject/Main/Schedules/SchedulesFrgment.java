@@ -9,12 +9,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.bpm202.SensorProject.CustomView.CustomViewPager;
 import com.bpm202.SensorProject.Data.CommonData;
@@ -51,15 +49,15 @@ public class SchedulesFrgment extends SchdulesBaseFragment {
     private TabLayout tabLayout;
     private CustomViewPager view_pager;
 
-    @Nullable
+    @NonNull
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_schedules, container, false); // 여기서 UI를 생성해서 View를 return
-        initPreView(v);
-        return v;
+    protected int getLayoutId() {
+        return R.layout.fragment_schedules;
     }
 
-    private void initPreView(View v) {
+    @NonNull
+    @Override
+    protected void initView(View v) {
         tabLayout = v.findViewById(R.id.tab_layout);
         tabLayout.addOnTabSelectedListener(onTabSelectedListener);
 

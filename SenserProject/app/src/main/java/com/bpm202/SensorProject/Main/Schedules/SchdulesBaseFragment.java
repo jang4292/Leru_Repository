@@ -3,7 +3,8 @@ package com.bpm202.SensorProject.Main.Schedules;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+
+import com.bpm202.SensorProject.BaseFragment;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -12,7 +13,7 @@ interface UpdateObserver {
     void UpdateState(SchdulesManager.STATE cur, SchdulesManager.STATE pre);
 }
 
-public abstract class SchdulesBaseFragment extends Fragment implements Observer, UpdateObserver {
+public abstract class SchdulesBaseFragment extends BaseFragment implements Observer, UpdateObserver {
 
     @Override
     public void update(Observable o, Object arg) {

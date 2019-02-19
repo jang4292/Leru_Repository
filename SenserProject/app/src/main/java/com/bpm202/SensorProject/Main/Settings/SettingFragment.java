@@ -13,13 +13,14 @@ import android.widget.Button;
 
 import com.bpm202.SensorProject.API.Api;
 import com.bpm202.SensorProject.API.WithDrawAPI;
+import com.bpm202.SensorProject.BaseFragment;
 import com.bpm202.SensorProject.SplashActivity;
 import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.ValueObject.ApiObj;
 import com.bpm202.SensorProject.Common.AppPreferences;
 
-public class SettingFragment extends Fragment {
+public class SettingFragment extends BaseFragment {
 
     private static SettingFragment instance = null;
 
@@ -35,22 +36,23 @@ public class SettingFragment extends Fragment {
     private Button btn_rule;
     private Button btn_log_out;
     private Button btn_withdraw;
-    
-    @Nullable
+
+    @NonNull
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.activity_setting, container, false); // 여기서 UI를 생성해서 View를 return
-        initView(v);
-        initListener();
-        return v;
+    protected int getLayoutId() {
+        return R.layout.activity_setting;
     }
 
-    private void initView(View v) {
+    @NonNull
+    @Override
+    protected void initView(View v) {
         btn_password = v.findViewById(R.id.btn_password);
         btn_my_infomation = v.findViewById(R.id.btn_my_infomation);
         btn_rule = v.findViewById(R.id.btn_rule);
         btn_log_out = v.findViewById(R.id.btn_log_out);
         btn_withdraw = v.findViewById(R.id.btn_withdraw);
+
+        initListener();
     }
 
     private void initListener() {

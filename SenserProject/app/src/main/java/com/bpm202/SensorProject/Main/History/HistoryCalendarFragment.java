@@ -1,10 +1,7 @@
 package com.bpm202.SensorProject.Main.History;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.bpm202.SensorProject.BaseFragment;
 import com.bpm202.SensorProject.Data.ExDataSrouce;
 import com.bpm202.SensorProject.Data.ExRepository;
 import com.bpm202.SensorProject.R;
@@ -27,7 +25,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-public class HistoryCalendarFragment extends Fragment {
+public class HistoryCalendarFragment extends BaseFragment {
 
     private TextView mTvYear;
     private TextView mTvMonth;
@@ -45,15 +43,15 @@ public class HistoryCalendarFragment extends Fragment {
         return new HistoryCalendarFragment();
     }
 
-    @Nullable
+    @NonNull
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_history_calendar, container, false); // 여기서 UI를 생성해서 View를 return
-        initPreView(v);
-        return v;
+    protected int getLayoutId() {
+        return R.layout.fragment_history_calendar;
     }
 
-    private void initPreView(View v) {
+    @NonNull
+    @Override
+    protected void initView(View v) {
         mTvYear = v.findViewById(R.id.tv_year);
         mTvMonth = v.findViewById(R.id.tv_month);
         mGridView = v.findViewById(R.id.gridview_days);
@@ -208,7 +206,7 @@ public class HistoryCalendarFragment extends Fragment {
 
             holder.tvDay.setText(list.get(position));
             holder.tvDay.setOnClickListener(v -> {
-                HistoryFragment.newInstance().replace(false);
+                Util.FragmentUtil.addFragmentToActivity(getFragmentManager(), HistoryDateFragment.newInstance(), R.id.child_fragment_container);
             });
 
             return convertView;

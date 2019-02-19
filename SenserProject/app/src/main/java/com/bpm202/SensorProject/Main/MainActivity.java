@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -21,12 +20,11 @@ import com.bpm202.SensorProject.Data.ScheduleDataSource;
 import com.bpm202.SensorProject.Data.ScheduleRepository;
 import com.bpm202.SensorProject.Data.SignInRepository;
 import com.bpm202.SensorProject.Main.Exercise.ExerciseFrgment;
-import com.bpm202.SensorProject.Main.History.HistoryCalendarFragment;
 import com.bpm202.SensorProject.Main.History.HistoryFragment;
 import com.bpm202.SensorProject.Main.Schedules.SchedulesFrgment;
 import com.bpm202.SensorProject.Main.Settings.SettingFragment;
-import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.R;
+import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.Util.Util;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
 
@@ -156,7 +154,7 @@ public class MainActivity extends BaseActivity {
                     if (fm instanceof ExerciseFrgment) {
                         break;
                     }
-                    replaceFragment(ExerciseFrgment.Instance());
+                    Util.FragmentUtil.replaceFragment(getSupportFragmentManager(), ExerciseFrgment.Instance(), R.id.fragment_container);
                     break;
 
                 case R.id.navigation_menu_item_schedules:
@@ -165,17 +163,17 @@ public class MainActivity extends BaseActivity {
                     if (fm instanceof SchedulesFrgment) {
                         break;
                     }
-                    replaceFragment(SchedulesFrgment.Instance());
+                    Util.FragmentUtil.replaceFragment(getSupportFragmentManager(), SchedulesFrgment.Instance(), R.id.fragment_container);
 
                     break;
 
                 case R.id.navigation_menu_item_history:
 
                     toolbar.setTitle(R.string.menu_history);
-                    if (fm instanceof HistoryCalendarFragment) {
+                    if (fm instanceof HistoryFragment) {
                         break;
                     }
-                    replaceFragment(HistoryFragment.newInstance());
+                    Util.FragmentUtil.replaceFragment(getSupportFragmentManager(), HistoryFragment.newInstance(), R.id.fragment_container);
                     break;
 
 
@@ -184,7 +182,7 @@ public class MainActivity extends BaseActivity {
                     if (fm instanceof SettingFragment) {
                         break;
                     }
-                    replaceFragment(SettingFragment.newInstance());
+                    Util.FragmentUtil.replaceFragment(getSupportFragmentManager(), SettingFragment.newInstance(), R.id.fragment_container);
                     break;
             }
             drawerLayout.closeDrawer(GravityCompat.START);
@@ -198,15 +196,5 @@ public class MainActivity extends BaseActivity {
             super(activity, drawerLayout, toolbar, openDrawerContentDescRes, closeDrawerContentDescRes);
             syncState();
         }
-    }
-
-    // Fragment 변환을 해주기 위한 부분, Fragment의 Instance를 받아서 변경
-    private void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.popBackStack();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
     }
 }

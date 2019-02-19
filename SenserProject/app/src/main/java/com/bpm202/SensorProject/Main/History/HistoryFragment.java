@@ -1,17 +1,12 @@
 package com.bpm202.SensorProject.Main.History;
 
-import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
+import com.bpm202.SensorProject.BaseFragment;
 import com.bpm202.SensorProject.R;
+import com.bpm202.SensorProject.Util.Util;
 
-public class HistoryFragment extends Fragment {
+public class HistoryFragment extends BaseFragment {
 
     private static HistoryFragment instance;
 
@@ -23,31 +18,13 @@ public class HistoryFragment extends Fragment {
         return instance;
     }
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_history, container, false); // 여기서 UI를 생성해서 View를 return
-        initPreView(v);
-        return v;
+    protected int getLayoutId() {
+        return R.layout.fragment_history;
     }
 
-    private void initPreView(View v) {
-        replace(true);
-    }
-
-    void replace(boolean isCalendar) {
-        if (isCalendar) {
-            Fragment childFragment = HistoryCalendarFragment.newInstance();
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.child_fragment_container, childFragment);
-            transaction.commit();
-
-        } else {
-            Fragment childFragment = HistoryDateFragment.newInstance();
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.add(R.id.child_fragment_container, childFragment);
-            transaction.addToBackStack(childFragment.getTag());
-            transaction.commit();
-        }
+    @Override
+    protected void initView(View v) {
+        Util.FragmentUtil.replaceFragmentToActivity(getFragmentManager(), HistoryCalendarFragment.newInstance(), R.id.child_fragment_container);
     }
 }

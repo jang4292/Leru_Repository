@@ -1,10 +1,7 @@
 package com.bpm202.SensorProject.Main.Schedules;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bpm202.SensorProject.BaseFragment;
 import com.bpm202.SensorProject.Data.ScheduleDataSource;
 import com.bpm202.SensorProject.Data.ScheduleRepository;
 import com.bpm202.SensorProject.Main.MainActivity;
@@ -26,7 +24,7 @@ import com.bpm202.SensorProject.ValueObject.TypeValueObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SchedulesAddViewPagerFragment extends Fragment {
+public class SchedulesAddViewPagerFragment extends BaseFragment {
 
     public static SchedulesAddViewPagerFragment Instance() {
         return new SchedulesAddViewPagerFragment();
@@ -41,20 +39,15 @@ public class SchedulesAddViewPagerFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_schedules_add_pager, container, false);
-        initView(v);
-        return v;
+    protected int getLayoutId() {
+        return R.layout.fragment_schedules_add_pager;
     }
 
-    private void initView(View v) {
-        recyclerView = v.findViewById(R.id.recycler_view);
-    }
-
+    @NonNull
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    protected void initView(View v) {
+        recyclerView = v.findViewById(R.id.recycler_view);
         initRecyclerView();
-        super.onActivityCreated(savedInstanceState);
     }
 
     private void initRecyclerView() {

@@ -42,7 +42,15 @@ public class SchedulesViewPagerFragment extends SchdulesBaseFragment {
         return v;
     }
 
-    private void initView(View v) {
+    @NonNull
+    @Override
+    protected int getLayoutId() {
+        return R.layout.fragment_schedules_view_pager;
+    }
+
+    @NonNull
+    @Override
+    protected void initView(View v) {
         recyclerView = v.findViewById(R.id.recycler_view_exercise_list);
     }
 

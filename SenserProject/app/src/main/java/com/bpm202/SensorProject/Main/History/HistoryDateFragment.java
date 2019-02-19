@@ -1,10 +1,7 @@
 package com.bpm202.SensorProject.Main.History;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.bpm202.SensorProject.BaseFragment;
 import com.bpm202.SensorProject.DataBase.ExVo;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.MappingUtil;
@@ -25,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class HistoryDateFragment extends Fragment {
+public class HistoryDateFragment extends BaseFragment {
 
     // view
     private ViewFlipper viewFlipper;
@@ -41,40 +39,34 @@ public class HistoryDateFragment extends Fragment {
     }
 
 
+    @NonNull
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int getLayoutId() {
+        return R.layout.fragment_history_days;
     }
 
-    @Nullable
+    @NonNull
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_history_days, container, false);
-    }
+    protected void initView(View v) {
+        viewFlipper = v.findViewById(R.id.view_flipper);
+        recyclerView1 = v.findViewById(R.id.recycler_view1);
+        recyclerView2 = v.findViewById(R.id.recycler_view2);
+        recyclerView3 = v.findViewById(R.id.recycler_view3);
+        ibtnPrev = v.findViewById(R.id.ibtn_prev);
+        ibtnNext = v.findViewById(R.id.ibtn_next);
 
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        View view = getView();
-        viewFlipper = view.findViewById(R.id.view_flipper);
-        recyclerView1 = view.findViewById(R.id.recycler_view1);
-        recyclerView2 = view.findViewById(R.id.recycler_view2);
-        recyclerView3 = view.findViewById(R.id.recycler_view3);
-        ibtnPrev = view.findViewById(R.id.ibtn_prev);
-        ibtnNext = view.findViewById(R.id.ibtn_next);
-
-        ibtnPrev.setOnClickListener(v -> {
+        ibtnPrev.setOnClickListener(v1 -> {
             viewFlipper.setInAnimation(getContext(), R.anim.slide_in_right);
             viewFlipper.setOutAnimation(getContext(), R.anim.slide_out_left);
             viewFlipper.showPrevious();
         });
-        ibtnNext.setOnClickListener(v -> {
+
+
+        ibtnNext.setOnClickListener(v12 -> {
             viewFlipper.setInAnimation(getContext(), R.anim.slide_in_left);
             viewFlipper.setOutAnimation(getContext(), R.anim.slide_out_right);
             viewFlipper.showNext();
         });
-
         List<ExVo> list1 = new ArrayList<>();
         List<ExVo> list2 = new ArrayList<>();
         List<ExVo> list3 = new ArrayList<>();
@@ -101,7 +93,6 @@ public class HistoryDateFragment extends Fragment {
         recyclerView2.addItemDecoration(decoration);
         recyclerView3.addItemDecoration(decoration);
     }
-
 
     private class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
 

@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
@@ -19,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bpm202.SensorProject.BaseFragment;
 import com.bpm202.SensorProject.CustomView.CircleView;
 import com.bpm202.SensorProject.Data.ExDataSrouce;
 import com.bpm202.SensorProject.Data.ExRepository;
@@ -35,7 +35,7 @@ import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
 import java.util.Calendar;
 import java.util.List;
 
-public class ExerciseFrgment extends Fragment {
+public class ExerciseFrgment extends BaseFragment {
 
 
     private static final int READY_TIME = 5;
@@ -78,21 +78,15 @@ public class ExerciseFrgment extends Fragment {
         }
     }
 
+    @NonNull
     @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
+    protected int getLayoutId() {
+        return R.layout.fragment_play;
     }
 
-    @Nullable
+    @NonNull
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_play, container, false); // 여기서 UI를 생성해서 View를 return
-        initPreView(v);
-        return v;
-    }
-
-    private void initPreView(View v) {
+    protected void initView(View v) {
         recyclerView = v.findViewById(R.id.recycler_view);
         statusLayout = v.findViewById(R.id.constraintLayout);
         tvWeight = v.findViewById(R.id.tv_weight_num);
