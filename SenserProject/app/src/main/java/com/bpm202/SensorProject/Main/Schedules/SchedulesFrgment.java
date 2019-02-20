@@ -22,7 +22,7 @@ import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.Main.MainDataManager;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.Util;
-import com.bpm202.SensorProject.ValueObject.DayOfWeek;
+import com.bpm202.SensorProject.Data.DayOfWeek;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
 
 import java.util.ArrayList;
@@ -69,7 +69,7 @@ public class SchedulesFrgment extends SchdulesBaseFragment {
         view_pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
-                if(SchdulesManager.Instance().STATE_CLASS.getCurrentState().equals(SchdulesManager.STATE.DEFAULT)) {
+                if (SchdulesManager.Instance().STATE_CLASS.getCurrentState().equals(SchdulesManager.STATE.DEFAULT)) {
                     SchdulesManager.Instance().setCurrentPageOfDay(i);
                 }
             }
@@ -84,7 +84,6 @@ public class SchedulesFrgment extends SchdulesBaseFragment {
 
             }
         });
-
     }
 
     @Override
@@ -94,9 +93,8 @@ public class SchedulesFrgment extends SchdulesBaseFragment {
     }
 
     private void loadSchedulesData() {
-        ScheduleRepository repository = ScheduleRepository.getInstance();
         Util.LoadingProgress.show(getContext());
-        repository.getSchedules(new ScheduleDataSource.LoadCallback() {
+        ScheduleRepository.getInstance().getSchedules(new ScheduleDataSource.LoadCallback() {
             @Override
             public void onLoaded(List<ScheduleValueObject> scheduleVos) {
                 Util.LoadingProgress.hide();

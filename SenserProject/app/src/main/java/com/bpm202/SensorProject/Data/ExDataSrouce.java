@@ -2,8 +2,6 @@ package com.bpm202.SensorProject.Data;
 
 import android.support.annotation.NonNull;
 
-import com.bpm202.SensorProject.DataBase.ExVo;
-
 import java.util.List;
 
 public interface ExDataSrouce {

@@ -11,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 
 import com.bpm202.SensorProject.R;
+import com.bpm202.SensorProject.Data.DayOfWeek;
 
 import java.util.Calendar;
 import java.util.regex.Matcher;
@@ -62,14 +63,27 @@ public class Util {
         }
     }
 
+    public static class Time {
+        private static int dividedTime = 1000;
+
+        public static long getDuration(long startTime) {
+            return (System.currentTimeMillis() - startTime) / dividedTime;
+        }
+    }
+
     public static class CalendarInfo {
 
-        public static Calendar calendar = getCalendar();
+        private static Calendar calendar;
 
         public static Calendar getCalendar() {
             if (calendar == null)
                 calendar = Calendar.getInstance();
             return calendar;
+        }
+
+        public static DayOfWeek getDayOfWeek() {
+            int dayCode = getCalendar().get(Calendar.DAY_OF_WEEK);
+            return DayOfWeek.findByCode(dayCode);
         }
     }
 
@@ -115,6 +129,7 @@ public class Util {
 
         /**
          * Fragment 변환을 해주기 위한 부분, Fragment의 Instance를 받아서 변경
+         *
          * @param fragmentManager
          * @param fragment
          * @param frameId

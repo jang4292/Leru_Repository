@@ -7,6 +7,8 @@ import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.bpm202.SensorProject.Data.DayOfWeek;
+
 /*import com.bpm.bpm_ver4.vo.DayOfWeek;
 import com.bpm.bpm_ver4.vo.ScheduleObj;
 import com.bpm.bpm_ver4.vo.Type;*/

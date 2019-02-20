@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar">
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,15 @@
         <activity android:name=".Account.LoginActivity" />
         <activity android:name=".Main.MainActivity" />
         <activity android:name=".Account.FindPasswordActivity" />
-        <activity android:name=".Account.JoinActivity" android:windowSoftInputMode="stateHidden"/>
+        <activity
+            android:name=".Account.JoinActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Account.SignUpActivity"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Account.RegionActivity"
+            android:windowSoftInputMode="stateHidden" />
 
     </application>
 

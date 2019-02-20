@@ -1,7 +1,7 @@
 package com.bpm202.SensorProject.RetrofitAPI;
 
 import com.bpm202.SensorProject.Common.CommonUrl;
-import com.bpm202.SensorProject.DataBase.ExVo;
+import com.bpm202.SensorProject.Data.ExVo;
 import com.bpm202.SensorProject.ValueObject.ApiObj;
 import com.bpm202.SensorProject.ValueObject.ExObj;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;

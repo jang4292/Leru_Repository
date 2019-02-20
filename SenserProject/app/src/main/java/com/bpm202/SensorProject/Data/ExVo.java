@@ -1,4 +1,4 @@
-package com.bpm202.SensorProject.DataBase;
+package com.bpm202.SensorProject.Data;
 
 
 import android.arch.persistence.room.ColumnInfo;

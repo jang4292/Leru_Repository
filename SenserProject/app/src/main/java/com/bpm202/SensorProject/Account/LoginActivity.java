@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatCheckBox;
 import android.util.Log;
 import android.view.View;
@@ -11,19 +12,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.bpm202.SensorProject.App;
 import com.bpm202.SensorProject.Common.AppPreferences;
-import com.bpm202.SensorProject.Data.SignInRepository;
-import com.bpm202.SensorProject.BaseActivity;
 import com.bpm202.SensorProject.Data.SignInDataSource;
+import com.bpm202.SensorProject.Data.SignInRepository;
 import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.R;
-import com.bpm202.SensorProject.Util.App;
+import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.Util.Util;
 import com.bpm202.SensorProject.ValueObject.EmailInfoObj;
 import com.bpm202.SensorProject.ValueObject.MemberObj;
-import com.bpm202.SensorProject.Util.QMsg;
 
-public class LoginActivity extends BaseActivity {
+public class LoginActivity extends AppCompatActivity {
 
     public static final String TAG = SignInRepository.class.getSimpleName();
 
@@ -84,9 +84,9 @@ public class LoginActivity extends BaseActivity {
             String password = et_pw.getText().toString().trim();
 
             if (email == null || email.isEmpty()) {
-                QMsg.ShowMessage(getApplicationContext(), R.string.email_input_hint);
+                QToast.showToast(getApplicationContext(), R.string.email_input_hint);
             } else if (password == null || password.isEmpty()) {
-                QMsg.ShowMessage(getApplicationContext(), R.string.password_input_hint);
+                QToast.showToast(getApplicationContext(), R.string.password_input_hint);
             } else {
                 final EmailInfoObj mEmailInfoObj = new EmailInfoObj(email, password);
 

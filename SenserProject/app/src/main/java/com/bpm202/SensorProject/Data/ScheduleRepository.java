@@ -4,9 +4,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
-import com.bpm202.SensorProject.DataBase.ScheduleLocalDataSource;
-import com.bpm202.SensorProject.Util.App;
-import com.bpm202.SensorProject.ValueObject.DayOfWeek;
+import com.bpm202.SensorProject.Util.Util;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
 
 import java.util.ArrayList;
@@ -91,7 +89,8 @@ public class ScheduleRepository implements ScheduleDataSource {
         mRemoteDataSource.getSchedules(new LoadCallback() {
             @Override
             public void onLoaded(List<ScheduleValueObject> scheduleVos) {
-                DayOfWeek dayOfWeek = App.getDayOfWeek();
+
+                DayOfWeek dayOfWeek = Util.CalendarInfo.getDayOfWeek();
                 List<ScheduleValueObject> todaySchedules = new ArrayList<>();
                 for (ScheduleValueObject obj : scheduleVos) {
                     if (obj.getDay() == dayOfWeek) {

@@ -13,7 +13,6 @@ import com.bpm202.SensorProject.BaseFragment;
 import com.bpm202.SensorProject.Data.ExDataSrouce;
 import com.bpm202.SensorProject.Data.ExRepository;
 import com.bpm202.SensorProject.R;
-import com.bpm202.SensorProject.Util.App;
 import com.bpm202.SensorProject.Util.Util;
 
 import java.text.SimpleDateFormat;
@@ -103,7 +102,7 @@ public class HistoryCalendarFragment extends BaseFragment {
     private Calendar today() {
         final SimpleDateFormat curYearFormat = new SimpleDateFormat("yyyy", Locale.KOREA);
         final SimpleDateFormat curMonthFormat = new SimpleDateFormat("MM", Locale.KOREA);
-        Calendar calendar = (Calendar) App.getCalendar().clone();
+        Calendar calendar = (Calendar) Util.CalendarInfo.getCalendar().clone();
 
         calendar.set(
                 Integer.parseInt(curYearFormat.format(date)),

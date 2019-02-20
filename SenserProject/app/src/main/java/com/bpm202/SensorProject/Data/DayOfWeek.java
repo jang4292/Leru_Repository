@@ -1,4 +1,4 @@
-package com.bpm202.SensorProject.ValueObject;
+package com.bpm202.SensorProject.Data;
 
 public enum DayOfWeek {
     SUNDAY(1),

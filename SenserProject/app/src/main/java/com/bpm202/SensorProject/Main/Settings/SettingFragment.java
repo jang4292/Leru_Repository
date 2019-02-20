@@ -25,7 +25,7 @@ public class SettingFragment extends BaseFragment {
     private static SettingFragment instance = null;
 
     public static SettingFragment newInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new SettingFragment();
         }
         return instance;

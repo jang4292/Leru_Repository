@@ -4,10 +4,10 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.bpm202.SensorProject.API.Api;
+import com.bpm202.SensorProject.BuildConfig;
 import com.bpm202.SensorProject.RetrofitAPI.ExerciseRetrofit;
-import com.bpm202.SensorProject.Util.App;
+import com.bpm202.SensorProject.App;
 import com.bpm202.SensorProject.ValueObject.ApiObj;
-import com.bpm202.SensorProject.ValueObject.DayOfWeek;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
 
 import java.util.List;
@@ -36,8 +36,8 @@ public class ScheduleRemoteDataSource implements ScheduleDataSource {
                 .enqueue(new Callback<ApiObj<List<ScheduleValueObject>>>() {
                     @Override
                     public void onResponse(Call<ApiObj<List<ScheduleValueObject>>> call, Response<ApiObj<List<ScheduleValueObject>>> response) {
-                        /*if (BuildConfig.DEBUG && response != null)
-                            Log.d(TAG + " getSchedules", response.body().toJson());*/
+                        if (BuildConfig.DEBUG && response != null)
+                            Log.d(TAG + " getSchedules", response.body().toJson());
 
                         if (response == null || response.body() == null) {
                             callback.onDataNotAvailable();
@@ -111,8 +111,8 @@ public class ScheduleRemoteDataSource implements ScheduleDataSource {
                 .enqueue(new Callback<ApiObj<Boolean>>() {
                     @Override
                     public void onResponse(Call<ApiObj<Boolean>> call, Response<ApiObj<Boolean>> response) {
-                        /*if (BuildConfig.DEBUG && response != null)
-                            Log.e(TAG + " addSchedule", response.body().toJson());*/
+                        if (BuildConfig.DEBUG && response != null)
+                            Log.e(TAG + " addSchedule", response.body().toJson());
 
                         if (response == null || response.body() == null)
                             callback.onDataNotAvailable();
@@ -145,8 +145,8 @@ public class ScheduleRemoteDataSource implements ScheduleDataSource {
                 .enqueue(new Callback<ApiObj<Boolean>>() {
                     @Override
                     public void onResponse(Call<ApiObj<Boolean>> call, Response<ApiObj<Boolean>> response) {
-                        /*if (BuildConfig.DEBUG)
-                            Log.e(TAG + " updateSchedule", response.body().toJson());*/
+                        if (BuildConfig.DEBUG)
+                            Log.e(TAG + " updateSchedule", response.body().toJson());
                     }
 
                     @Override

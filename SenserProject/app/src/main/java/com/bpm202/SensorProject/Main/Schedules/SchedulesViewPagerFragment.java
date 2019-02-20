@@ -52,24 +52,15 @@ public class SchedulesViewPagerFragment extends SchdulesBaseFragment {
     @Override
     protected void initView(View v) {
         recyclerView = v.findViewById(R.id.recycler_view_exercise_list);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        initRecyclerView();
-        super.onActivityCreated(savedInstanceState);
+        ExerciseSchedulesAdapter adpater = new ExerciseSchedulesAdapter(getContext(), list);
+        recyclerView.setAdapter(adpater);
+        UtilForApp.setDividerItemDecoration(getContext(), recyclerView, R.drawable.divider_shape);
     }
 
     private List<ScheduleValueObject> list;
 
     public void setData(List<ScheduleValueObject> list) {
         this.list = list;
-    }
-
-    private void initRecyclerView() {
-        ExerciseSchedulesAdapter adpater = new ExerciseSchedulesAdapter(getContext(), list);
-        recyclerView.setAdapter(adpater);
-        UtilForApp.setDividerItemDecoration(getContext(), recyclerView, R.drawable.divider_shape);
     }
 
     @Override
@@ -111,13 +102,10 @@ public class SchedulesViewPagerFragment extends SchdulesBaseFragment {
                 scheduleViewHolder.imMove.setVisibility(View.VISIBLE);
                 scheduleViewHolder.ibtnDelete.setVisibility(View.VISIBLE);
 
-                scheduleViewHolder.imMove.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
-                        }
-                        return false;
+                scheduleViewHolder.imMove.setOnTouchListener((v, event) -> {
+                    if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
                     }
+                    return false;
                 });
 
                 scheduleViewHolder.ibtnDelete.setOnClickListener(v -> {

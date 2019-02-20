@@ -2,6 +2,7 @@ package com.bpm202.SensorProject.API;
 
 import android.util.Log;
 
+import com.bpm202.SensorProject.BuildConfig;
 import com.bpm202.SensorProject.RetrofitAPI.SignInRetrofit;
 import com.bpm202.SensorProject.ValueObject.ApiObj;
 
@@ -18,9 +19,9 @@ public class WithDrawAPI extends Api {
                 .enqueue(new Callback<ApiObj<Boolean>>() {
                     @Override
                     public void onResponse(Call<ApiObj<Boolean>> call, Response<ApiObj<Boolean>> response) {
-                        /*if (BuildConfig.DEBUG) {
+                        if (BuildConfig.DEBUG) {
                             Log.e(TAG + "secession", response.body().toJson());
-                        }*/
+                        }
 
                         if (response != null && response.body() != null) {
                             callback.callBack(response.body());

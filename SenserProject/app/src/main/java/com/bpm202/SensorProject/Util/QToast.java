@@ -18,7 +18,6 @@ public class QToast {
     }
     @NonNull
     public static void showToast(@NonNull Context context, @NonNull String message) {
-        Log.d(TAG, "msg : " + message);
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 }

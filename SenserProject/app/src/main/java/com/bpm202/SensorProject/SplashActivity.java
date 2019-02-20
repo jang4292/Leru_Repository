@@ -2,7 +2,10 @@ package com.bpm202.SensorProject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
@@ -14,7 +17,7 @@ import com.bpm202.SensorProject.Data.SignInRepository;
 import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.ValueObject.MemberObj;
 
-public class SplashActivity extends BaseActivity {
+public class SplashActivity extends AppCompatActivity {
 
     public static final String TAG = SignInRepository.class.getSimpleName();
 
@@ -58,9 +61,25 @@ public class SplashActivity extends BaseActivity {
         return isAutoLogin;
     }
 
+    private static final boolean isTest = false;
+    private static final int DelayTime = 3000;
+
     private void initView() {
         setContentView(R.layout.activity_splash);
-        content_layer = findViewById(R.id.content_layer);
+        if (isTest) {
+            content_layer = findViewById(R.id.content_layer);
+        } else {
+            new TimerHandler().sendEmptyMessageDelayed(0, DelayTime);
+        }
+    }
+
+    private class TimerHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+            finish();
+
+        }
     }
 
     private void initListener() {

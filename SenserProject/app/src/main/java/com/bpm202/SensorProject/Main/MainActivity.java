@@ -1,15 +1,12 @@
 package com.bpm202.SensorProject.Main;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -32,22 +29,31 @@ import java.util.List;
 
 public class MainActivity extends BaseActivity {
 
-    public static final String TAG = SignInRepository.class.getSimpleName();
+    public static final String TAG = MainActivity.class.getSimpleName();
 
     private long mLastClick = 0;
     private final long CLICK_DELAY = 2000;
-
-    private Toolbar toolbar;
     private DrawerLayout drawerLayout;
     private NavigationView navivationView;
 
+    @NonNull
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int getLayoutId() {
+        return R.layout.activity_exercise;
+    }
+
+    @Override
+    protected void init() {
         initView();
-        initListener();
         initData();
     }
+
+    @NonNull
+    @Override
+    protected String getTitleText() {
+        return getString(R.string.menu_exercise);
+    }
+
 
     private void initData() {
         ScheduleRepository repository = ScheduleRepository.getInstance();
@@ -72,22 +78,13 @@ public class MainActivity extends BaseActivity {
 
 
     private void initView() {
-        setContentView(R.layout.activity_exercise);
-        toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(R.string.menu_exercise);
-        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white, null));
-
         navivationView = findViewById(R.id.navivation_view);
         navivationView.setNavigationItemSelectedListener(onNavigationItemSelected);
         drawerLayout = findViewById(R.id.drawer_layout);
-    }
 
-    private void initListener() {
         new CustomActionBarDrawerToggle(
                 MainActivity.this,
-                drawerLayout, toolbar,
+                drawerLayout, getToolbar(),
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close
         );
 
@@ -150,7 +147,7 @@ public class MainActivity extends BaseActivity {
             switch (menuItem.getItemId()) {
                 case R.id.navigation_menu_item_exerciese:
 
-                    toolbar.setTitle(R.string.menu_exercise);
+                    setTitle(R.string.menu_exercise);
                     if (fm instanceof ExerciseFrgment) {
                         break;
                     }
@@ -159,7 +156,7 @@ public class MainActivity extends BaseActivity {
 
                 case R.id.navigation_menu_item_schedules:
 
-                    toolbar.setTitle(R.string.menu_schedules);
+                    setTitle(R.string.menu_schedules);
                     if (fm instanceof SchedulesFrgment) {
                         break;
                     }
@@ -169,7 +166,7 @@ public class MainActivity extends BaseActivity {
 
                 case R.id.navigation_menu_item_history:
 
-                    toolbar.setTitle(R.string.menu_history);
+                    setTitle(R.string.menu_history);
                     if (fm instanceof HistoryFragment) {
                         break;
                     }
@@ -178,7 +175,7 @@ public class MainActivity extends BaseActivity {
 
 
                 case R.id.navigation_menu_item_setting:
-                    toolbar.setTitle(R.string.menu_setting);
+                    setTitle(R.string.menu_setting);
                     if (fm instanceof SettingFragment) {
                         break;
                     }

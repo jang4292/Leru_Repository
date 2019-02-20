@@ -17,7 +17,7 @@ import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.MappingUtil;
 import com.bpm202.SensorProject.Util.UtilForApp;
-import com.bpm202.SensorProject.ValueObject.DayOfWeek;
+import com.bpm202.SensorProject.Data.DayOfWeek;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
 import com.bpm202.SensorProject.ValueObject.TypeValueObject;
 
@@ -37,7 +37,7 @@ public class SchedulesAddViewPagerFragment extends BaseFragment {
     private int tabPosition;
     private RecyclerView recyclerView;
 
-    @Nullable
+    @NonNull
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_schedules_add_pager;
@@ -47,10 +47,6 @@ public class SchedulesAddViewPagerFragment extends BaseFragment {
     @Override
     protected void initView(View v) {
         recyclerView = v.findViewById(R.id.recycler_view);
-        initRecyclerView();
-    }
-
-    private void initRecyclerView() {
 
         TypeValueObject[] types = TypeValueObject.values();
         List<TypeValueObject> ListType = new ArrayList<>();

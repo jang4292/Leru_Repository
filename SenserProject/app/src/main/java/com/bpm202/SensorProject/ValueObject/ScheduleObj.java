@@ -1,5 +1,7 @@
 package com.bpm202.SensorProject.ValueObject;
 
+import com.bpm202.SensorProject.Data.DayOfWeek;
+
 public class ScheduleObj extends JsonObj {
 
     private long id; // 아이디

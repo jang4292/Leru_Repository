@@ -11,11 +11,16 @@
     <string name="sign_in_button_text">로그인</string>
     <string name="sign_up_button_text">회원가입</string>
     <string name="password_find_button_text">비밀번호 찾기</string>
+    <string name="title_location_select">지역 선택</string>
+    <string name="sign_up_complete">가입완료</string>
     <string name="email_sign_up_text">이메일 가입</string>
     <string name="sns_sign_up_text">SNS 가입</string>
     <string name="button_duplicate_text">중복 확인</string>
     <string name="sign_up_email_code_confirm">이메일 코드 확인</string>
     <string name="code_input_hint">코드를 입력해주세요.</string>
+
+    <string name="nick_duplicate_msg">중복된 닉네임 입니다.</string>
+    <string name="nick_confirm_msg">사용 가능한 닉네임 입니다.</string>
 
     <string name="button_next_text">다음</string>
     <string name="button_confirm_text">확인</string>
@@ -49,6 +54,24 @@
     <string name="popup_contents_secession">정말로 회원탈퇴 하시겠습니까?</string>
     <string name="menu_secession">회원탈퇴</string>
 
+    <string name="sign_up_nick">닉네임</string>
+    <string name="sign_up_height">키</string>
+    <string name="sign_up_weight">몸무게</string>
+    <string name="sign_up_age">나이</string>
+    <string name="sign_up_gender">성별</string>
+    <string name="sign_up_location">지역</string>
+
+    <string name="nick_check_duplicate_msg">닉네임 중복검사를 실행해 주세요</string>
+    <string name="sign_up_nick_hint">닉네임을 입력해주세요.</string>
+    <string name="sign_up_height_hint">키를 입력해 주세요.</string>
+    <string name="sign_up_weight_hint">몸무게를 입력해 주세요.</string>
+    <string name="sign_up_age_hint">나이를 입력해 주세요.</string>
+    <string name="sign_up_gender_hint">성별을 선택해 주세요.</string>
+    <string name="sign_up_location_hint">지역을 검색해 주세요.</string>
+
+    <string name="man">남자</string>
+    <string name="woman">여자</string>
+
     <string name="button_edit">편집</string>
 
     <string name="schedules_kg">kg</string>
@@ -58,6 +81,8 @@
     <string name="schedules_count">count</string>
     <string name="schedules_times">times</string>
 
+    <string name="button_search_text">검색</string>
+
 
     <string name="select_exercise_msg">시작할 운동을 선택해 주세요</string>
 
@@ -65,6 +90,10 @@
     <string name="play_end_by_pressed">버튼을 눌러서 세트 종료</string>
 
     <string name="play_good">GOOD</string>
+
+
+    <string name="today">TODAY</string>
+    <string name="select">SELECT</string>
 
     <string name="year">년</string>
     <string name="month">월</string>

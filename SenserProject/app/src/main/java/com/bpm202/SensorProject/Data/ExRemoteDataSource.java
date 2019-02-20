@@ -4,9 +4,8 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.bpm202.SensorProject.API.Api;
-import com.bpm202.SensorProject.DataBase.ExVo;
 import com.bpm202.SensorProject.RetrofitAPI.ExerciseRetrofit;
-import com.bpm202.SensorProject.Util.App;
+import com.bpm202.SensorProject.App;
 import com.bpm202.SensorProject.ValueObject.ApiObj;
 
 import java.util.ArrayList;

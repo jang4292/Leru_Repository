@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.bpm202.SensorProject.BaseFragment;
-import com.bpm202.SensorProject.DataBase.ExVo;
+import com.bpm202.SensorProject.Data.ExVo;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.MappingUtil;
 import com.bpm202.SensorProject.ValueObject.TypeValueObject;

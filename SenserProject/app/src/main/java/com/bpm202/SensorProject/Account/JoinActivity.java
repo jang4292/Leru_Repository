@@ -1,22 +1,23 @@
 package com.bpm202.SensorProject.Account;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.bpm202.SensorProject.BaseActivity;
+import com.bpm202.SensorProject.Data.CommonData;
 import com.bpm202.SensorProject.Data.SignUpDataSource;
 import com.bpm202.SensorProject.Data.SignUpRepository;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.Util.Util;
 
-public class JoinActivity extends BaseActivity {
+public class JoinActivity extends AppCompatActivity {
 
     private static final String TAG = JoinActivity.class.getSimpleName();
 
@@ -24,6 +25,8 @@ public class JoinActivity extends BaseActivity {
     private Button btn_code_confirm;
     private Button btn_next;
     private EditText etEmail;
+    private EditText et_pw;
+    private EditText et_pw_comp;
     private Toolbar toolbar;
 
     @Override
@@ -40,6 +43,10 @@ public class JoinActivity extends BaseActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.textColor, null));
         toolbar.setTitle(R.string.sign_up_button_text);
         etEmail = findViewById(R.id.et_email);
+
+        et_pw = findViewById(R.id.et_pw);
+        et_pw_comp = findViewById(R.id.et_pw_comp);
+
         btn_duplicate = findViewById(R.id.btn_duplicate);
         btn_code_confirm = findViewById(R.id.btn_code_confirm);
         btn_next = findViewById(R.id.btn_next);
@@ -56,8 +63,6 @@ public class JoinActivity extends BaseActivity {
         String email = etEmail.getText().toString().trim();
 
         if (Util.isValidEmail(email)) {
-            AccountManager.Instance().setCurrentEmail(email);
-
             SignUpRepository.getInstance().checkEmail(email, new SignUpDataSource.CheckEmailCallback() {
 
                 @Override
@@ -75,7 +80,7 @@ public class JoinActivity extends BaseActivity {
                 @Override
                 public void onDataNotAvailable() {
                     AccountManager.Instance().setCheckedEmailOverLapConfirm(false);
-                    QToast.showToast(getApplicationContext(),R.string.error_msg);
+                    QToast.showToast(getApplicationContext(), R.string.error_msg);
                 }
             });
         } else {
@@ -98,7 +103,28 @@ public class JoinActivity extends BaseActivity {
     };
 
     private View.OnClickListener OnClickButtonNextPage = v -> {
-        Log.d(TAG, "TEST, OnClicked");
-        Log.d(TAG, "TEST, OnClicked AccountManager.Instance().toString() : " + AccountManager.Instance().toString());
+
+        if (AccountManager.Instance().isCheckedAllConfirmed()) {
+            if (!AccountManager.Instance().isCheckedEmailOverLapConfirm()) {
+                QToast.showToast(JoinActivity.this, R.string.email_duplicate_check_msg);
+            } else if (!AccountManager.Instance().isCorrectEmailCode()) {
+                QToast.showToast(JoinActivity.this, R.string.email_code_failed_msg);
+            }
+        } else {
+            String pw = et_pw.getText().toString().trim();
+            String pwConf = et_pw_comp.getText().toString().trim();
+
+            boolean isPassword = pw.equals(pwConf);
+            if (!isPassword) {
+                QToast.showToast(JoinActivity.this, R.string.password_do_not_match);
+                return;
+            }
+
+            Intent intent = new Intent(this, SignUpActivity.class);
+            intent.putExtra(CommonData.IS_EMAIL_SIGN_UP, true);
+            intent.putExtra(CommonData.ID, etEmail.getText().toString().trim());
+            intent.putExtra(CommonData.PW, et_pw.getText().toString().trim());
+            startActivity(intent);
+        }
     };
 }

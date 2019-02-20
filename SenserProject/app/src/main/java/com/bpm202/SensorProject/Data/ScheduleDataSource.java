@@ -2,7 +2,6 @@ package com.bpm202.SensorProject.Data;
 
 import android.support.annotation.NonNull;
 
-import com.bpm202.SensorProject.ValueObject.DayOfWeek;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
 
 import java.util.List;

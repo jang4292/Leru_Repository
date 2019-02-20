@@ -2,18 +2,18 @@ package com.bpm202.SensorProject.Account;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.EditText;
 
 import com.bpm202.SensorProject.API.Api;
 import com.bpm202.SensorProject.API.FindPasswordAPI;
-import com.bpm202.SensorProject.BaseActivity;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.ValueObject.ApiObj;
 
-public class FindPasswordActivity extends BaseActivity {
+public class FindPasswordActivity extends AppCompatActivity {
 
     public static final String TAG = FindPasswordActivity.class.getSimpleName();
 

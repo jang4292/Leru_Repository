@@ -4,9 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.graphics.Rect;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -22,14 +20,14 @@ import com.bpm202.SensorProject.BaseFragment;
 import com.bpm202.SensorProject.CustomView.CircleView;
 import com.bpm202.SensorProject.Data.ExDataSrouce;
 import com.bpm202.SensorProject.Data.ExRepository;
-import com.bpm202.SensorProject.DataBase.ExVo;
+import com.bpm202.SensorProject.Data.ExVo;
 import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.Main.MainDataManager;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.MappingUtil;
 import com.bpm202.SensorProject.Util.Util;
 import com.bpm202.SensorProject.Util.UtilForApp;
-import com.bpm202.SensorProject.ValueObject.DayOfWeek;
+import com.bpm202.SensorProject.Data.DayOfWeek;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
 
 import java.util.Calendar;
@@ -98,15 +96,6 @@ public class ExerciseFrgment extends BaseFragment {
         tvWeightLabel = v.findViewById(R.id.tv_weight_label);
         cl_has_exercise = v.findViewById(R.id.cl_has_exercise);
         ll_no_exercise = v.findViewById(R.id.ll_no_exercise);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        initRecyclerView();
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    private void initRecyclerView() {
 
         mReadyTimeUtil = new ReadyTimeUtil();
 
@@ -116,10 +105,10 @@ public class ExerciseFrgment extends BaseFragment {
         @NonNull List<ScheduleValueObject> todaySchedules = MainDataManager.Instance().getScheduleValueObjectForDay(dayOfWeek);
 
         if (todaySchedules.size() == 0) {
-            ((MainActivity) getActivity()).getSupportActionBar().setTitle("TODAY");
+            ((MainActivity) getActivity()).getSupportActionBar().setTitle(R.string.today);
             setNoExerciseLayout(true);
         } else {
-            ((MainActivity) getActivity()).getSupportActionBar().setTitle("SELECT");
+            ((MainActivity) getActivity()).getSupportActionBar().setTitle(R.string.select);
             setNoExerciseLayout(false);
 
             ExerciseAdapter adpater = new ExerciseAdapter(getContext(), todaySchedules);
