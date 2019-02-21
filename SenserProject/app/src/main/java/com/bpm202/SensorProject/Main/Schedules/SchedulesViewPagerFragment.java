@@ -1,9 +1,11 @@
 package com.bpm202.SensorProject.Main.Schedules;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -89,18 +91,9 @@ public class SchedulesViewPagerFragment extends SchdulesBaseFragment {
 
         @Override
         public void onBindViewHolder(@NonNull ExerciseSchedulesAdapter.ScheduleViewHolder scheduleViewHolder, int position) {
-            if (!SchdulesManager.Instance().STATE_CLASS.getCurrentState().equals(SchdulesManager.STATE.MODIFY)) {
-                scheduleViewHolder.onBinding(list.get(position));
-                scheduleViewHolder.imMove.setVisibility(View.GONE);
-                scheduleViewHolder.ibtnDelete.setVisibility(View.GONE);
-
-                scheduleViewHolder.itemView.setTag(position);
-                scheduleViewHolder.itemView.setOnClickListener(v -> {
-                    QToast.showToast(context, "TEST, onItem position: " + v.getTag());
-                });
-            } else {
+            if (SchdulesManager.Instance().STATE_CLASS.getCurrentState().equals(SchdulesManager.STATE.MODIFY)) {
                 scheduleViewHolder.imMove.setVisibility(View.VISIBLE);
-                scheduleViewHolder.ibtnDelete.setVisibility(View.VISIBLE);
+                scheduleViewHolder.ibtnDelete.setVisibility(View.GONE);
 
                 scheduleViewHolder.imMove.setOnTouchListener((v, event) -> {
                     if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
@@ -108,22 +101,45 @@ public class SchedulesViewPagerFragment extends SchdulesBaseFragment {
                     return false;
                 });
 
-                scheduleViewHolder.ibtnDelete.setOnClickListener(v -> {
-                    ScheduleRepository repository = ScheduleRepository.getInstance();
-                    Util.LoadingProgress.show(getContext());
-                    repository.deleteSchedule(list.get(position), new ScheduleDataSource.CompleteCallback() {
-                        @Override
-                        public void onComplete() {
-                            SchdulesManager.Instance().setSTATE(SchdulesManager.STATE.RELOAD);
-                            Util.LoadingProgress.hide();
-                        }
+            } else if (SchdulesManager.Instance().STATE_CLASS.getCurrentState().equals(SchdulesManager.STATE.DELETE)) {
+                scheduleViewHolder.imMove.setVisibility(View.GONE);
+                scheduleViewHolder.ibtnDelete.setVisibility(View.VISIBLE);
 
-                        @Override
-                        public void onDataNotAvailable() {
-                            Util.LoadingProgress.hide();
-                            Log.e(MainActivity.TAG, "[SchedulesViewPagerFragment] deleteSchedule onDataNotAvailable");
-                        }
-                    });
+                scheduleViewHolder.ibtnDelete.setOnClickListener(v -> {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setTitle(MappingUtil.name(context, list.get(position).getType().getName()));
+                    builder.setMessage("삭제하시겠습니까?");
+
+
+                    builder.setPositiveButton("예",
+                            (dialog, which) -> {
+                                Util.LoadingProgress.show(getContext());
+                                ScheduleRepository.getInstance().deleteSchedule(list.get(position), new ScheduleDataSource.CompleteCallback() {
+                                    @Override
+                                    public void onComplete() {
+                                        SchdulesManager.Instance().setSTATE(SchdulesManager.STATE.RELOAD);
+                                        Util.LoadingProgress.hide();
+                                    }
+
+                                    @Override
+                                    public void onDataNotAvailable() {
+                                        Util.LoadingProgress.hide();
+                                        Log.e(MainActivity.TAG, "[SchedulesViewPagerFragment] deleteSchedule onDataNotAvailable");
+                                    }
+                                });
+                            });
+                    builder.setNegativeButton("아니오",
+                            (dialog, which) -> QToast.showToast(context, "삭제를 취소했습니다."));
+                    builder.show();
+                });
+            } else {
+                scheduleViewHolder.onBinding(list.get(position));
+                scheduleViewHolder.imMove.setVisibility(View.GONE);
+                scheduleViewHolder.ibtnDelete.setVisibility(View.GONE);
+
+                scheduleViewHolder.itemView.setTag(position);
+                scheduleViewHolder.itemView.setOnClickListener(v -> {
+                    QToast.showToast(context, "TEST, onItem position: " + v.getTag());
                 });
             }
         }

@@ -119,7 +119,8 @@ public class SchedulesFrgment extends SchdulesBaseFragment {
         if (cur.equals(SchdulesManager.STATE.RELOAD)) {
             loadSchedulesData();
         } else if (cur.equals(SchdulesManager.STATE.DEFAULT)) {
-            if (pre.equals(SchdulesManager.STATE.MODIFY)) {
+            if (pre.equals(SchdulesManager.STATE.MODIFY)
+                    || pre.equals(SchdulesManager.STATE.DELETE)) {
                 initViewPager(cur);
                 view_pager.setPagingEnabled(true);
             } else if (pre.equals(SchdulesManager.STATE.RELOAD)) {
@@ -134,7 +135,8 @@ public class SchedulesFrgment extends SchdulesBaseFragment {
             initTapControl(cur);
             initViewPager(cur);
             view_pager.setPagingEnabled(true);
-        } else if (cur.equals(SchdulesManager.STATE.MODIFY)) {
+        } else if (cur.equals(SchdulesManager.STATE.MODIFY)
+                || cur.equals(SchdulesManager.STATE.DELETE)) {
             view_pager.setPagingEnabled(false);
         }
         getActivity().invalidateOptionsMenu();
@@ -213,7 +215,8 @@ public class SchedulesFrgment extends SchdulesBaseFragment {
             menu.getItem(0).setVisible(true);
             menu.getItem(1).setVisible(false);
         } else if (SchdulesManager.Instance().STATE_CLASS.getCurrentState().equals(SchdulesManager.STATE.ADD)
-                || SchdulesManager.Instance().STATE_CLASS.getCurrentState().equals(SchdulesManager.STATE.MODIFY)) {
+                || SchdulesManager.Instance().STATE_CLASS.getCurrentState().equals(SchdulesManager.STATE.MODIFY)
+                || SchdulesManager.Instance().STATE_CLASS.getCurrentState().equals(SchdulesManager.STATE.DELETE)) {
             menu.getItem(0).setVisible(false);
             menu.getItem(1).setVisible(true);
         } else {
@@ -230,6 +233,9 @@ public class SchedulesFrgment extends SchdulesBaseFragment {
                 break;
             case R.id.menu_modify:
                 SchdulesManager.Instance().setSTATE(SchdulesManager.STATE.MODIFY);
+                break;
+            case R.id.menu_delete:
+                SchdulesManager.Instance().setSTATE(SchdulesManager.STATE.DELETE);
                 break;
             case R.id.menu_add:
                 SchdulesManager.Instance().setSTATE(SchdulesManager.STATE.ADD);

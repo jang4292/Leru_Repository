@@ -76,7 +76,7 @@ public class SchdulesManager {
 
     public static StateClass STATE_CLASS = new StateClass();
 
-    public enum STATE {ADD, MODIFY, DEFAULT, RELOAD, NONE}
+    public enum STATE {ADD, MODIFY, DEFAULT, RELOAD, DELETE, NONE}
 
     static class StateClass {
         private STATE currentState = STATE.NONE;
