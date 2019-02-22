@@ -28,6 +28,7 @@ public class JoinActivity extends AppCompatActivity {
     private EditText et_pw;
     private EditText et_pw_comp;
     private Toolbar toolbar;
+    private EditText et_email_code;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,6 +44,8 @@ public class JoinActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.textColor, null));
         toolbar.setTitle(R.string.sign_up_button_text);
         etEmail = findViewById(R.id.et_email);
+
+        et_email_code = findViewById(R.id.et_email_code);
 
         et_pw = findViewById(R.id.et_pw);
         et_pw_comp = findViewById(R.id.et_pw_comp);
@@ -60,6 +63,12 @@ public class JoinActivity extends AppCompatActivity {
     }
 
     private View.OnClickListener OnClickButtonOverLapChecking = v -> {
+
+        etEmail.setEnabled(false);
+        btn_duplicate.setText("AU¥ìa Ac Au¨ùU");
+        et_email_code.requestFocus();
+
+        Util.LoadingProgress.show(JoinActivity.this);
         String email = etEmail.getText().toString().trim();
 
         if (Util.isValidEmail(email)) {
@@ -67,9 +76,13 @@ public class JoinActivity extends AppCompatActivity {
 
                 @Override
                 public void onResponse(@NonNull String authCode, @NonNull Boolean enable) {
+                    Util.LoadingProgress.hide();
                     if (enable) {
                         QToast.showToast(getApplicationContext(), R.string.email_duplicate_msg);
                         AccountManager.Instance().setCheckedEmailOverLapConfirm(false);
+                        etEmail.setEnabled(true);
+                        btn_duplicate.setText(R.string.button_duplicate_text);
+                        etEmail.requestFocus();
                     } else {
                         QToast.showToast(getApplicationContext(), R.string.email_confirm_msg);
                         AccountManager.Instance().setCheckedEmailOverLapConfirm(true);
@@ -79,23 +92,34 @@ public class JoinActivity extends AppCompatActivity {
 
                 @Override
                 public void onDataNotAvailable() {
+                    Util.LoadingProgress.hide();
+                    etEmail.setEnabled(true);
+                    btn_duplicate.setText(R.string.button_duplicate_text);
+                    etEmail.requestFocus();
                     AccountManager.Instance().setCheckedEmailOverLapConfirm(false);
                     QToast.showToast(getApplicationContext(), R.string.error_msg);
                 }
             });
         } else {
+            Util.LoadingProgress.hide();
+            etEmail.setEnabled(true);
+            btn_duplicate.setText(R.string.button_duplicate_text);
+            etEmail.requestFocus();
             AccountManager.Instance().setCheckedEmailOverLapConfirm(false);
             QToast.showToast(getApplicationContext(), R.string.email_is_not_valid_msg);
         }
     };
     private View.OnClickListener OnClickButtonEmailCodeConfirmChecking = v -> {
-
-        if (v instanceof EditText) {
-            String code = ((EditText) v).getText().toString().trim();
-
+        if (et_email_code != null) {
+            String code = et_email_code.getText().toString().trim();
             if (AccountManager.Instance().isCorrectEmailCode(code)) {
+                btn_duplicate.setText("¢¯I ¡¤a");
+                btn_code_confirm.setText("¢¯I ¡¤a");
+                btn_duplicate.setEnabled(false);
+                et_email_code.setEnabled(false);
+                btn_code_confirm.setEnabled(false);
+                et_pw.requestFocus();
                 QToast.showToast(getApplicationContext(), R.string.email_code_confirm_msg);
-
             } else {
                 QToast.showToast(getApplicationContext(), R.string.password_do_not_match);
             }

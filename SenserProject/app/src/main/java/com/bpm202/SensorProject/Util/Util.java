@@ -37,6 +37,13 @@ public class Util {
         private static boolean isShown = false;
 
         public static void show(Context context) {
+
+            if (dialog != null && dialog.getContext() != context) {
+                dialog.hide();
+                dialog.dismiss();
+                dialog = null;
+                isShown = false;
+            }
             if (dialog == null) {
                 dialog = new ProgressDialog(context);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
