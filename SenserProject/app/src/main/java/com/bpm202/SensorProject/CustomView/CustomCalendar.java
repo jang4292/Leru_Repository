@@ -1,98 +1,160 @@
 package com.bpm202.SensorProject.CustomView;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bpm202.SensorProject.Data.CommonData;
+import com.bpm202.SensorProject.Data.ExDataSrouce;
+import com.bpm202.SensorProject.Data.ExRepository;
 import com.bpm202.SensorProject.R;
+import com.bpm202.SensorProject.Util.Util;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-
-public class CustomCalendar extends GridView {
-
-    private Adapter adapter;
-    private final Date date = new Date(System.currentTimeMillis());
+public class CustomCalendar extends LinearLayout {
+    private TextView tv_year;
+    private ImageButton ibtn_prev;
+    private ImageButton ibtn_next;
+    private TextView tv_month;
+    private GridView gridview;
+    private int mMonth;
+    private int mYear;
+    private GregorianCalendar calendar;
 
     public CustomCalendar(Context context) {
         super(context);
+        initView();
     }
 
-    public CustomCalendar(Context context, AttributeSet attrs) {
+    public CustomCalendar(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        initView();
     }
 
-    public CustomCalendar(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomCalendar(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initView();
     }
 
-    public CustomCalendar(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+    private void initView() {
+        View v = LayoutInflater.from(getContext()).inflate(R.layout.custom_layout_calendar, this, false);
+        addView(v);
+
+        tv_year = findViewById(R.id.tv_year);
+        ibtn_prev = findViewById(R.id.ibtn_prev);
+        ibtn_next = findViewById(R.id.ibtn_next);
+        tv_month = findViewById(R.id.tv_month);
+        gridview = findViewById(R.id.gridview);
+        mYear = Calendar.getInstance().get(Calendar.YEAR);
+        mMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
+
+
+        setTextData(tv_year, mYear, R.string.year);
+        setTextData(tv_month, mMonth, R.string.month);
+
+        final Adapter adapter = new Adapter(getContext());
+        gridview.setAdapter(adapter);
+        calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), 1, 0, 0, 0);
+
+        onLoaded(adapter);
+
+        ibtn_prev.setOnClickListener(v1 -> {
+            if (mMonth > 1) {
+                mMonth--;
+            } else {
+                mMonth = 12;
+                mYear--;
+            }
+            setTextData(tv_year, mYear, R.string.year);
+            setTextData(tv_month, mMonth, R.string.month);
+
+            onLoaded(adapter);
+        });
+
+        ibtn_next.setOnClickListener(v12 -> {
+            if (mMonth < 12) {
+                mMonth++;
+            } else {
+                mMonth = 1;
+                mYear++;
+            }
+            setTextData(tv_year, mYear, R.string.year);
+            setTextData(tv_month, mMonth, R.string.month);
+
+            onLoaded(adapter);
+        });
     }
 
-
-    public void setData(List<String> list) {
-
-        if (adapter == null) {
-            adapter = new Adapter(getContext());
-            setAdapter(adapter);
-        }
-
-        today();
-        adapter.notifyDataSetChanged(list);
-
-
+    private void setTextData(TextView tv, int data, int stringResId) {
+        StringBuffer sb = new StringBuffer();
+        sb.append(data);
+        sb.append(getContext().getString(stringResId));
+        tv.setText(sb.toString());
     }
 
-    public void setRefresh() {
-
-        if (adapter == null) {
-            adapter = new Adapter(getContext());
-            setAdapter(adapter);
-        }
-
-
-        adapter.notifyDataSetChanged(today());
-    }
-
-    private List<String> today() {
+    private List<String> updateCalendar() {
         List<String> calendarList = new ArrayList<>();
-        GregorianCalendar calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), 1, 0, 0, 0);
-        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1; //해당 월에 시작하는 요일 -1 을 하면 빈칸을 구할 수 있겠죠 ?
+        calendar.set(mYear, mMonth - 1, 1);
+
+        int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK); //해당 월에 시작하는 요일 -1 을 하면 빈칸을 구할 수 있겠죠 ?
         int max = calendar.getActualMaximum(Calendar.DAY_OF_MONTH); // 해당 월에 마지막 요일
 
-        for (int j = 0; j < dayOfWeek; j++) {
+        for (int j = 0; j < Calendar.DAY_OF_WEEK; j++) {
+            calendarList.add(CommonData.WEEK_DATA_LIST[j]);  //비어있는 일자 타입
+        }
+        for (int j = 1; j < dayOfWeek; j++) {
             calendarList.add(String.valueOf(0));  //비어있는 일자 타입
         }
         for (int j = 1; j <= max; j++) {
             calendarList.add(String.valueOf(j));
         }
-
         return calendarList;
     }
 
+    // 서버에서 데이터 다운로드
+    private void onLoaded(final Adapter adapter) {
+        Util.FadeAnimation.fadeOut(gridview);
+        ExRepository.getInstance().getExerciseMonth(String.valueOf(mYear), String.valueOf(mMonth),
+                new ExDataSrouce.GetCallback() {
+                    @Override
+                    public void onLoaded(List<Integer> i_list) {
+                        adapter.notifyDataSetChanged(updateCalendar(), i_list);
+                        Util.FadeAnimation.fadeIn(gridview);
+                    }
+
+                    @Override
+                    public void onDataNotAvailable() {
+                        Util.FadeAnimation.fadeIn(gridview);
+                    }
+                });
+    }
 
     private class Adapter extends BaseAdapter {
 
         private final Context context;
         private List<String> list;
+        private List<Integer> dataList;
 
         private Adapter(Context context) {
             this.context = context;
         }
 
-
-        public void notifyDataSetChanged(List<String> list) {
+        public void notifyDataSetChanged(List<String> list, List<Integer> dataList) {
             this.list = list;
+            this.dataList = dataList;
             notifyDataSetChanged();
         }
 
@@ -124,17 +186,23 @@ public class CustomCalendar extends GridView {
             }
 
             String str = list.get(position);
+            holder.tvDay.setClickable(false);
             if (str.equals("0")) {
                 holder.tvDay.setVisibility(INVISIBLE);
             } else {
                 holder.tvDay.setVisibility(VISIBLE);
-                holder.tvDay.setText(list.get(position));
+                holder.tvDay.setText(str);
+                holder.tvDay.setTextColor(Color.BLACK);
+
+                for (Integer i : dataList) {
+                    if (str.equals(String.valueOf(i))) {
+                        holder.tvDay.setTextColor(Color.RED);
+                        holder.tvDay.setOnClickListener(v -> {
+                            //Util.FragmentUtil.addFragmentToActivity(getContext().getFragmentManager(), HistoryDateFragment.newInstance(), R.id.child_fragment_container);
+                        });
+                    }
+                }
             }
-
-            /*holder.tvDay.setOnClickListener(v -> {
-                Util.FragmentUtil.addFragmentToActivity(getFragmentManager(), HistoryDateFragment.newInstance(), R.id.child_fragment_container);
-            });*/
-
             return convertView;
         }
 

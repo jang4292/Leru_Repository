@@ -18,6 +18,12 @@ public class HistoryFragment extends BaseFragment {
         return instance;
     }
 
+    public static void DestroyInstance() {
+        if (instance != null) {
+            instance = null;
+        }
+    }
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_history;

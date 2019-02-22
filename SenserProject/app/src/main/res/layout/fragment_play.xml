@@ -170,12 +170,22 @@
             android:src="@drawable/naver_login_icon_white" />
 
         <TextView
+            android:id="@+id/tv_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:text="오늘 계획된 운동이 없습니다."
             android:textSize="50dp" />
+
+        <Button
+            android:id="@+id/ibtn_schedules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="일 정"
+            android:textSize="35dp" />
 
     </LinearLayout>
 

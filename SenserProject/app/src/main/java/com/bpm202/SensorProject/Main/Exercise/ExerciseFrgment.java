@@ -12,22 +12,24 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bpm202.SensorProject.BaseFragment;
 import com.bpm202.SensorProject.CustomView.CircleView;
+import com.bpm202.SensorProject.Data.DayOfWeek;
 import com.bpm202.SensorProject.Data.ExDataSrouce;
 import com.bpm202.SensorProject.Data.ExRepository;
 import com.bpm202.SensorProject.Data.ExVo;
 import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.Main.MainDataManager;
+import com.bpm202.SensorProject.Main.Schedules.SchedulesFrgment;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.MappingUtil;
 import com.bpm202.SensorProject.Util.Util;
 import com.bpm202.SensorProject.Util.UtilForApp;
-import com.bpm202.SensorProject.Data.DayOfWeek;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
 
 import java.util.Calendar;
@@ -61,6 +63,8 @@ public class ExerciseFrgment extends BaseFragment {
     private float angle;
 
     private long startTime;
+    private TextView tv_text;
+    private Button button;
 
 
     public static ExerciseFrgment Instance() {
@@ -97,6 +101,9 @@ public class ExerciseFrgment extends BaseFragment {
         cl_has_exercise = v.findViewById(R.id.cl_has_exercise);
         ll_no_exercise = v.findViewById(R.id.ll_no_exercise);
 
+        tv_text = v.findViewById(R.id.tv_text);
+        button = v.findViewById(R.id.ibtn_schedules);
+
         mReadyTimeUtil = new ReadyTimeUtil();
 
         int dayCode = Util.CalendarInfo.getCalendar().get(Calendar.DAY_OF_WEEK);
@@ -107,6 +114,16 @@ public class ExerciseFrgment extends BaseFragment {
         if (todaySchedules.size() == 0) {
             ((MainActivity) getActivity()).getSupportActionBar().setTitle(R.string.today);
             setNoExerciseLayout(true);
+
+            if (MainDataManager.Instance().getListScheduleValueObject().size() == 0) {
+                tv_text.setText("나에게 맞는 일정을 잡고 시작하세요");
+                button.setVisibility(View.VISIBLE);
+                button.setOnClickListener(v1 -> {
+                    getActivity().setTitle(R.string.menu_schedules);
+                    Util.FragmentUtil.replaceFragment(getFragmentManager(), SchedulesFrgment.Instance(), R.id.fragment_container);
+                });
+
+            }
         } else {
             ((MainActivity) getActivity()).getSupportActionBar().setTitle(R.string.select);
             setNoExerciseLayout(false);

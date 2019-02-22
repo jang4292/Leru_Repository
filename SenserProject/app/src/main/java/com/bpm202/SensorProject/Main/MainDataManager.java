@@ -17,7 +17,7 @@ public class MainDataManager {
     }
 
 
-    private static List<ScheduleValueObject> listScheduleValueObject;
+    private static List<ScheduleValueObject> listScheduleValueObject = new ArrayList<>();
 
     @NonNull
     public List<ScheduleValueObject> getScheduleValueObjectForDay(@NonNull DayOfWeek day) {
@@ -34,6 +34,7 @@ public class MainDataManager {
         listScheduleValueObject = list;
     }
 
+    @NonNull
     public List<ScheduleValueObject> getListScheduleValueObject() {
         return listScheduleValueObject;
     }
