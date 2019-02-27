@@ -65,7 +65,7 @@ public class JoinActivity extends AppCompatActivity {
     private View.OnClickListener OnClickButtonOverLapChecking = v -> {
 
         etEmail.setEnabled(false);
-        btn_duplicate.setText("AU¥ìa Ac Au¨ùU");
+        btn_duplicate.setText("ì½”ë“œ ìž¬ ì „ì†¡");
         et_email_code.requestFocus();
 
         Util.LoadingProgress.show(JoinActivity.this);
@@ -113,8 +113,8 @@ public class JoinActivity extends AppCompatActivity {
         if (et_email_code != null) {
             String code = et_email_code.getText().toString().trim();
             if (AccountManager.Instance().isCorrectEmailCode(code)) {
-                btn_duplicate.setText("¢¯I ¡¤a");
-                btn_code_confirm.setText("¢¯I ¡¤a");
+                btn_duplicate.setText("ì™„ ë£Œ");
+                btn_code_confirm.setText("ì™„ ë£Œ");
                 btn_duplicate.setEnabled(false);
                 et_email_code.setEnabled(false);
                 btn_code_confirm.setEnabled(false);

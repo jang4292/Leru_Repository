@@ -18,7 +18,8 @@
             android:layout_height="0dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/ripple_effect_find_pw"
-            android:scaleType="center"
+            android:padding="40dp"
+            android:scaleType="fitCenter"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -163,11 +164,12 @@
         android:visibility="gone">
 
         <ImageView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:scaleType="fitXY"
             android:layout_weight="3"
-            android:src="@drawable/naver_login_icon_white" />
+            android:src="@drawable/check_70_vio" />
 
         <TextView
             android:id="@+id/tv_text"
@@ -175,8 +177,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
+            android:lines="2"
             android:text="오늘 계획된 운동이 없습니다."
-            android:textSize="50dp" />
+            android:textSize="30dp" />
 
         <Button
             android:id="@+id/ibtn_schedules"
@@ -185,6 +188,7 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:text="일 정"
+            android:layout_margin="40dp"
             android:textSize="35dp" />
 
     </LinearLayout>

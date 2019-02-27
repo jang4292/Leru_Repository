@@ -16,7 +16,6 @@ public class MainDataManager {
         return (instance == null) ? new MainDataManager() : instance;
     }
 
-
     private static List<ScheduleValueObject> listScheduleValueObject = new ArrayList<>();
 
     @NonNull

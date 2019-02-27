@@ -1,7 +1,6 @@
 package com.bpm202.SensorProject.Main.Schedules;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -25,6 +24,7 @@ import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.Util.Util;
 import com.bpm202.SensorProject.Util.UtilForApp;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
+import com.bpm202.SensorProject.ValueObject.TypeValueObject;
 
 import java.util.List;
 
@@ -108,10 +108,10 @@ public class SchedulesViewPagerFragment extends SchdulesBaseFragment {
                 scheduleViewHolder.ibtnDelete.setOnClickListener(v -> {
                     AlertDialog.Builder builder = new AlertDialog.Builder(context);
                     builder.setTitle(MappingUtil.name(context, list.get(position).getType().getName()));
-                    builder.setMessage("»èÁ¦ÇÏ½Ã°Ú½À´Ï±î?");
+                    builder.setMessage("ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
 
 
-                    builder.setPositiveButton("¿¹",
+                    builder.setPositiveButton("ì˜ˆ",
                             (dialog, which) -> {
                                 Util.LoadingProgress.show(getContext());
                                 ScheduleRepository.getInstance().deleteSchedule(list.get(position), new ScheduleDataSource.CompleteCallback() {
@@ -128,8 +128,8 @@ public class SchedulesViewPagerFragment extends SchdulesBaseFragment {
                                     }
                                 });
                             });
-                    builder.setNegativeButton("¾Æ´Ï¿À",
-                            (dialog, which) -> QToast.showToast(context, "»èÁ¦¸¦ Ãë¼ÒÇß½À´Ï´Ù."));
+                    builder.setNegativeButton("ì•„ë‹ˆì˜¤",
+                            (dialog, which) -> QToast.showToast(context, "ì‚­ì œë¥¼ ì·¨ì†Œí–ˆìŠµë‹ˆë‹¤."));
                     builder.show();
                 });
             } else {
@@ -151,6 +151,7 @@ public class SchedulesViewPagerFragment extends SchdulesBaseFragment {
 
         class ScheduleViewHolder extends RecyclerView.ViewHolder {
 
+            private ImageView ivExerciseIcon;
             private TextView tvExerciseName;
             private TextView tvWeightNum;
             private TextView tvRestNum;
@@ -167,6 +168,7 @@ public class SchedulesViewPagerFragment extends SchdulesBaseFragment {
             public ScheduleViewHolder(@NonNull View itemView) {
                 super(itemView);
 
+                ivExerciseIcon = itemView.findViewById(R.id.iv_exercise_icon);
                 tvExerciseName = itemView.findViewById(R.id.tv_exercise_name);
                 tvWeightNum = itemView.findViewById(R.id.tv_weight_num);
                 tvRestNum = itemView.findViewById(R.id.tv_rest_num);
@@ -181,6 +183,7 @@ public class SchedulesViewPagerFragment extends SchdulesBaseFragment {
             }
 
             private void onBinding(ScheduleValueObject scheduleVo) {
+                ivExerciseIcon.setImageDrawable(context.getResources().getDrawable(getIconResource(scheduleVo.getType())));
                 tvExerciseName.setText(MappingUtil.name(context, scheduleVo.getType().getName()));
 
                 if (scheduleVo.getType().isTime()) {
@@ -197,6 +200,10 @@ public class SchedulesViewPagerFragment extends SchdulesBaseFragment {
                 tvSetNum.setText(String.format("%02d", scheduleVo.getSetCnt()));
                 tvRestNum.setText(String.format("%02d", scheduleVo.getRest()));
                 tvWeightNum.setText(String.format("%02d", scheduleVo.getWeight()));
+            }
+
+            private int getIconResource(TypeValueObject exerciseType) {
+                return MappingUtil.exerciseIconResource[exerciseType.getId() - 1];
             }
         }
     }

@@ -4,21 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_year"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="2000년"
-        android:textColor="@color/textColor"
-        android:textSize="28dp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_calendar" />
-
     <ImageButton
         android:id="@+id/ibtn_prev"
         android:layout_width="36dp"
@@ -37,7 +22,7 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="20dp"
         android:background="@null"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/tv_month"
@@ -54,13 +39,13 @@
         android:gravity="center_horizontal"
         android:text="1월"
         android:textColor="@color/textColor"
-        android:textSize="28dp"
+        android:textSize="25dp"
         android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="@+id/tv_year"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/ibtn_prev"
         app:layout_constraintRight_toLeftOf="@id/ibtn_next"
-        app:layout_constraintStart_toStartOf="@+id/tv_year"
-        app:layout_constraintTop_toBottomOf="@+id/tv_year" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_calendar" />
 
     <GridView
         android:id="@+id/gridview"
@@ -70,6 +55,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:clickable="false"
         android:numColumns="7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

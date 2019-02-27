@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import com.bpm202.SensorProject.BaseActivity;
 import com.bpm202.SensorProject.Data.ScheduleDataSource;
 import com.bpm202.SensorProject.Data.ScheduleRepository;
-import com.bpm202.SensorProject.Data.SignInRepository;
 import com.bpm202.SensorProject.Main.Exercise.ExerciseFrgment;
 import com.bpm202.SensorProject.Main.History.HistoryFragment;
 import com.bpm202.SensorProject.Main.Schedules.SchedulesFrgment;
@@ -35,6 +34,7 @@ public class MainActivity extends BaseActivity {
     private final long CLICK_DELAY = 2000;
     private DrawerLayout drawerLayout;
     private NavigationView navivationView;
+
 
     @NonNull
     @Override
@@ -105,6 +105,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         SchedulesFrgment.DestroyInstance();
+        HistoryFragment.DestroyInstance();
         super.onDestroy();
     }
 
@@ -124,6 +125,7 @@ public class MainActivity extends BaseActivity {
             drawerLayout.closeDrawer(GravityCompat.START);
             return;
         } else {
+
             if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
                 Fragment fm = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
                 if (fm instanceof ExerciseFrgment) {

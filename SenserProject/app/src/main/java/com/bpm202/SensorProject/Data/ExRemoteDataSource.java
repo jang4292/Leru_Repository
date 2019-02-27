@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.bpm202.SensorProject.API.Api;
+import com.bpm202.SensorProject.BuildConfig;
 import com.bpm202.SensorProject.RetrofitAPI.ExerciseRetrofit;
 import com.bpm202.SensorProject.App;
 import com.bpm202.SensorProject.ValueObject.ApiObj;
@@ -21,15 +22,15 @@ public class ExRemoteDataSource implements ExDataSrouce {
 
     @Override
     public void addExercise(@NonNull ExVo exVo, @NonNull UploadCallback callback) {
-        /*if (BuildConfig.DEBUG)
-            Log.d(TAG + " addExercise:전송~", exVo.toJson());*/
+        if (BuildConfig.DEBUG)
+            Log.d(TAG + " addExercise:전송~", exVo.toJson());
 
         ExerciseRetrofit.getInstance().exercise(App.getToken(), exVo)
                 .enqueue(new Callback<ApiObj<Boolean>>() {
                     @Override
                     public void onResponse(Call<ApiObj<Boolean>> call, Response<ApiObj<Boolean>> response) {
-                        /*if (BuildConfig.DEBUG)
-                            Log.e(TAG + " addExercise", response.body().toJson());*/
+                        if (BuildConfig.DEBUG)
+                            Log.e(TAG + " addExercise", response.body().toJson());
 
                         if (response == null || response.body() == null) {
                             callback.onDataNotAvailable();

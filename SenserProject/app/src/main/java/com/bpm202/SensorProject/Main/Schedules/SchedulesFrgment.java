@@ -124,6 +124,7 @@ public class SchedulesFrgment extends SchdulesBaseFragment {
                 initViewPager(cur);
                 view_pager.setPagingEnabled(true);
             } else if (pre.equals(SchdulesManager.STATE.RELOAD)) {
+                initTapControl(cur);
                 initViewPager(cur);
                 view_pager.setPagingEnabled(true);
             } else {

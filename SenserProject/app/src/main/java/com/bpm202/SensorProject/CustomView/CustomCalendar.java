@@ -25,7 +25,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 public class CustomCalendar extends LinearLayout {
-    private TextView tv_year;
+
     private ImageButton ibtn_prev;
     private ImageButton ibtn_next;
     private TextView tv_month;
@@ -53,7 +53,6 @@ public class CustomCalendar extends LinearLayout {
         View v = LayoutInflater.from(getContext()).inflate(R.layout.custom_layout_calendar, this, false);
         addView(v);
 
-        tv_year = findViewById(R.id.tv_year);
         ibtn_prev = findViewById(R.id.ibtn_prev);
         ibtn_next = findViewById(R.id.ibtn_next);
         tv_month = findViewById(R.id.tv_month);
@@ -61,14 +60,11 @@ public class CustomCalendar extends LinearLayout {
         mYear = Calendar.getInstance().get(Calendar.YEAR);
         mMonth = Calendar.getInstance().get(Calendar.MONTH) + 1;
 
-
-        setTextData(tv_year, mYear, R.string.year);
-        setTextData(tv_month, mMonth, R.string.month);
-
         final Adapter adapter = new Adapter(getContext());
         gridview.setAdapter(adapter);
         calendar = new GregorianCalendar(Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), 1, 0, 0, 0);
 
+        setTextData(tv_month, mYear, mMonth);
         onLoaded(adapter);
 
         ibtn_prev.setOnClickListener(v1 -> {
@@ -78,9 +74,7 @@ public class CustomCalendar extends LinearLayout {
                 mMonth = 12;
                 mYear--;
             }
-            setTextData(tv_year, mYear, R.string.year);
-            setTextData(tv_month, mMonth, R.string.month);
-
+            setTextData(tv_month, mYear, mMonth);
             onLoaded(adapter);
         });
 
@@ -91,17 +85,18 @@ public class CustomCalendar extends LinearLayout {
                 mMonth = 1;
                 mYear++;
             }
-            setTextData(tv_year, mYear, R.string.year);
-            setTextData(tv_month, mMonth, R.string.month);
-
+            setTextData(tv_month, mYear, mMonth);
             onLoaded(adapter);
         });
     }
 
-    private void setTextData(TextView tv, int data, int stringResId) {
+    private void setTextData(TextView tv, int yearData, int monthData) {
         StringBuffer sb = new StringBuffer();
-        sb.append(data);
-        sb.append(getContext().getString(stringResId));
+        sb.append(yearData);
+        sb.append(getContext().getString(R.string.year));
+        sb.append(monthData);
+        sb.append(getContext().getString(R.string.month));
+
         tv.setText(sb.toString());
     }
 
@@ -124,6 +119,16 @@ public class CustomCalendar extends LinearLayout {
         return calendarList;
     }
 
+    public interface OnTotalDaysTextViewListener {
+        TextView getOnTotalDaysText();
+    }
+
+    private OnTotalDaysTextViewListener onTotalDaysTextViewListener;
+
+    public void setOnTotalDaysTextViewListener(OnTotalDaysTextViewListener onTotalDaysTextViewListener) {
+        this.onTotalDaysTextViewListener = onTotalDaysTextViewListener;
+    }
+
     // 서버에서 데이터 다운로드
     private void onLoaded(final Adapter adapter) {
         Util.FadeAnimation.fadeOut(gridview);
@@ -132,6 +137,13 @@ public class CustomCalendar extends LinearLayout {
                     @Override
                     public void onLoaded(List<Integer> i_list) {
                         adapter.notifyDataSetChanged(updateCalendar(), i_list);
+                        if (onTotalDaysTextViewListener != null) {
+                            TextView tv = onTotalDaysTextViewListener.getOnTotalDaysText();
+                            if (tv != null) {
+                                String str = i_list.size() + "DAYS";
+                                tv.setText(str);
+                            }
+                        }
                         Util.FadeAnimation.fadeIn(gridview);
                     }
 
@@ -140,6 +152,12 @@ public class CustomCalendar extends LinearLayout {
                         Util.FadeAnimation.fadeIn(gridview);
                     }
                 });
+    }
+
+    private OnClickListener onClickListener;
+
+    public void setOnClickListener(OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
     }
 
     private class Adapter extends BaseAdapter {
@@ -191,15 +209,16 @@ public class CustomCalendar extends LinearLayout {
                 holder.tvDay.setVisibility(INVISIBLE);
             } else {
                 holder.tvDay.setVisibility(VISIBLE);
+                holder.tvDay.setClickable(false);
                 holder.tvDay.setText(str);
                 holder.tvDay.setTextColor(Color.BLACK);
 
                 for (Integer i : dataList) {
                     if (str.equals(String.valueOf(i))) {
-                        holder.tvDay.setTextColor(Color.RED);
-                        holder.tvDay.setOnClickListener(v -> {
-                            //Util.FragmentUtil.addFragmentToActivity(getContext().getFragmentManager(), HistoryDateFragment.newInstance(), R.id.child_fragment_container);
-                        });
+                        holder.tvDay.setTextColor(Color.MAGENTA);
+                        if (onClickListener != null) {
+                            holder.tvDay.setOnClickListener(onClickListener);
+                        }
                     }
                 }
             }

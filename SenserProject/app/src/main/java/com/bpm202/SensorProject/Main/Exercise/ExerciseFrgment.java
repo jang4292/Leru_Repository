@@ -175,10 +175,12 @@ public class ExerciseFrgment extends BaseFragment {
 
             private CircleView ibtnIcon;
             private TextView tvName;
+            private ImageView iv_check;
 
             public ExerciseViewHolder(@NonNull View itemView) {
                 super(itemView);
                 ibtnIcon = itemView.findViewById(R.id.ibtn_exercise);
+                iv_check = itemView.findViewById(R.id.iv_check);
             }
 
             private void onBinding(ScheduleValueObject scheduleVo) {
@@ -203,7 +205,7 @@ public class ExerciseFrgment extends BaseFragment {
                     int toolbarHeight = ((MainActivity) getActivity()).getSupportActionBar().getHeight();
 
                     ImageView viewSrc = new ImageView(context);
-                    viewSrc.setImageDrawable(mCircleView.getResources().getDrawable(R.drawable.ic_example_run));
+                    viewSrc.setImageDrawable(mCircleView.getResources().getDrawable(getIconResource(scheduleVo)));
                     int size = mCircleView.getResources().getDimensionPixelSize(R.dimen.dimen_70);
                     ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(size, size);
 
@@ -225,7 +227,7 @@ public class ExerciseFrgment extends BaseFragment {
                                     super.onAnimationEnd(animation);
                                     viewSrc.animate().setListener(null);
                                     viewSrc.animate().alpha(0f);
-                                    mCircleView.setImageDrawable(getResources().getDrawable(R.drawable.ic_example_run));
+                                    mCircleView.setImageDrawable(getResources().getDrawable(getIconResource(scheduleVo)));
                                 }
                             });
 
@@ -335,10 +337,15 @@ public class ExerciseFrgment extends BaseFragment {
                 });
 
                 if (scheduleVo.isSuccess()) {
-                    ibtnIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_example_run_black));
+                    iv_check.setVisibility(View.VISIBLE);
                 } else {
-                    ibtnIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_example_run));
+                    iv_check.setVisibility(View.GONE);
                 }
+                ibtnIcon.setImageDrawable(context.getResources().getDrawable(getIconResource(scheduleVo)));
+            }
+
+            private int getIconResource(ScheduleValueObject object) {
+                return MappingUtil.exerciseIconResource[object.getType().getId() - 1];
             }
 
             private void exercisePost(ScheduleValueObject scheduleVo, int set) {

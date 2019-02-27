@@ -15,16 +15,16 @@
         android:foregroundGravity="center"
         app:popupTheme="@style/AppTheme.ActionBar">
 
-        <!--        <TextView
-                    android:id="@+id/tv_title_toolbar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:text="@string/menu_exercise"
-                    android:textColor="@color/textColor"
-                    android:textSize="24dp"
-                    android:textStyle="bold" />-->
+        <!--<TextView
+            android:id="@+id/tv_title_toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/menu_exercise"
+            android:textColor="@color/textColor"
+            android:textSize="24dp"
+            android:textStyle="bold" />-->
 
     </android.support.v7.widget.Toolbar>
 

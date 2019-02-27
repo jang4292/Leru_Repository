@@ -11,13 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bpm202.SensorProject.BaseFragment;
+import com.bpm202.SensorProject.Data.DayOfWeek;
 import com.bpm202.SensorProject.Data.ScheduleDataSource;
 import com.bpm202.SensorProject.Data.ScheduleRepository;
 import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.MappingUtil;
 import com.bpm202.SensorProject.Util.UtilForApp;
-import com.bpm202.SensorProject.Data.DayOfWeek;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
 import com.bpm202.SensorProject.ValueObject.TypeValueObject;
 
@@ -26,8 +26,10 @@ import java.util.List;
 
 public class SchedulesAddViewPagerFragment extends BaseFragment {
 
+    private static SchedulesAddViewPagerFragment instance;
+
     public static SchedulesAddViewPagerFragment Instance() {
-        return new SchedulesAddViewPagerFragment();
+        return instance == null ? new SchedulesAddViewPagerFragment() : instance;
     }
 
     public void setTabPositionFromParent(int i) {
@@ -87,6 +89,11 @@ public class SchedulesAddViewPagerFragment extends BaseFragment {
             viewHolder.itemView.setOnClickListener(v -> {
                 postAddSchedule(newSchedules(exerciseType));
             });
+            viewHolder.ibtn_exercise.setImageResource(getIconResource(exerciseType));
+        }
+
+        private int getIconResource(TypeValueObject exerciseType) {
+            return MappingUtil.exerciseIconResource[exerciseType.getId()-1];
         }
 
         @Override
