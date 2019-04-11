@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="img/home_icon.png">
+
+    <title>YunHwan Jang &middot; Daegu, Korea</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!-- MS에서 제공하는 기능이 바로 "호환성 보기" 라는 기능입니다. 
+    "호환성 보기" 라는 기능을 통해서 IE 버전이 다르더라도 같은 화면을 볼 수 있도록 합니다. 
+    호환성 보기를 다른 말로 쿼크모드라고 합니다.-->
+    <!-- IE=edge는 가장 최신 버전으로 랜더링 하겠다는 의미입니다. 
+    예를 들어서 IE8을 사용하고 있는 사용자라면, 
+    IE8이 가지고 있는 가장 최신의 랜더링 방법으로 웹 문서를 보여주겠다는 의미가 됩니다. -->
+    <meta name="author" content="YunHwan Jang" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1, minimum-scale=1">
+
+
+    <meta name="title" content="J's Room">
+    <meta name="subject" content="YunHwan's Portfolio">
+    <meta name="description" content="it's my one of storages for saving resource of major.">
+    <meta name="keywords" content="포트폴리오, 웹포트폴리오, 웹포토폴리오, HTML, CSS, JAVASCRIPT, JQUERY, 웹 포트폴리오, 반응형 웹사이트, 모바일 웹사이트, 모바일 포트폴리오, 반응형 포트폴리오, html 소스창고, css 소스창고, html 소스, css 소스, js 소스창고, js 소스, html, css, js, jquery, html5, HTML5, 무료소스">
+    <meta name="writer" content="">
+    <meta name="author" content="YunHwan Jang">
+    <meta name="copyright" content="[Korea] YunHwan Jang">
+    <!-- <meta name="naver-site-verification" content=""/> -->
+    <!-- naver등록필요함. -->
+    <meta name="robots" content="ALL">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="J's Room">
+    <meta property="og:description" content="it's my one of storages for saving resource of major.">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="http://yhjang.ipdisk.co.kr">
+
+
+    <style>
+        body {
+            font-family: Ginger, Helvetica, Arial, sans-serif;
+            font-size: 100%;
+            line-height: 28px;
+            letter-spacing: -.01em;
+        }
+        
+        a {
+            outline: 0;
+            text-decoration: none;
+            border-bottom: 1px solid #000;
+            color: #000;
+            -webkit-transition: color 1.2s ease-in-out, border-color 1.2s ease-in-out;
+            -moz-transition: color 1.2s ease-in-out, border-color 1.2s ease-in-out;
+            -ms-transition: color 1.2s ease-in-out, border-color 1.2s ease-in-out;
+            -o-transition: color 1.2s ease-in-out, border-color 1.2s ease-in-out;
+            transition: color 1.2s ease-in-out, border-color 1.2s ease-in-out;
+            -webkit-tap-highlight-color: transparent
+        }
+        
+        h1 {
+            font-size: 22px;
+            line-height: 35px;
+            opacity: 0;
+            -webkit-animation: fadeIn 2s ease-out 1 .1s;
+            -ms-animation: fadeIn 2s ease-out 1 .1s;
+            animation: fadeIn 2s ease-out 1 .1s;
+            animation-fill-mode: forwards
+        }
+        
+        footer {
+            margin-top: 50px;
+            -webkit-animation: fadeIn 1s ease-out 1 1.6s;
+            -ms-animation: fadeIn 1s ease-out 1 1.6s;
+            animation: fadeIn 1s ease-out 1 1.6s;
+            animation-fill-mode: forwards
+        }
+        
+        .wrapper {
+            padding: 10% 20%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box
+        }
+        
+        #typed1,
+        #typed2 {
+            font-family: 나눔고딕;
+            font-size: 1.2rem;
+        }
+        
+        @-webkit-keyframes fadeIn {
+            0% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+        
+        @-ms-keyframes fadeIn {
+            0% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0
+            }
+            100% {
+                opacity: 1
+            }
+        }
+    </style>
+</head>
+
+<body onload="showNotice1()">
+    <div class="wrapper">
+        <img id="profile-image" width='200px' />
+        <h1>
+            <strong>YunHwan Jang</strong><span class="hide"> &middot; </span>
+            <small>South Korea</small>
+            <br>
+            <small>Dancing Programmer</small>
+        </h1>
+
+        <div id="typed-strings1" style="display: none">
+            <p>Hello, My name is YunHwan Jang, but my friends usually call me J.</p>
+        </div>
+        <div id="typed-strings2" style="display: none">
+            <p>I like research source code and program, music, dance, drinking and talking with people.</p>
+        </div>
+        <span id="typed1"></span>
+        <span id="typed2"></span>
+        <footer id="footer" style="display: block">
+            <p>
+                <a href="mailto:jangyunhwan@gmail.com">Mail</a>&nbsp;
+                <a href="https://www.facebook.com/Alpha.Jang.0">facebook</a>&nbsp;
+                <a href="https://www.instagram.com/j.in_deagu/">Instgram</a>&nbsp;
+                <a href="https://github.com/jang4292">Github</a>&nbsp;
+                <a href="./portfolio/">Enter Site</a>&nbsp;
+            </p>
+        </footer>
+    </div>
+    <script language="javascript">
+        var noticeMsg1 = document.getElementById("typed-strings1").textContent;
+        var noticeMsg2 = document.getElementById("typed-strings2").textContent;
+        var index = 0;
+
+        function showNotice1() {
+            index++;
+            var divNotice = document.getElementById("typed1");
+            if (index > noticeMsg1.length) {
+                //divNotice.innerText = "";
+                index = 0;
+                setTimeout(showNotice2, 70);
+            } else {
+                divNotice.innerText = noticeMsg1.substr(0, index)
+                setTimeout(showNotice1, 70);
+            }
+        }
+
+        function showNotice2() {
+            index++;
+            var divNotice = document.getElementById("typed2");
+            if (index > noticeMsg2.length) {
+                //divNotice.innerText = "";
+                index = 0;
+            } else {
+                divNotice.innerText = noticeMsg2.substr(0, index)
+                setTimeout(showNotice2, 70);
+            }
+        }
+
+        const image = document.querySelector("#profile-image");
+        image.src = "./img/profile_picture.jpg";
+    </script>
+</body>
+
+</html>

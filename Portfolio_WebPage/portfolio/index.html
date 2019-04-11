@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon" type="image/png" href="img/home_icon.png">
+
+    <title>J's Room</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!-- MS에서 제공하는 기능이 바로 "호환성 보기" 라는 기능입니다. 
+    "호환성 보기" 라는 기능을 통해서 IE 버전이 다르더라도 같은 화면을 볼 수 있도록 합니다. 
+    호환성 보기를 다른 말로 쿼크모드라고 합니다.-->
+    <!-- IE=edge는 가장 최신 버전으로 랜더링 하겠다는 의미입니다. 
+    예를 들어서 IE8을 사용하고 있는 사용자라면, 
+    IE8이 가지고 있는 가장 최신의 랜더링 방법으로 웹 문서를 보여주겠다는 의미가 됩니다. -->
+    <meta name="author" content="YunHwan Jang" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta name="title" content="J's Room">
+    <meta name="subject" content="YunHwan's Portfolio">
+    <meta name="description" content="it's my one of storages for saving resource of major.">
+    <meta name="keywords" content="포트폴리오, 웹포트폴리오, 웹포토폴리오, HTML, CSS, JAVASCRIPT, JQUERY, 웹 포트폴리오, 반응형 웹사이트, 모바일 웹사이트, 모바일 포트폴리오, 반응형 포트폴리오, html 소스창고, css 소스창고, html 소스, css 소스, js 소스창고, js 소스, html, css, js, jquery, html5, HTML5, 무료소스">
+    <meta name="writer" content="">
+    <meta name="author" content="JinHyoung Park">
+    <meta name="copyright" content="[Korea] JinHyoung Park">
+    <!-- <meta name="naver-site-verification" content=""/> -->
+    <!-- naver등록필요함. -->
+    <meta name="robots" content="ALL">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="J's Room">
+    <meta property="og:description" content="it's my one of storages for saving resource of major.">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="http://yhjang.ipdisk.co.kr">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--jQuery 라이브러리 적용-->
+    <script>
+        function blockRightClick() {
+            alert("오른쪽 버튼은 사용할 수 없습니다.");
+            return false;
+        }
+
+        function blockSelect() {
+            alert("내용을 선택할 수 없습니다.");
+            return false;
+        }
+    </script>
+    <style>
+        header {
+            font-size: 2rem;
+            align-content: center;
+        }
+        /* unvisited link */
+        
+        a:link {
+            color: red;
+            text-decoration: none;
+        }
+        /* visited link */
+        
+        a:visited {
+            color: green;
+            text-decoration: none;
+        }
+        /* mouse over link */
+        
+        a:hover {
+            color: hotpink;
+            text-decoration: underline;
+        }
+        /* selected link */
+        
+        a:active {
+            color: blue;
+            text-decoration: underline;
+        }
+        
+        nav {
+            height: 10%;
+        }
+        
+        body {
+            width: 1280px;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        h3 {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        
+        .listItem {
+            font-size: 1.5rem;
+        }
+    </style>
+
+
+</head>
+
+<body oncontextmenu="return blockRightClick()">
+    <header>
+        <h1 id="Header_title">
+            YunHwan's Swing Dance
+        </h1>
+    </header>
+    <nav style="text-align: center">
+
+        <h3 onclick="toggle_view('videoPlayList')" style="display:inline-block">
+            영상 자료
+        </h3>
+        <h3 onclick="toggle_view('musicPlayList')" style="display:inline-block">
+            음악 자료
+        </h3>
+
+    </nav>
+    <article>
+        <aside class="navigation_panel">
+            <ul>
+                <p>
+                    <ol id="videoPlayList" style="display: none;" name="navi_button">
+                        <li class="listItem" onclick="open_play_view('./video/balboa.html');">발보아</li>
+                        <li class="listItem" onclick="open_play_view('./video/lindyhop.html');">린디합</li>
+                        <li class="listItem" onclick="open_play_view('./video/etc.html');">기타 영상</li>
+                    </ol>
+                </p>
+                <p>
+                    <ol id="musicPlayList" style="display: none;" name="navi_button">
+                        <li class="listItem" onclick="open_music_player_view('20190407.json', '2019년 04월 07일 드림발 DJ');">2019년 04월 07일 드림발 DJ 리스트</li>
+                        <li class="listItem" onclick="open_music_player_view('20190316.json', '2019년 03월 16일 발보아랜드 DJ');">2019년 03월 16일 발보아랜드 DJ 리스트</li>
+                        <li class="listItem" onclick="open_music_player_view('20190310.json', '2019년 03월 10일 드림발 DJ');">2019년 03월 10일 드림발 DJ 리스트</li>
+                        <li class="listItem" onclick="open_music_player_view('20190206.json', '2019년 02월 06일 대구앤빠 구정 DJ');">2019년 02월 06일 대구앤빠 구정 DJ 리스트</li>
+                        <!-- <li class="listItem" onclick="open_music_player_view('test.json', '2019년 02월 06일 대구앤빠 구정 DJ');">2019년 02월 06일 대구앤빠 구정 DJ 리스트</li> -->
+                    </ol>
+                </p>
+            </ul>
+        </aside>
+        <section>
+        </section>
+    </article>
+</body>
+
+
+<script>
+    function open_music_player_view(name, title) {
+        window.location.href = "./music/musicplayer.html?name=" + name + "&title= " + title;
+    }
+
+    function open_play_view(src) {
+        window.open(src, '_self', 'width=500, height=500');
+    }
+
+    function toggle_view(domName) {
+        var b = document.getElementsByName("navi_button");
+        b.forEach(element => {
+            element.style.display = "none";
+        });
+        var x = document.getElementById(domName);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+</html>
