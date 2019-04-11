@@ -128,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         public void onDataNotAvailable() {
-            Log.d(TAG, "onDataNotAvailable");
+            Log.e(TAG, "onDataNotAvailable");
             Util.LoadingProgress.hide();
         }
     };
