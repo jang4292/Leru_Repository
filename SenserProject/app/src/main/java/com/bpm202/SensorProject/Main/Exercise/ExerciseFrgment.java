@@ -225,21 +225,27 @@ public class ExerciseFrgment extends BaseFragment {
 
         StringBuilder sb = new StringBuilder();
         sb.append("[TEST_Data] Gyro [");
-        sb.append(Gyro_X);
+        sb.append(getFloatFromData(Gyro_X));
         sb.append(",");
-        sb.append(Gyro_Y);
+        sb.append(getFloatFromData(Gyro_Y));
         sb.append(",");
-        sb.append(Gyro_Z);
+        sb.append(getFloatFromData(Gyro_Z));
         sb.append("] Acc [");
-        sb.append(Acc_X);
+        sb.append(getFloatFromData(Acc_X));
         sb.append(",");
-        sb.append(Acc_Y);
+        sb.append(getFloatFromData(Acc_Y));
         sb.append(",");
-        sb.append(Acc_Z);
+        sb.append(getFloatFromData(Acc_Z));
         sb.append("] Range [");
         sb.append(Range);
         sb.append("]");
         Log.d(TAG, sb.toString());
+    }
+
+    private float getFloatFromData(short value) {
+        int tempPre = value / 100;
+        int tempPost = value % 100;
+        return tempPre + (float) tempPost / 100;
     }
 
     private int getClearDataFromByte(byte data) {
@@ -249,8 +255,6 @@ public class ExerciseFrgment extends BaseFragment {
     private short getConvertData(byte leftData, byte rightData) {
         int lsb = getClearDataFromByte(leftData);
         int rsb = getClearDataFromByte(rightData);
-//        int lsb = (int) leftData & 0x00FF;
-//        int rsb = (int) rightData & 0x00FF;
         return (short) ((lsb << 8) | rsb);
     }
 
