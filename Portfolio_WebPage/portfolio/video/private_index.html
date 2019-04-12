@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login to Access Private Video</title>
+
+    <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function login(sel) {
+            $.ajax({
+
+                url: $(sel).attr('action'), // ajax url 
+                dataType: "json", // ajax 통신의 데이터 형식
+                async: false, // 동기(false):비동기(true) 
+                type: $(sel).attr('method'),
+                data: $(sel).serialize(),
+                success: function(data) {
+
+                    if (data['result'] == 'f') { /* 로그인 실패시 */
+                        alert(data['msg']);
+                    } else if (data['result'] == 'success') { /* 로그인 성공시*/
+                        alert(data['msg']);
+                        $('#login').html(data['id'] + '님 환영합니다.');
+                    }
+
+                },
+                error: function(xhr, status, error) {
+
+                    var error_confirm = confirm('데이터 전송 오류입니다. 확인을 누르시면 페이지가 새로고침됩니다.');
+                    if (error_confirm == true) {
+                        document.location.reload();
+                    }
+                }
+            });
+            //return false;
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <h1> Login </h1>
+    <div id="login">
+        <form action="../php/login.php" name="form_ajax" method="post" onSubmit="return login(this)">
+            <input type="hidden" name="ACCESS" value="true">
+            <p><input type="text" name="id" value="" placeholder="아이디를 입력해 주세요"></p>
+            <p><input type="password" name="pw" value="" placeholder="비밀번호를 입력해 주세요"></p>
+            <input type="submit" value="login">
+        </form>
+    </div>
+</body>
+
+</html>
