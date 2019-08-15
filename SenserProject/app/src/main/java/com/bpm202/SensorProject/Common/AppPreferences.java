@@ -13,6 +13,9 @@ public class AppPreferences {
     public static final String KEY_TOKEN = "key_token";
     public static final String KEY_REGION = "key_region";
 
+    public static final String KEY_SAVE_ACCOUNT = "key_save_account";
+    public static final String KEY_CHECKED_BUTTON_ACCOUNT = "key_checked_button_account";
+
     private final String APP_NAME;
     private Context mContext;
 

@@ -3,7 +3,9 @@ package com.bpm202.SensorProject.Common;
 public class CommonUrl {
 
     //public static final String baseUrl = "http://118.41.35.234:8080/";
-    public static final String baseUrl = "http://172.30.1.51:8080/";
+//    public static final String baseUrl = "http://118.41.35.234:8081/";
+    public static final String baseUrl = "http://yhjang.ipdisk.co.kr:8081/";
+//    public static final String baseUrl = "http://172.30.1.51:8080/";
 
     public static final String url = "BuffUpSensor/";
     public static final String profileImageUrl = baseUrl + url + "images/profile/";

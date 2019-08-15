@@ -66,6 +66,8 @@ public class SettingFragment extends BaseFragment {
     private View.OnClickListener onClickLogoutListener = v -> {
         new AppPreferences(getContext()).setStringPref(AppPreferences.KEY_TOKEN, "");
         new AppPreferences(getContext()).setStringPref(AppPreferences.KEY_AUTO_LOGIN, false);
+        new AppPreferences(getContext()).setStringPref(AppPreferences.KEY_SAVE_ACCOUNT, "");
+        new AppPreferences(getContext()).setStringPref(AppPreferences.KEY_CHECKED_BUTTON_ACCOUNT, false);
 
         activityFinishToSplash();
     };

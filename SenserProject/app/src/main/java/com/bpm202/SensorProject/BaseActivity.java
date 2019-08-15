@@ -26,6 +26,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.textColor, null));
         toolbar.setTitle(getTitleText());
+        toolbar.setNavigationIcon(R.drawable.common_back_btn_n);
     }
 
     protected Toolbar getToolbar() {

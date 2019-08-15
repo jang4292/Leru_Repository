@@ -1,6 +1,8 @@
 package com.bpm202.SensorProject.Main;
 
+import android.nfc.Tag;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.bpm202.SensorProject.Data.DayOfWeek;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
@@ -21,6 +23,10 @@ public class MainDataManager {
     @NonNull
     public List<ScheduleValueObject> getScheduleValueObjectForDay(@NonNull DayOfWeek day) {
         List<ScheduleValueObject> objs = new ArrayList<>();
+        if (listScheduleValueObject == null) {
+            Log.d("MainDataManger", "getScheduleValueObjectForDay [listScheduleValueObject] : null");
+            return null;
+        }
         for (ScheduleValueObject obj : listScheduleValueObject) {
             if (obj.getDay() == day) {
                 objs.add(obj);

@@ -14,7 +14,7 @@ import com.bpm202.SensorProject.BaseFragment;
 import com.bpm202.SensorProject.Data.DayOfWeek;
 import com.bpm202.SensorProject.Data.ScheduleDataSource;
 import com.bpm202.SensorProject.Data.ScheduleRepository;
-import com.bpm202.SensorProject.Main.MainActivity;
+import com.bpm202.SensorProject.Main.MainActivity_sub;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.MappingUtil;
 import com.bpm202.SensorProject.Util.UtilForApp;
@@ -58,7 +58,7 @@ public class SchedulesAddViewPagerFragment extends BaseFragment {
             } else if (tabPosition == 1 && types[i].isEquipments()) {
                 ListType.add(types[i]);
             } else {
-                Log.e(MainActivity.TAG, "it's not types in classes");
+                Log.e(MainActivity_sub.TAG, "it's not types in classes");
             }
         }
         ExerciseAddAdapter adpater = new ExerciseAddAdapter(getContext(), ListType);
@@ -138,7 +138,7 @@ public class SchedulesAddViewPagerFragment extends BaseFragment {
             sb.setSetCnt(INIT_SET);
             sb.setRest(INIT_REST);
             //sb.setPos(pos);
-            //Log.d(MainActivity.TAG, "TEST, Add Position : " + SchdulesManager.Instance().getCurrentPageOfDay());
+            //Log.d(MainActivity_sub.TAG, "TEST, Add Position : " + SchdulesManager.Instance().getCurrentPageOfDay());
             //sb.setPos(SchdulesManager.Instance().getCurrentPageOfDay());
             return sb.create();
         }

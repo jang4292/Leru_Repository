@@ -2,28 +2,44 @@
 
     <string name="app_name">SensorProject</string>
     <string name="splash_text">202bpm\n스플래시 스크린\nClick!</string>
-    <string name="email_input_hint">이메일을 입력해주세요.</string>
-    <string name="password_input_hint">비밀번호를 입력해주세요.</string>
+    <!--<string name="email_input_hint">이메일을 입력해주세요.</string>-->
+
+    <string name="email_input_hint">이메일을 입력하세요.</string>
+    <!--<string name="password_input_hint">비밀번호를 입력해주세요.</string>-->
+    <!--<string name="password_input_hint">비밀번호를 입력하세요.</string>-->
+    <string name="password_input_hint">비밀번호를 입력하세요 (영문+숫자 조합)</string>
     <string name="password_comp_input_hint">비밀번호를 확인해주세요.</string>
     <string name="post_password_mail_msg">비밀번호를 메일로 전송하였습니다.</string>
 
 
     <string name="sign_in_button_text">로그인</string>
     <string name="sign_up_button_text">회원가입</string>
-    <string name="password_find_button_text">비밀번호 찾기</string>
+
+    <!--<string name="password_find_button_text">비밀번호 찾기</string>-->
+    <string name="password_find_button_text">ID/PW찾기</string>
     <string name="title_location_select">지역 선택</string>
     <string name="sign_up_complete">가입완료</string>
-    <string name="email_sign_up_text">이메일 가입</string>
+    <!--<string name="email_sign_up_text">이메일 가입</string>-->
+    <string name="email_sign_up_text">이메일</string>
+    <string name="pw_sign_up_text">비밀번호 설정</string>
     <string name="sns_sign_up_text">SNS 가입</string>
-    <string name="button_duplicate_text">중복 확인</string>
+    <!--<string name="button_duplicate_text">중복 확인</string>-->
+    <string name="button_duplicate_text">인증</string>
     <string name="sign_up_email_code_confirm">이메일 코드 확인</string>
-    <string name="code_input_hint">코드를 입력해주세요.</string>
+    <!--<string name="code_input_hint">코드를 입력해주세요.</string>-->
+    <string name="code_input_hint">이메일 인증 코드를 입력하세요.</string>
+    <string name="confirmed_agree">약관 동의</string>
+
+    <string name="service_agree">(필수) 서비스 이용약관 동의</string>
+    <string name="private_information__agree">(필수) 개인정보 수집 및 이용에 대한 동의</string>
+
 
     <string name="nick_duplicate_msg">중복된 닉네임 입니다.</string>
     <string name="nick_confirm_msg">사용 가능한 닉네임 입니다.</string>
 
-    <string name="button_next_text">다음</string>
+    <string name="button_next_text">다음 단계로</string>
     <string name="button_confirm_text">확인</string>
+    <string name="button_confirm_choose">선택</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -34,6 +50,9 @@
     <string name="menu_history">기록</string>
     <string name="menu_schedules">일정</string>
     <string name="menu_setting">설정</string>
+
+    <string name="title_exercise">오늘의 운동</string>
+    <string name="title_plan_exericse">운동 플랜</string>
 
 
     <string name="exit_button">버튼을 한 번 더 누르면 종료됩니다.</string>
@@ -54,25 +73,42 @@
     <string name="popup_contents_secession">정말로 회원탈퇴 하시겠습니까?</string>
     <string name="menu_secession">회원탈퇴</string>
 
-    <string name="sign_up_nick">닉네임</string>
-    <string name="sign_up_height">키</string>
+    <!--<string name="sign_up_nick">닉네임</string>-->
+    <string name="sign_up_nick">이름</string>
+    <!--<string name="sign_up_height">키</string>-->
+    <string name="sign_up_height">신장 (키)</string>
     <string name="sign_up_weight">몸무게</string>
     <string name="sign_up_age">나이</string>
     <string name="sign_up_gender">성별</string>
-    <string name="sign_up_location">지역</string>
+    <!--<string name="sign_up_location">지역</string>-->
+    <string name="sign_up_location">지역 선택</string>
 
     <string name="nick_check_duplicate_msg">닉네임 중복검사를 실행해 주세요</string>
-    <string name="sign_up_nick_hint">닉네임을 입력해주세요.</string>
+    <!--<string name="sign_up_nick_hint">닉네임을 입력해주세요.</string>-->
+    <string name="sign_up_nick_hint">이름을 입력해주세요.</string>
     <string name="sign_up_height_hint">키를 입력해 주세요.</string>
-    <string name="sign_up_weight_hint">몸무게를 입력해 주세요.</string>
-    <string name="sign_up_age_hint">나이를 입력해 주세요.</string>
+    <!--<string name="sign_up_weight_hint">몸무게를 입력해 주세요.</string>-->
+    <string name="sign_up_weight_hint">몸무게를 입력하세요.</string>
+    <!--<string name="sign_up_age_hint">나이를 입력해 주세요.</string>-->
+    <string name="sign_up_age_hint">나이를 입력하세요.</string>
     <string name="sign_up_gender_hint">성별을 선택해 주세요.</string>
-    <string name="sign_up_location_hint">지역을 검색해 주세요.</string>
+    <string name="sign_up_gender_hint2">성별 선택</string>
+    <!--<string name="sign_up_location_hint">지역을 검색해 주세요.</string>-->
+    <string name="sign_up_location_hint">지역을 선택하세요.</string>
 
     <string name="man">남자</string>
     <string name="woman">여자</string>
 
     <string name="button_edit">편집</string>
+    <string name="text_view_account_string">아이디</string>
+    <string name="text_view_name_string">이름</string>
+    <string name="text_view_gender_string">성별</string>
+    <string name="text_view_height_string">신장</string>
+    <string name="text_view_weight_string">몸무게</string>
+    <string name="text_view_age_string">나이</string>
+
+    <string name="text_view_save_account_string">아이디 저장</string>
+    <string name="text_view_auto_login_string">자동 로그인</string>
 
     <string name="schedules_kg">kg</string>
     <string name="schedules_rpm">rpm</string>

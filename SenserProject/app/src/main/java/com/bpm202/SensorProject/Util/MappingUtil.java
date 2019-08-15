@@ -8,26 +8,47 @@ import com.bpm202.SensorProject.ValueObject.TypeValueObject;
 public class MappingUtil {
 
     public static final int[] exerciseIconResource = {
-            R.drawable.push_up,
-            R.drawable.pull_up,
-            R.drawable.bicycle,
-            R.drawable.curl_barbell,
-            R.drawable.curl_dumbbell,
-            R.drawable.crunch,
-            R.drawable.squat,
-            R.drawable.deadlift_barbell,
+//            R.drawable.push_up,
+            R.drawable.today_push_up_img_small,
+//            R.drawable.pull_up,
+            R.drawable.today_pull_up_img_small,
+//            R.drawable.bicycle,
+            R.drawable.today_cycle_img_small,
+//            R.drawable.curl_barbell,
+            R.drawable.today_curl_barbell_small,
+//            R.drawable.curl_dumbbell,
+            R.drawable.today_curl_barbell_small,
+//            R.drawable.crunch,
+            R.drawable.today_crunch_img_small,
+//            R.drawable.squat,
+            R.drawable.today_squat_img_small,
+//            R.drawable.deadlift_barbell,
+            R.drawable.today_deadlift_barbell_img_small,
+//            R.drawable.deadlift_dumbbell,
             R.drawable.deadlift_dumbbell,
-            R.drawable.row_barbell,
-            R.drawable.row_dumbbell,
-            R.drawable.bench_press_barbell,
-            R.drawable.bench_press_dumbbell,
-            R.drawable.overhead_press_barbell,
-            R.drawable.overhead_press_dumbbell,
-            R.drawable.later_raise_front,
-            R.drawable.later_raise_side,
-            R.drawable.fly,
-            R.drawable.lat_pull_down,
-            R.drawable.wheel_slide
+//            R.drawable.row_barbell,
+            R.drawable.today_row_barbell_img_small,
+//            R.drawable.row_dumbbell,
+            R.drawable.today_row_dumbbell_img_small,
+//            R.drawable.bench_press_barbell,
+            R.drawable.today_bench_press_barbell_img_small,
+//            R.drawable.bench_press_dumbbell,
+            R.drawable.today_bench_press_dumbbell_img_small,
+//            R.drawable.overhead_press_barbell,
+            R.drawable.today_overhead_press_barbell_img_small,
+//            R.drawable.overhead_press_dumbbell,
+            R.drawable.today_over_head_press_dumbell_img_small,
+//            R.drawable.later_raise_front,
+            R.drawable.today_raise_front_img_small,
+//            R.drawable.later_raise_side,
+            R.drawable.today_later_raise_side_img_small,
+//            R.drawable.fly,
+            R.drawable.today_fly_img_small,
+//            R.drawable.lat_pull_down,
+            R.drawable.today_lat_pull_down_img_small,
+//            R.drawable.wheel_slide
+            R.drawable.today_abwheel_img_small
+
     };
 
     public static String name(Context context, String name) {
@@ -57,7 +78,7 @@ public class MappingUtil {
 
         final String[] convertNames = context.getResources().getStringArray(R.array.ex_name);
 
-        for (int i = 0;  i < names.length;  i++) {
+        for (int i = 0; i < names.length; i++) {
             if (names[i].equals(name)) {
                 convertName = convertNames[i];
             }

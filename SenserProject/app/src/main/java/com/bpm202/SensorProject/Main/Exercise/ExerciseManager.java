@@ -2,8 +2,7 @@ package com.bpm202.SensorProject.Main.Exercise;
 
 import android.util.Log;
 
-import com.bpm202.SensorProject.Main.MainActivity;
-import com.bpm202.SensorProject.Main.Schedules.SchdulesManager;
+import com.bpm202.SensorProject.Main.MainActivity_sub;
 
 public class ExerciseManager {
 
@@ -22,8 +21,8 @@ public class ExerciseManager {
         private STATE previousState = STATE.NONE;
 
         private void setState(STATE state) {
-            Log.i(MainActivity.TAG, "[SchdulesManager] pre : " + previousState + " to " + currentState);
-            Log.i(MainActivity.TAG, "[SchdulesManager] cur : " + currentState + " to " + state);
+            Log.i(MainActivity_sub.TAG, "[SchdulesManager] pre : " + previousState + " to " + currentState);
+            Log.i(MainActivity_sub.TAG, "[SchdulesManager] cur : " + currentState + " to " + state);
             previousState = currentState;
             currentState = state;
         }

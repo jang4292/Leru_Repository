@@ -17,7 +17,7 @@ import android.widget.TextView;
 
 import com.bpm202.SensorProject.Data.ScheduleDataSource;
 import com.bpm202.SensorProject.Data.ScheduleRepository;
-import com.bpm202.SensorProject.Main.MainActivity;
+import com.bpm202.SensorProject.Main.MainActivity_sub;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.MappingUtil;
 import com.bpm202.SensorProject.Util.QToast;
@@ -124,7 +124,7 @@ public class SchedulesViewPagerFragment extends SchdulesBaseFragment {
                                     @Override
                                     public void onDataNotAvailable() {
                                         Util.LoadingProgress.hide();
-                                        Log.e(MainActivity.TAG, "[SchedulesViewPagerFragment] deleteSchedule onDataNotAvailable");
+                                        Log.e(MainActivity_sub.TAG, "[SchedulesViewPagerFragment] deleteSchedule onDataNotAvailable");
                                     }
                                 });
                             });

@@ -36,13 +36,12 @@ public class TESTHistoryCalendarFragment extends BaseFragment {
         mGridView = v.findViewById(R.id.gridview_days);
 
 
-
         //mGridView.setData(temp);
         //mGridView.setRefresh();
 
         /*for(int i=0; i<31; i++ ) {
             TextView v1 = new TextView(getContext());
-            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams½Ç.WRAP_CONTENT);
+            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             v1.setLayoutParams(lp);
             v1.setText(String.valueOf(++i));
 
@@ -54,7 +53,6 @@ public class TESTHistoryCalendarFragment extends BaseFragment {
 
         }*/
     }
-
 
 
 }

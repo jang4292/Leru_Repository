@@ -45,7 +45,7 @@ import com.bpm202.SensorProject.Data.DayOfWeek;
 import com.bpm202.SensorProject.Data.ExDataSrouce;
 import com.bpm202.SensorProject.Data.ExRepository;
 import com.bpm202.SensorProject.Data.ExVo;
-import com.bpm202.SensorProject.Main.MainActivity;
+import com.bpm202.SensorProject.Main.MainActivity_sub;
 import com.bpm202.SensorProject.Main.MainDataManager;
 import com.bpm202.SensorProject.Main.Schedules.SchedulesFrgment;
 import com.bpm202.SensorProject.R;
@@ -506,8 +506,11 @@ public class ExerciseFrgment extends BaseFragment {
 
         @NonNull List<ScheduleValueObject> todaySchedules = MainDataManager.Instance().getScheduleValueObjectForDay(dayOfWeek);
 
+        if(todaySchedules == null) {
+            return;
+        }
         if (todaySchedules.size() == 0) {
-            ((MainActivity) getActivity()).getSupportActionBar().setTitle(R.string.today);
+            ((MainActivity_sub) getActivity()).getSupportActionBar().setTitle(R.string.today);
             setNoExerciseLayout(true);
 
             if (MainDataManager.Instance().getListScheduleValueObject().size() == 0) {
@@ -520,7 +523,7 @@ public class ExerciseFrgment extends BaseFragment {
 
             }
         } else {
-            ((MainActivity) getActivity()).getSupportActionBar().setTitle(R.string.select);
+            ((MainActivity_sub) getActivity()).getSupportActionBar().setTitle(R.string.select);
             setNoExerciseLayout(false);
 
             ExerciseAdapter adpater = new ExerciseAdapter(getContext(), todaySchedules);
@@ -600,7 +603,7 @@ public class ExerciseFrgment extends BaseFragment {
                     Rect rect = new Rect();
                     getActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
                     int statusbarHeight = rect.top;
-                    int toolbarHeight = ((MainActivity) getActivity()).getSupportActionBar().getHeight();
+                    int toolbarHeight = ((MainActivity_sub) getActivity()).getSupportActionBar().getHeight();
 
                     ImageView viewSrc = new ImageView(context);
                     viewSrc.setImageDrawable(mCircleView.getResources().getDrawable(getIconResource(scheduleVo)));
@@ -639,7 +642,7 @@ public class ExerciseFrgment extends BaseFragment {
                     mCircleView.clearAnimation();
                     mCircleView.invalidate();
 
-                    ((MainActivity) getActivity()).getSupportActionBar().setTitle(MappingUtil.name(context, scheduleVo.getType().getName()));
+                    ((MainActivity_sub) getActivity()).getSupportActionBar().setTitle(MappingUtil.name(context, scheduleVo.getType().getName()));
 
                     angle = (360f / scheduleVo.getCount());
                     totalAngle = 0;

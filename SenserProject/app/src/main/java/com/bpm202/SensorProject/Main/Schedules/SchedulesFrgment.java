@@ -18,7 +18,7 @@ import com.bpm202.SensorProject.CustomView.CustomViewPager;
 import com.bpm202.SensorProject.Data.CommonData;
 import com.bpm202.SensorProject.Data.ScheduleDataSource;
 import com.bpm202.SensorProject.Data.ScheduleRepository;
-import com.bpm202.SensorProject.Main.MainActivity;
+import com.bpm202.SensorProject.Main.MainActivity_sub;
 import com.bpm202.SensorProject.Main.MainDataManager;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.Util;
@@ -99,7 +99,7 @@ public class SchedulesFrgment extends SchdulesBaseFragment {
             public void onLoaded(List<ScheduleValueObject> scheduleVos) {
                 Util.LoadingProgress.hide();
                 if (scheduleVos == null) {
-                    Log.e(MainActivity.TAG, "[TEST] , Data is null");
+                    Log.e(MainActivity_sub.TAG, "[TEST] , Data is null");
                 } else {
                     MainDataManager.Instance().setListScheduleValueObject(scheduleVos);
                     SchdulesManager.Instance().setSTATE(SchdulesManager.STATE.DEFAULT);
@@ -109,7 +109,7 @@ public class SchedulesFrgment extends SchdulesBaseFragment {
             @Override
             public void onDataNotAvailable() {
                 Util.LoadingProgress.hide();
-                Log.e(MainActivity.TAG, "[SchedulesFragment] getSchedules onDataNotAvailable");
+                Log.e(MainActivity_sub.TAG, "[SchedulesFragment] getSchedules onDataNotAvailable");
             }
         });
     }

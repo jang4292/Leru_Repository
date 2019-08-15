@@ -17,7 +17,7 @@ import com.bpm202.SensorProject.Common.AppPreferences;
 import com.bpm202.SensorProject.Data.CommonData;
 import com.bpm202.SensorProject.Data.SignUpDataSource;
 import com.bpm202.SensorProject.Data.SignUpRepository;
-import com.bpm202.SensorProject.Main.MainActivity;
+import com.bpm202.SensorProject.Main.MainActivity_sub;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.Util.Util;
@@ -47,7 +47,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initView();
-        initData();
+//        initData();
     }
 
 
@@ -57,7 +57,7 @@ public class SignUpActivity extends AppCompatActivity {
         toolbar.setTitleTextColor(getResources().getColor(R.color.textColor, null));
         toolbar.setTitle(R.string.sign_up_button_text);
 
-        etNick = findViewById(R.id.et_nick);
+        /*etNick = findViewById(R.id.et_nick);
         etHeight = findViewById(R.id.et_height);
         etWeight = findViewById(R.id.et_weight);
         etAge = findViewById(R.id.et_age);
@@ -69,7 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
         ivProfileImage = findViewById(R.id.iv_profile_image);
         btnNickCheck = findViewById(R.id.btn_nick_check);
         btnRegionSearch = findViewById(R.id.btn_region_search);
-        btnSignUp = findViewById(R.id.btn_sign_up);
+        btnSignUp = findViewById(R.id.btn_sign_up);*/
     }
 
     private final int REQUEST_REGION = 9;
@@ -132,11 +132,12 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private String getPersonSex() {
-        if (radioGroupSex.getCheckedRadioButtonId() == R.id.check_male) {
+        /*if (radioGroupSex.getCheckedRadioButtonId() == R.id.check_male) {
             return Api.MALE;
         } else {
             return Api.FEMALE;
-        }
+        }*/
+        return Api.MALE;
     }
 
 
@@ -185,7 +186,7 @@ public class SignUpActivity extends AppCompatActivity {
                     new AppPreferences(SignUpActivity.this).setStringPref(AppPreferences.KEY_TOKEN, token);
                     App.setToken(token);
                     Util.LoadingProgress.hide();
-                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SignUpActivity.this, MainActivity_sub.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }

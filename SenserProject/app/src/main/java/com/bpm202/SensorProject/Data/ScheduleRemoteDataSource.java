@@ -32,6 +32,7 @@ public class ScheduleRemoteDataSource implements ScheduleDataSource {
     // 운동 일정 조회
     @Override
     public void getSchedules(@NonNull LoadCallback callback) {
+        Log.d("Tag", "App.getToken() : " + App.getToken());
         ExerciseRetrofit.getInstance().schedules(App.getToken())
                 .enqueue(new Callback<ApiObj<List<ScheduleValueObject>>>() {
                     @Override

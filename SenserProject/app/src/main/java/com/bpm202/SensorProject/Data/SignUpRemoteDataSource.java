@@ -97,11 +97,12 @@ public class SignUpRemoteDataSource implements SignUpDataSource {
                             return;
                         }
 
+                        Log.d("Tag", "response : " + response);
                         ApiObj apiObj = response.body();
                         if (apiObj.status.equals(Api.STATUS_FAIL)) {
                             callback.onDataNotAvailable();
                             Log.e(TAG + " checkEmail", "STATUS_FAIL");
-                            Log.e(TAG + " checkEmail", apiObj.message);
+//                            Log.e(TAG + " checkEmail", apiObj.message);
                             return;
                         }
 

@@ -2,12 +2,16 @@ package com.bpm202.SensorProject.Account;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.bpm202.SensorProject.Data.CommonData;
@@ -21,14 +25,19 @@ public class JoinActivity extends AppCompatActivity {
 
     private static final String TAG = JoinActivity.class.getSimpleName();
 
+    private Button btn_next;
+
     private Button btn_duplicate;
     private Button btn_code_confirm;
-    private Button btn_next;
+
     private EditText etEmail;
+    private EditText et_email_code;
+
     private EditText et_pw;
     private EditText et_pw_comp;
     private Toolbar toolbar;
-    private EditText et_email_code;
+    private AppCompatCheckBox cb_agree_service;
+    private AppCompatCheckBox cb_agree_private_information;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,18 +52,39 @@ public class JoinActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(getResources().getColor(R.color.textColor, null));
         toolbar.setTitle(R.string.sign_up_button_text);
+
         etEmail = findViewById(R.id.et_email);
-
         et_email_code = findViewById(R.id.et_email_code);
-
-        et_pw = findViewById(R.id.et_pw);
-        et_pw_comp = findViewById(R.id.et_pw_comp);
 
         btn_duplicate = findViewById(R.id.btn_duplicate);
         btn_code_confirm = findViewById(R.id.btn_code_confirm);
+        btn_code_confirm.setEnabled(false);
         btn_next = findViewById(R.id.btn_next);
 
+        cb_agree_service = findViewById(R.id.cb_agree_service);
+        cb_agree_private_information = findViewById(R.id.cb_agree_private_information);
+
+//        cb_agree_service.setOnCheckedChangeListener(new AppCompatCheckBox.OnCheckedChangeListener()
+        cb_agree_service.setOnCheckedChangeListener(OnAppCompatCheckBoxAgreeServiceChangeListener);
+        cb_agree_private_information.setOnCheckedChangeListener(OnAppCompatCheckBoxAgreePrivateInformationChangeListener);
+
+//        et_pw = findViewById(R.id.et_pw);
+//        et_pw_comp = findViewById(R.id.et_pw_comp);
+
     }
+
+    private boolean isCheckedAgreePrivateInforamtion = false;
+    private boolean isCheckedAgreePrivateService = false;
+    private AppCompatCheckBox.OnCheckedChangeListener OnAppCompatCheckBoxAgreeServiceChangeListener = (buttonView, isChecked) -> {
+        //TODO to need making this function for save E-mail
+        isCheckedAgreePrivateService = isChecked;
+        btn_next.setEnabled(isCheckedAgreePrivateService && isCheckedAgreePrivateInforamtion);
+    };
+    private AppCompatCheckBox.OnCheckedChangeListener OnAppCompatCheckBoxAgreePrivateInformationChangeListener = (buttonView, isChecked) -> {
+        //TODO to need making this function for save E-mail
+        isCheckedAgreePrivateInforamtion = isChecked;
+        btn_next.setEnabled(isCheckedAgreePrivateService && isCheckedAgreePrivateInforamtion);
+    };
 
     private void initListener() {
         btn_duplicate.setOnClickListener(OnClickButtonOverLapChecking);
@@ -65,7 +95,8 @@ public class JoinActivity extends AppCompatActivity {
     private View.OnClickListener OnClickButtonOverLapChecking = v -> {
 
         etEmail.setEnabled(false);
-        btn_duplicate.setText("코드 재 전송");
+        btn_code_confirm.setEnabled(true);
+        btn_duplicate.setText("재 인 증");
         et_email_code.requestFocus();
 
         Util.LoadingProgress.show(JoinActivity.this);
