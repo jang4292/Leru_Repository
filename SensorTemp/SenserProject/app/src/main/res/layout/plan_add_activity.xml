@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/intro_bg"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:foregroundGravity="center">
+
+    </android.support.v7.widget.Toolbar>
+
+    <ImageView
+
+        style="@style/top_divide"
+        android:layout_width="match_parent"
+        android:background="@drawable/common_divideline" />
+
+    <com.bpm202.SensorProject.CustomView.CustomViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:paddingHorizontal="40dp"
+        android:paddingVertical="10dp">
+
+        <Button
+            android:id="@+id/btn_bottom_today"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_today" />
+
+        <Button
+            android:id="@+id/btn_bottom_plan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_plan" />
+
+        <Button
+            android:id="@+id/btn_bottom_record"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_record" />
+
+        <Button
+            android:id="@+id/btn_bottom_setting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_setting" />
+
+    </LinearLayout>
+</LinearLayout>

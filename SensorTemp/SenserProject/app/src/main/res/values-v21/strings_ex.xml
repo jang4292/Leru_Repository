@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="push_up">Push-up</string>
+    <string name="pull_up">Pull-up</string>
+    <string name="cycle">Stationary bicycle</string>
+    <string name="barbell_curl">Curl-Barbell</string>
+    <string name="dumbbell_curl">Curl-Dumbbell</string>
+    <string name="sit_up">Crunch</string>
+    <string name="squat">Squat</string>
+    <string name="barbell_deadlift">Deadlift-Barbell</string>
+    <string name="dumbbell_deadlift">Deadlift-Dumbbell</string>
+    <string name="barbell_row">Row-Barbell,\n Bent over</string>
+    <string name="dumbbell_row">Row-Dumbbell,\n Bent over</string>
+    <string name="barbell_bench_press">Bench Press,\n Barbell</string>
+    <string name="dumbbell_bench_press">Bench Press,\n Dumbbell</string>
+    <string name="barbell_shoulder_press">Shoulder Press,\n Barbell</string>
+    <string name="dumbbell_shoulder_press">Shoulder Press,\n Dumbbell</string>
+    <string name="front_lateral_raise">Lateral raise,\n Front</string>
+    <string name="side_lateral_raise">Lateral raise,\n Side</string>
+    <string name="over_lateral_raise">Lateral raise,\n Bent over</string>
+    <string name="lat_pull_down">Lat pull Down</string>
+    <string name="ab_slide">AB Whee</string>
+
+    <string-array name="ex_name">
+        <item>@string/push_up</item>
+        <item>@string/pull_up</item>
+        <item>@string/cycle</item>
+        <item>@string/barbell_curl</item>
+        <item>@string/dumbbell_curl</item>
+        <item>@string/sit_up</item>
+        <item>@string/squat</item>
+        <item>@string/barbell_deadlift</item>
+        <item>@string/dumbbell_deadlift</item>
+        <item>@string/barbell_row</item>
+        <item>@string/dumbbell_row</item>
+        <item>@string/barbell_bench_press</item>
+        <item>@string/dumbbell_bench_press</item>
+        <item>@string/barbell_shoulder_press</item>
+        <item>@string/dumbbell_shoulder_press</item>
+        <item>@string/front_lateral_raise</item>
+        <item>@string/side_lateral_raise</item>
+        <item>@string/over_lateral_raise</item>
+        <item>@string/lat_pull_down</item>
+        <item>@string/ab_slide</item>
+    </string-array>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/streakColorPrimary">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/lineColor"
+        app:tabIndicatorHeight="10dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/textColor"
+        app:tabTextAppearance="@style/TabLayoutTheme"
+        app:tabTextColor="@color/textColor"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/iv_top_divider"
+        style="@style/top_divide"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tab_layout" />
+
+    <!--<android.support.v4.view.ViewPager-->
+
+    <com.bpm202.SensorProject.CustomView.CustomViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_top_divider" />
+</android.support.constraint.ConstraintLayout>

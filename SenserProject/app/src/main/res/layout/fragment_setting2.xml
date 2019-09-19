@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/intro_bg"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_actionbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:foregroundGravity="center">
+
+    </android.support.v7.widget.Toolbar>
+
+    <ImageView
+
+        style="@style/top_divide"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="10dp"
+        android:background="@drawable/common_divideline" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/common_box_bg"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_account_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="30dp"
+                        android:text="@string/text_view_account_string"
+                        android:textColor="@color/text_color_setting_text_label"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/tv_account_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="30dp"
+                        android:text="202bpm.com@gmail.com"
+                        android:textColor="@color/text_color_setting_text_data"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/common_divideline" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_name_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="30dp"
+                        android:text="@string/text_view_name_string"
+                        android:textColor="@color/text_color_setting_text_label"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/tv_name_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="30dp"
+                        android:text="김철수"
+                        android:textColor="@color/text_color_setting_text_data"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/common_divideline" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_gender_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="30dp"
+                        android:text="@string/text_view_gender_string"
+                        android:textColor="@color/text_color_setting_text_label"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/tv_gender_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="30dp"
+                        android:text="김철수"
+                        android:textColor="@color/text_color_setting_text_data"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/common_divideline" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_height_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="30dp"
+                        android:text="@string/text_view_height_string"
+                        android:textColor="@color/text_color_setting_text_label"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/tv_height_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="30dp"
+                        android:text="165cm"
+                        android:textColor="@color/text_color_setting_text_data"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/common_divideline" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_weight_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="30dp"
+                        android:text="@string/text_view_weight_string"
+                        android:textColor="@color/text_color_setting_text_label"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/tv_weight_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="30dp"
+                        android:text="60kg"
+                        android:textColor="@color/text_color_setting_text_data"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/common_divideline" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_age_label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="30dp"
+                        android:text="@string/text_view_weight_string"
+                        android:textColor="@color/text_color_setting_text_label"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/tv_age_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="30dp"
+                        android:text="30"
+                        android:textColor="@color/text_color_setting_text_data"
+                        android:textSize="12dp" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_gravity="bottom"
+                        android:background="@drawable/common_divideline" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:background="@drawable/common_box_bg"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="40dp"
+                        android:text="@string/text_view_save_account_string"
+                        android:textColor="@color/text_color_setting_text_label"
+                        android:textSize="14dp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:minHeight="40dp"
+                        android:text="@string/text_view_auto_login_string"
+                        android:textColor="@color/text_color_setting_text_label"
+                        android:textSize="14dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right|center_vertical"
+                    android:orientation="vertical">
+
+                    <Switch
+                        android:id="@+id/switch1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:minHeight="40dp"
+                        android:switchMinWidth="80dp"
+                        android:textOff="OFF"
+                        android:textOn="ON" />
+
+                    <Switch
+                        android:id="@+id/switch2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:minHeight="40dp"
+                        android:switchMinWidth="80dp"
+                        android:textOff="OFF"
+                        android:textOn="ON" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:background="@drawable/common_box_bg"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <Button
+                    android:id="@+id/btn_rule"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:background="@android:color/black"
+                    android:padding="10dp"
+                    android:text="약관보기"
+                    android:textColor="@color/white"
+                    android:textSize="17dp" />
+
+                <Button
+                    android:id="@+id/btn_log_out"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:background="@android:color/black"
+                    android:padding="10dp"
+                    android:text="로그아웃"
+                    android:textColor="@color/white"
+                    android:textSize="17dp" />
+
+                <Button
+                    android:id="@+id/btn_withdraw"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:background="@android:color/black"
+                    android:padding="10dp"
+                    android:text="회원탈퇴"
+                    android:textColor="@color/white"
+                    android:textSize="17dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <Button
+            android:id="@+id/btn_bottom_today"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_today" />
+
+        <Button
+            android:id="@+id/btn_bottom_plan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_plan" />
+
+        <Button
+            android:id="@+id/btn_bottom_record"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_record" />
+
+        <Button
+            android:id="@+id/btn_bottom_setting"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/selector_btn_setting" />
+
+    </LinearLayout>
+
+    <!--<ImageView
+        android:id="@+id/iv_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/top_layer"
+        android:background="@color/lineColor" />
+
+    <Button
+        android:id="@+id/btn_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_shadow"
+        android:text="비밀번호변경"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_my_infomation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_password"
+        android:text="나의정보"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_rule"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_my_infomation"
+        android:text="약관보기"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_log_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_rule"
+        android:text="로그아웃"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/btn_withdraw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_log_out"
+        android:text="회원탈퇴"
+        android:textSize="20dp" />-->
+
+
+    <!--<android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/iv_shadow" />-->
+
+
+</LinearLayout>

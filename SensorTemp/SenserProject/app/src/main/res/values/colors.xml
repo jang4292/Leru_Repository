@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="join_hint_color">#25568c</color>
+
+    <color name="streakColorPrimary">#ffffff</color>
+    <color name="textColor">#000000</color>
+    <color name="editTextColor">#25568c</color>
+    <color name="icColor">#FF000000</color>
+
+    <color name="lineColor">#8b00ff</color>
+    <color name="buttonColor">#8b00ff</color>
+
+    <color name="textColorAccent">#8b00ff</color>
+
+    <color name="text_color_in_tab">#FFFFFF</color>
+
+    <color name="white">#FFFFFFFF</color>
+    <color name="red">#FFFF0000</color>
+    <color name="text_color_item_name_list">#25568c</color>
+    <color name="text_color_setting_text_label">#000000</color>
+    <color name="text_color_setting_text_data">#25568c</color>
+</resources>
+
