@@ -9,13 +9,19 @@ import android.support.annotation.Nullable;
 
 import com.bpm202.SensorProject.Data.DayOfWeek;
 
+import java.io.Serializable;
+
 /*import com.bpm.bpm_ver4.vo.DayOfWeek;
 import com.bpm.bpm_ver4.vo.ScheduleObj;
 import com.bpm.bpm_ver4.vo.Type;*/
 
 //@Entity(tableName = "scheduleVo")
+@SuppressWarnings("serial")
 @Entity(tableName = "scheduleValueObject")
-public final class ScheduleValueObject extends JsonObj {
+public final class ScheduleValueObject extends JsonObj implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
 
     @PrimaryKey
     @NonNull
@@ -171,6 +177,11 @@ public final class ScheduleValueObject extends JsonObj {
         int id;
         String member;
         TypeValueObject type;
+
+        public DayOfWeek getDay() {
+            return day;
+        }
+
         DayOfWeek day;
         int count, weight, setCnt, pos, rest;
         boolean success;
@@ -190,6 +201,7 @@ public final class ScheduleValueObject extends JsonObj {
         public void setDay(DayOfWeek day) {
             this.day = day;
         }
+
 
         public void setCount(int count) {
             this.count = count;

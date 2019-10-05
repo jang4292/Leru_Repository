@@ -16,8 +16,6 @@ import com.bpm202.SensorProject.Common.AppPreferences;
 import com.bpm202.SensorProject.Data.SignInDataSource;
 import com.bpm202.SensorProject.Data.SignInRepository;
 import com.bpm202.SensorProject.Main.MainActivity;
-import com.bpm202.SensorProject.Main.MainActivity_sub;
-import com.bpm202.SensorProject.Main.Schedules.WeeksPlanActivity;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.Util.Util;
@@ -29,7 +27,6 @@ public class LoginActivity extends Activity {
     public static final String TAG = SignInRepository.class.getSimpleName();
 
     private Button login_btn;
-    //private TextView tv_find_pw;
     private Button tv_find_pw;
     private EditText et_email;
     private EditText editLoginPassword;
@@ -52,10 +49,8 @@ public class LoginActivity extends Activity {
 
         login_btn = findViewById(R.id.login_btn);
         btn_join = findViewById(R.id.btn_join);
-        //tv_find_pw = findViewById(R.id.tv_find_pw);
 
         tv_find_pw = findViewById(R.id.btn_find_pw);
-
 
         et_email = findViewById(R.id.et_email);
         editLoginPassword = findViewById(R.id.edit_login_password);
@@ -98,13 +93,6 @@ public class LoginActivity extends Activity {
         @Override
         public void onClick(View v) {
 
-            /*if (true) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity_sub.class);
-                startActivity(intent);
-                finish();
-                return;
-            }*/
-
             String email = et_email.getText().toString().trim();
             String password = editLoginPassword.getText().toString().trim();
 
@@ -141,9 +129,6 @@ public class LoginActivity extends Activity {
 
         @Override
         public void onResponse(String token, MemberObj memberObj) {
-            Log.i(TAG, "token : " + token);
-            Log.i(TAG, "member : " + memberObj.toString());
-            Log.i(TAG, "auto Login : " + isCheckedAutoLogin);
 
             new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.KEY_AUTO_LOGIN, isCheckedAutoLogin);
             new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.KEY_TOKEN, token);
@@ -151,10 +136,7 @@ public class LoginActivity extends Activity {
             new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.KEY_SAVE_ACCOUNT, _eMail);
 
             App.setToken(token);
-
-//            Intent intent = new Intent(LoginActivity.this, MainActivity_sub.class);
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//            Intent intent = new Intent(LoginActivity.this, WeeksPlanActivity.class);
             startActivity(intent);
             Util.LoadingProgress.hide();
             finish();

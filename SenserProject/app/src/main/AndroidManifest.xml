@@ -28,7 +28,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Account.LoginActivity" />
-        <activity android:name=".Main.MainActivity_sub" />
+        <activity
+            android:name=".Main.MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
         <activity android:name=".Account.FindPasswordActivity" />
         <activity
             android:name=".Account.JoinActivity"
@@ -41,14 +45,20 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".Main.Schedules.WeeksPlanActivity"
+            android:name=".Main.Schedules.PlanAddActivity"
+            android:screenOrientation="portrait"
+
+            android:windowSoftInputMode="stateUnspecified" />
+
+        <activity
+            android:name=".Main.Exercise.NoSettingExerciseActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Main.Exercise.MainExerciseActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 
-        <activity
-            android:name=".Main.Settings.SettingActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
 
     </application>
 

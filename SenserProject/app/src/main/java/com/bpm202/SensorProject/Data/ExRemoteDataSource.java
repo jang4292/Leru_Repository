@@ -22,19 +22,12 @@ public class ExRemoteDataSource implements ExDataSrouce {
 
     @Override
     public void addExercise(@NonNull ExVo exVo, @NonNull UploadCallback callback) {
-        if (BuildConfig.DEBUG)
-            Log.d(TAG + " addExercise:전송~", exVo.toJson());
-
         ExerciseRetrofit.getInstance().exercise(App.getToken(), exVo)
                 .enqueue(new Callback<ApiObj<Boolean>>() {
                     @Override
                     public void onResponse(Call<ApiObj<Boolean>> call, Response<ApiObj<Boolean>> response) {
-                        if (BuildConfig.DEBUG)
-                            Log.e(TAG + " addExercise", response.body().toJson());
-
                         if (response == null || response.body() == null) {
                             callback.onDataNotAvailable();
-                            Log.e(TAG + " addExercise", "null Data");
                             return;
                         }
 
@@ -43,7 +36,6 @@ public class ExRemoteDataSource implements ExDataSrouce {
 
                     @Override
                     public void onFailure(Call<ApiObj<Boolean>> call, Throwable t) {
-                        Log.e(TAG + " addExercise", "onFailure");
                         t.printStackTrace();
                         callback.onDataNotAvailable();
                     }

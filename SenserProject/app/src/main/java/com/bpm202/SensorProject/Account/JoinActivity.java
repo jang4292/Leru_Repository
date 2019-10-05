@@ -93,18 +93,14 @@ public class JoinActivity extends AppCompatActivity {
     }
 
     private View.OnClickListener OnClickButtonOverLapChecking = v -> {
-
         etEmail.setEnabled(false);
         btn_code_confirm.setEnabled(true);
         btn_duplicate.setText("재 인 증");
         et_email_code.requestFocus();
-
         Util.LoadingProgress.show(JoinActivity.this);
         String email = etEmail.getText().toString().trim();
-
         if (Util.isValidEmail(email)) {
             SignUpRepository.getInstance().checkEmail(email, new SignUpDataSource.CheckEmailCallback() {
-
                 @Override
                 public void onResponse(@NonNull String authCode, @NonNull Boolean enable) {
                     Util.LoadingProgress.hide();
@@ -120,7 +116,6 @@ public class JoinActivity extends AppCompatActivity {
                         AccountManager.Instance().setmEmailCode(authCode);
                     }
                 }
-
                 @Override
                 public void onDataNotAvailable() {
                     Util.LoadingProgress.hide();
@@ -140,6 +135,7 @@ public class JoinActivity extends AppCompatActivity {
             QToast.showToast(getApplicationContext(), R.string.email_is_not_valid_msg);
         }
     };
+
     private View.OnClickListener OnClickButtonEmailCodeConfirmChecking = v -> {
         if (et_email_code != null) {
             String code = et_email_code.getText().toString().trim();

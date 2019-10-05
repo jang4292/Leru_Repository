@@ -168,6 +168,21 @@ public class ScheduleRemoteDataSource implements ScheduleDataSource {
                     public void onResponse(Call<ApiObj<Boolean>> call, Response<ApiObj<Boolean>> response) {
                         /*if (BuildConfig.DEBUG)
                             Log.e(TAG + " deleteSchedule", response.body().toJson());*/
+
+                        /*if (BuildConfig.DEBUG && response != null)
+                            Log.e(TAG + " addSchedule", response.body().toJson());
+
+                        if (response == null || response.body() == null)
+                            callback.onDataNotAvailable();
+
+                        ApiObj<Boolean> apiObj = response.body();
+                        if (apiObj.status.equals(Api.STATUS_FAIL))
+                            callback.onDataNotAvailable();
+
+                        Boolean cussess = apiObj.obj;
+                        if (cussess) {
+                            callback.onComplete();
+                        }*/
                     }
 
                     @Override

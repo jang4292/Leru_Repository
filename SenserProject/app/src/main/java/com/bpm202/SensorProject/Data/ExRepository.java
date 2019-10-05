@@ -5,20 +5,15 @@ import android.support.annotation.NonNull;
 import java.util.Map;
 
 public class ExRepository implements ExDataSrouce {
-
     private static ExRepository INSTANCE = null;
-
     private final ExDataSrouce mRemoteDataSource;
-
 
     Map<String, ExVo> mCached;
 
     boolean mCacheIsDirty = false;
-
     private ExRepository(@NonNull ExDataSrouce remoteDataSource) {
         this.mRemoteDataSource = remoteDataSource;
     }
-
 
     public static ExRepository getInstance() {
         if (INSTANCE == null) {
@@ -31,7 +26,6 @@ public class ExRepository implements ExDataSrouce {
     public static void destroyInstance() {
         INSTANCE = null;
     }
-
 
     @Override
     public void addExercise(@NonNull ExVo exVo, @NonNull UploadCallback callback) {

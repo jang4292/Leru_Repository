@@ -9,12 +9,13 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.bpm202.SensorProject.Account.LoginActivity;
 import com.bpm202.SensorProject.Common.AppPreferences;
 import com.bpm202.SensorProject.Data.SignInDataSource;
 import com.bpm202.SensorProject.Data.SignInRepository;
-import com.bpm202.SensorProject.Main.Schedules.WeeksPlanActivity;
+import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.ValueObject.MemberObj;
 
 public class SplashActivity extends Activity {
@@ -29,7 +30,6 @@ public class SplashActivity extends Activity {
 
         if (!isAutoLoginCheckedFromPreference()) {
             initView();
-            initListener();
         } else {
             String token = new AppPreferences(getApplicationContext()).getStringPref(AppPreferences.KEY_TOKEN);
             if (token.isEmpty()) {
@@ -46,8 +46,7 @@ public class SplashActivity extends Activity {
 
         @Override
         public void onResponse(String token, MemberObj memberObj) {
-//            Intent intent = new Intent(SplashActivity.this, MainActivity_sub.class);
-            Intent intent = new Intent(SplashActivity.this, WeeksPlanActivity.class);
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
         }
@@ -55,6 +54,8 @@ public class SplashActivity extends Activity {
         @Override
         public void onDataNotAvailable() {
             Log.d(TAG, "onDataNotAvailable");
+            Toast.makeText(SplashActivity.this, "Token Login is Impossible", Toast.LENGTH_SHORT).show();
+            finish();
         }
     };
 

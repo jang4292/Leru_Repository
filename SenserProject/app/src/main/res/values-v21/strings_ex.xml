@@ -43,4 +43,65 @@
         <item>@string/lat_pull_down</item>
         <item>@string/ab_slide</item>
     </string-array>
+
+
+    <string-array name="ex_count_type">
+        <item>@string/push_up</item>
+        <item>@string/pull_up</item>
+        <item>@string/cycle</item>
+        <item>@string/barbell_curl</item>
+        <item>@string/dumbbell_curl</item>
+        <item>@string/sit_up</item>
+        <item>@string/squat</item>
+        <item>@string/barbell_deadlift</item>
+        <item>@string/dumbbell_deadlift</item>
+        <item>@string/barbell_row</item>
+        <item>@string/dumbbell_row</item>
+        <item>@string/barbell_bench_press</item>
+        <item>@string/dumbbell_bench_press</item>
+        <item>@string/barbell_shoulder_press</item>
+        <item>@string/dumbbell_shoulder_press</item>
+        <item>@string/front_lateral_raise</item>
+        <item>@string/side_lateral_raise</item>
+        <item>@string/over_lateral_raise</item>
+        <item>@string/lat_pull_down</item>
+        <item>@string/ab_slide</item>
+    </string-array>
+
+    <string-array name="ex_duration_type">
+        <item>@string/push_up</item>
+        <item>@string/pull_up</item>
+        <item>@string/cycle</item>
+        <item>@string/barbell_curl</item>
+        <item>@string/dumbbell_curl</item>
+        <item>@string/sit_up</item>
+        <item>@string/squat</item>
+        <item>@string/barbell_deadlift</item>
+        <item>@string/dumbbell_deadlift</item>
+        <item>@string/barbell_row</item>
+        <item>@string/dumbbell_row</item>
+        <item>@string/barbell_bench_press</item>
+        <item>@string/dumbbell_bench_press</item>
+        <item>@string/barbell_shoulder_press</item>
+        <item>@string/dumbbell_shoulder_press</item>
+        <item>@string/front_lateral_raise</item>
+        <item>@string/side_lateral_raise</item>
+        <item>@string/over_lateral_raise</item>
+        <item>@string/lat_pull_down</item>
+        <item>@string/ab_slide</item>
+    </string-array>
+
+    <string-array name="ex_using_range_type">
+        <item>@string/push_up</item>
+        <item>@string/pull_up</item>
+        <item>@string/barbell_deadlift</item>
+        <item>@string/dumbbell_deadlift</item>
+        <item>@string/barbell_bench_press</item>
+        <item>@string/dumbbell_bench_press</item>
+        <item>@string/front_lateral_raise</item>
+        <item>@string/side_lateral_raise</item>
+        <item>@string/over_lateral_raise</item>
+        <item>@string/lat_pull_down</item>
+        <item>@string/ab_slide</item>
+    </string-array>
 </resources>

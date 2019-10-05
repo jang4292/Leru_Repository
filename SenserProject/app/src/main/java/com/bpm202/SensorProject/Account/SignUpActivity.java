@@ -17,7 +17,7 @@ import com.bpm202.SensorProject.Common.AppPreferences;
 import com.bpm202.SensorProject.Data.CommonData;
 import com.bpm202.SensorProject.Data.SignUpDataSource;
 import com.bpm202.SensorProject.Data.SignUpRepository;
-import com.bpm202.SensorProject.Main.MainActivity_sub;
+import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.Util.Util;
@@ -186,7 +186,7 @@ public class SignUpActivity extends AppCompatActivity {
                     new AppPreferences(SignUpActivity.this).setStringPref(AppPreferences.KEY_TOKEN, token);
                     App.setToken(token);
                     Util.LoadingProgress.hide();
-                    Intent intent = new Intent(SignUpActivity.this, MainActivity_sub.class);
+                    Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }

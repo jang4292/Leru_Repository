@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -207,15 +208,26 @@ public class CustomCalendar extends LinearLayout {
             holder.tvDay.setClickable(false);
             if (str.equals("0")) {
                 holder.tvDay.setVisibility(INVISIBLE);
+                holder.tvDay.setBackgroundResource(android.R.color.transparent);
+
             } else {
                 holder.tvDay.setVisibility(VISIBLE);
                 holder.tvDay.setClickable(false);
                 holder.tvDay.setText(str);
-                holder.tvDay.setTextColor(Color.BLACK);
+
+//                holder.tvDay.setTextColor(Color.BLACK);
+                holder.tvDay.setTextColor(Color.WHITE);
+                holder.tvDay.setBackground(getResources().getDrawable(R.drawable.record_check_n));
+
+//                if (dataList.size() == 0) {
+//                    Log.d("Test", "dataList is 0");
+//                }
 
                 for (Integer i : dataList) {
                     if (str.equals(String.valueOf(i))) {
-                        holder.tvDay.setTextColor(Color.MAGENTA);
+
+                        holder.tvDay.setTextColor(Color.BLACK);
+                        holder.tvDay.setBackground(getResources().getDrawable(R.drawable.record_check_p));
                         if (onClickListener != null) {
                             holder.tvDay.setOnClickListener(onClickListener);
                         }

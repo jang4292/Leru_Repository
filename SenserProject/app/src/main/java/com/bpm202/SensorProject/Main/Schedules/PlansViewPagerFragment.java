@@ -4,24 +4,33 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bpm202.SensorProject.Data.ScheduleDataSource;
+import com.bpm202.SensorProject.Data.ScheduleRepository;
+import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.MappingUtil;
 import com.bpm202.SensorProject.Util.QToast;
+import com.bpm202.SensorProject.Util.Util;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
 import com.bpm202.SensorProject.ValueObject.TypeValueObject;
 
 import java.util.List;
 
-public class PlansViewPagerFragment extends SchdulesBaseFragment {
+public class PlansViewPagerFragment extends Fragment {
+
 
     private RecyclerView recyclerView;
+    private View v;
 
     public static PlansViewPagerFragment Instance() {
         return new PlansViewPagerFragment();
@@ -30,33 +39,24 @@ public class PlansViewPagerFragment extends SchdulesBaseFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_schedules_view_pager, container, false);
+
+        v = inflater.inflate(R.layout.fragment_schedules_view_pager, container, false);
         initView(v);
         return v;
     }
 
     @NonNull
-    @Override
-    protected int getLayoutId() {
-        return R.layout.fragment_schedules_view_pager;
-    }
-
-    @NonNull
-    @Override
     protected void initView(View v) {
         recyclerView = v.findViewById(R.id.recycler_view_exercise_list);
-        ExerciseSchedulesAdapter adpater = new ExerciseSchedulesAdapter(getContext(), list);
-        recyclerView.setAdapter(adpater);
+        ExerciseSchedulesAdapter exerciseSchedulesAdapter = new ExerciseSchedulesAdapter(getContext(), list);
+        recyclerView.setAdapter(exerciseSchedulesAdapter);
     }
 
     private List<ScheduleValueObject> list;
 
     public void setData(List<ScheduleValueObject> list) {
         this.list = list;
-    }
 
-    @Override
-    public void UpdateState(SchdulesManager.STATE cur, SchdulesManager.STATE pre) {
         if (recyclerView != null && recyclerView.getAdapter() != null) {
             recyclerView.getAdapter().notifyDataSetChanged();
         }
@@ -83,10 +83,6 @@ public class PlansViewPagerFragment extends SchdulesBaseFragment {
         public void onBindViewHolder(@NonNull ExerciseSchedulesAdapter.ScheduleViewHolder scheduleViewHolder, int position) {
             scheduleViewHolder.onBinding(list.get(position));
             scheduleViewHolder.itemView.setTag(position);
-            scheduleViewHolder.itemView.setOnClickListener(v -> {
-                QToast.showToast(context, "TEST, onItem position: " + v.getTag());
-            });
-//            }
         }
 
         @Override
@@ -110,6 +106,41 @@ public class PlansViewPagerFragment extends SchdulesBaseFragment {
 
             public ScheduleViewHolder(@NonNull View itemView) {
                 super(itemView);
+                itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+
+                        int pos = getAdapterPosition();
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                        builder.setTitle(MappingUtil.name(context, list.get(pos).getType().getName()));
+                        builder.setMessage("삭제하시겠습니까?");
+
+                        builder.setPositiveButton("예",
+                                (dialog, which) -> {
+                                    Util.LoadingProgress.show(getContext());
+                                    ScheduleRepository.getInstance().deleteSchedule(list.get(pos), new ScheduleDataSource.CompleteCallback() {
+                                        @Override
+                                        public void onComplete() {
+                                            list.remove(pos);
+                                            notifyDataSetChanged();
+                                            Util.LoadingProgress.hide();
+                                        }
+
+                                        @Override
+                                        public void onDataNotAvailable() {
+                                            Util.LoadingProgress.hide();
+                                            Log.e(MainActivity.TAG, "[SchedulesViewPagerFragment] deleteSchedule onDataNotAvailable");
+                                        }
+                                    });
+                                });
+                        builder.setNegativeButton("아니오",
+                                (dialog, which) -> QToast.showToast(context, "삭제를 취소했습니다."));
+                        builder.show();
+
+                        return true;
+                    }
+                });
 
                 ivExerciseIcon = itemView.findViewById(R.id.iv_exercise_icon);
                 tvExerciseName = itemView.findViewById(R.id.tv_exercise_name);

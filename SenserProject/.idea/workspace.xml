@@ -2,10 +2,15 @@
 <project version="4">
   <component name="AndroidLayouts">
     <shared>
-      <config />
+      <config>
+        <device id="pixel_xl" />
+        <device id="pixel_3" />
+        <device id="Nexus 6" />
+      </config>
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -24,96 +29,105 @@
       </state>
     </system>
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="SenserProject" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting2.xml">
-          <provider editor-type-id="android-designer2" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/PlanAddActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5092">
-              <caret line="268" column="41" selection-start-line="268" selection-start-column="41" selection-end-line="268" selection-end-column="41" />
+            <state relative-caret-position="263">
+              <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Account/AccountManager.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Util/MappingUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="10" column="41" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="41" />
+            <state relative-caret-position="450">
+              <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Settings/SettingActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Util/QToast.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1444">
-              <caret line="98" column="48" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
+            <state relative-caret-position="76">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Account/JoinActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Util/Util.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1767">
-              <caret line="112" column="39" selection-start-line="112" selection-start-column="39" selection-end-line="112" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/ValueObject/PersonalInfoObj.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Account/SignUpActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2888">
-              <caret line="174" column="55" selection-start-line="174" selection-start-column="55" selection-end-line="174" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2090">
-              <caret line="110" column="45" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/ValueObject/MemberObj.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="24" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="24" />
+            <state relative-caret-position="76">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Util/UtilForApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+            <state relative-caret-position="228">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
-          <provider editor-type-id="android-manifest" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/WeeksPlanActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/MainPlanFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="-2954">
+              <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2295#2296#0" expanded="true" />
+                <element signature="e#2343#2344#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/PlansViewPagerFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="51" column="56" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchdulesManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="485">
+              <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Temp/MainDataManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Setting/MainSettingFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="507">
+              <caret line="73" selection-end-line="74" />
             </state>
           </provider>
         </entry>
@@ -130,36 +144,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>startActivity</find>
-      <find>tabLayout</find>
-      <find>notifyDataSetChanged</find>
-      <find>textsize</find>
-      <find>tabTextSize</find>
-      <find>운동 플랜</find>
-      <find>settitle</find>
-      <find>ragment</find>
-      <find>getDay()</find>
-      <find>recycler_view_exercise_list</find>
-      <find>recyclerView</find>
-      <find>ExerciseSchedulesAdapter</find>
-      <find>recy</find>
-      <find>RecyclerView</find>
-      <find>activity</find>
-      <find>onclick</find>
-      <find>ItemDecoration</find>
-      <find>setting_icon_white</find>
-      <find>plan_icon</find>
-      <find>아이디</find>
-      <find>이름</find>
-      <find>MemberObj</find>
-      <find>EmailInfoObj</find>
-      <find>PersonalInfoObj</find>
-      <find>아이디 저장</find>
-      <find>setting</find>
-      <find>start</find>
-      <find>startactivity</find>
-      <find>settingactivity</find>
-      <find>overridePendingTransition(0, 0);</find>
+      <find>et_count_input</find>
+      <find>return</find>
+      <find>mRestTimeHandler</find>
+      <find>n</find>
+      <find>-----------------------------------------------n :::::::::::::::</find>
+      <find>--------------</find>
+      <find>tv_start_count</find>
+      <find>iv_start_word</find>
+      <find>handler</find>
+      <find>count</find>
+      <find>tv_Count</find>
+      <find>tv_count</find>
+      <find>startagain</find>
+      <find>start again</find>
+      <find>rest</find>
+      <find>al</find>
+      <find>plan</find>
+      <find>long</find>
+      <find>onLong</find>
+      <find>isfirst</find>
+      <find>AlertDialog</find>
+      <find>isFirst</find>
+      <find>isDone</find>
+      <find>type</find>
+      <find>isConnected</find>
+      <find>CURRENT_DAY_OF_WEEK</find>
+      <find>//</find>
+      <find>.show</find>
+      <find>Toast</find>
+      <find>//</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -168,63 +182,65 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/History/TESTHistoryCalendarFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/BaseActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Common/CommonUrl.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Common/AppPreferences.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Exercise/ExerciseFrgment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Settings/SettingFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Account/SignUpActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_join_sub.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Data/SignUpRemoteDataSource.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_join_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Account/JoinActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/main_activity_exercise.xml" />
-        <option value="$PROJECT_DIR$/app/build/generated/source/apt/debug/androidx/annotation/Nullable.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Exercise/ExerciseActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/UpdateObserverImpl.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/PlanManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/MainActivity_sub.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Account/LoginActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Data/ScheduleRemoteDataSource.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/SplashActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_action_bar.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/plan_icon_menu.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/selector/selector_tab.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/selector_tab.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/selector_tab2.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/selector_btn_plan.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/selector_btn_record.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/selector_btn_setting.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/selector_btn_today.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_schedule.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/MainDataManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchedulesViewPagerFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchdulesManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_schedules_view_pager.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Util/MappingUtil.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_plan_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/PlansViewPagerFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/plan_activity.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/menu/setting_icon_menu.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_setting2.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Settings/SettingActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Temp/MainActivity_sub.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_history_calendar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/BaseActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/layout_action_bar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_history_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/arrow_right.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/arrow_right.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/arrow_left.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_layout_calendar.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_plan_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/menu/plan_icon_menu.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/BaseFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchedulesFrgment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchedulesViewPagerFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/selector_btn_set_work.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/NoSettingExerciseActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_no_seeting_exercise.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/selector_btn_work_more.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/drawable/selector_btn_work.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_work_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_exercise_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Exercise/ExerciseFrgment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/ManagerBLE.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/ValueObject/ScheduleValueObject.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_plan_list.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/MainExerciseFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_plan_add_recyclerview.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_exercise_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values-v21/strings_ex.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Util/MappingUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/WeeksPlanActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/SplashActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Account/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/MainHistoryFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/PlansViewPagerFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchedulesAddViewPagerFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchdulesManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/MainPlanFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/MainExerciseActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Exercise/MainExerciseActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/History/MainHistoryFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/PlanAddActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Account/SignUpActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Exercise/MainExerciseFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Setting/MainSettingFragment.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2568" />
+    <option name="x" value="586" />
     <option name="y" value="-8" />
-    <option name="width" value="1296" />
-    <option name="height" value="1096" />
+    <option name="width" value="2187" />
+    <option name="height" value="1106" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -232,7 +248,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -294,7 +309,61 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="SensorProject" type="462c0819:PsiDirectoryNode" />
               <item name="Main" type="462c0819:PsiDirectoryNode" />
-              <item name="Settings" type="462c0819:PsiDirectoryNode" />
+              <item name="Exercise" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SenserProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SenserProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SensorProject" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+              <item name="History" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SenserProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SenserProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SensorProject" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+              <item name="Schedules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SenserProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SenserProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SensorProject" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+              <item name="Setting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SenserProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SenserProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SensorProject" type="462c0819:PsiDirectoryNode" />
+              <item name="Main" type="462c0819:PsiDirectoryNode" />
+              <item name="Temp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SenserProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SenserProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="SensorProject" type="462c0819:PsiDirectoryNode" />
+              <item name="Util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SenserProject" type="b2602c69:ProjectViewProjectNode" />
@@ -311,38 +380,62 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="menu" type="462c0819:PsiDirectoryNode" />
+              <item name="values" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SenserProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SenserProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="values-v21" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SenserProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SenserProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="gradle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SenserProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SenserProject" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="gradle" type="462c0819:PsiDirectoryNode" />
+              <item name="wrapper" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="device.picker.selection" value="03157df3f4c12216" />
+    <property name="device.picker.selection" value="03157df3f49fe80e" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.bpm202.SensorProject.Main.Schedules" />
       <recent name="androidx.annotation" />
+      <recent name="com.bpm202.SensorProject.Main.Schedules" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\work_project\SenserProject\app\src\main\res\drawable-xxhdpi" />
-      <recent name="D:\work_project\SenserProject\app\src\main\res\menu" />
       <recent name="D:\work_project\SenserProject\app\src\main\res\layout" />
-      <recent name="D:\work_project\SenserProject\app\src\main\res\drawable-xxhdpi\exercise_small_img" />
       <recent name="D:\work_project\SenserProject\app\src\main\res\drawable" />
+      <recent name="D:\work_project\SenserProject\app\src\main\res\menu" />
+      <recent name="D:\work_project\SenserProject\app\src\main\res\drawable-xxhdpi\exercise_small_img" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.bpm202.SensorProject.Main.Settings" />
+      <recent name="com.bpm202.SensorProject.Main" />
+      <recent name="com.bpm202.SensorProject.Main.History" />
       <recent name="com.bpm202.SensorProject.Main.Schedules" />
+      <recent name="com.bpm202.SensorProject.Main.Settings" />
       <recent name="com.bpm202.SensorProject.Main.Exercise" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\work_project\SenserProject\app\src\main\java\com\bpm202\SensorProject\Main\Schedules" />
       <recent name="D:\work_project\SenserProject\app\src\main\res\drawable-xxhdpi" />
       <recent name="D:\work_project\SenserProject\app\src\main\res\drawable" />
       <recent name="D:\work_project\SenserProject\app\src\main\res\drawable-v24" />
@@ -445,27 +538,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2568" y="-8" width="2576" height="1096" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2027027" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49740395" visible="true" weight="0.3902834" />
       <window_info id="Structure" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Favorites" order="3" sideWeight="0.5025961" side_tool="true" weight="0.19157393" />
       <window_info id="Build Variants" order="4" side_tool="true" />
       <window_info id="Image Layers" order="5" />
       <window_info id="Designer" order="6" />
       <window_info id="Resources Explorer" order="7" />
       <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Find" order="0" weight="0.32917964" />
+      <window_info anchor="bottom" id="Find" order="0" weight="0.12876427" />
       <window_info anchor="bottom" id="Run" order="1" />
-      <window_info anchor="bottom" id="Logcat" order="2" weight="0.25649014" />
+      <window_info anchor="bottom" id="Logcat" order="2" weight="0.23364486" />
       <window_info anchor="bottom" id="TODO" order="3" weight="0.32917964" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.2897196" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49960256" weight="0.8286604" />
       <window_info anchor="bottom" id="Terminal" order="5" weight="0.32917964" />
-      <window_info anchor="bottom" id="Event Log" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.50039744" side_tool="true" weight="0.20768432" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Build" order="8" visible="true" weight="0.3468328" />
-      <window_info anchor="bottom" id="Android Profiler" order="9" show_stripe_button="false" weight="0.32917964" />
+      <window_info anchor="bottom" id="Build" order="8" visible="true" weight="0.48490232" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" weight="0.5576324" />
       <window_info anchor="right" id="Preview" order="0" weight="0.52427185" />
       <window_info anchor="right" id="Device File Explorer" order="1" side_tool="true" />
       <window_info anchor="right" id="Capture Analysis" order="2" />
@@ -474,6 +567,34 @@
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Assistant" order="6" visible="true" weight="0.30134228" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49829933" weight="0.23569158" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" sideWeight="0.5017007" side_tool="true" weight="0.2027027" />
+      <window_info id="Build Variants" order="4" side_tool="true" />
+      <window_info id="Image Layers" order="5" />
+      <window_info id="Designer" order="6" />
+      <window_info id="Resources Explorer" order="7" />
+      <window_info id="Capture Tool" order="8" />
+      <window_info anchor="bottom" id="Find" order="0" weight="0.32917964" />
+      <window_info anchor="bottom" id="Run" order="1" />
+      <window_info anchor="bottom" id="Logcat" order="2" weight="0.14641744" />
+      <window_info anchor="bottom" id="TODO" order="3" weight="0.32917964" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" sideWeight="0.49960256" visible="true" weight="0.20768432" />
+      <window_info anchor="bottom" id="Terminal" order="5" weight="0.32917964" />
+      <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.50039744" side_tool="true" visible="true" weight="0.20768432" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Build" order="8" weight="0.3561786" />
+      <window_info anchor="bottom" id="Android Profiler" order="9" weight="0.5576324" />
+      <window_info anchor="right" id="Preview" order="0" weight="0.52427185" />
+      <window_info anchor="right" id="Device File Explorer" order="1" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="2" />
+      <window_info anchor="right" id="Gradle" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Assistant" order="6" visible="true" weight="0.30134228" />
+    </layout-to-restore>
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
@@ -483,432 +604,457 @@
   <component name="XDebuggerManager">
     <watches-manager>
       <configuration name="app">
-        <watch expression="dayOfWeek[i]" language="JAVA" />
-        <watch expression="dayOfWeek[0]" language="JAVA" />
-        <watch expression="dayOfWeek[1]" language="JAVA" />
-        <watch expression="CommonData.WEEK_DATA_LIST.length" language="JAVA" />
+        <watch expression="angleXZ" language="JAVA" />
+        <watch expression="String.format(&quot;%.4f&quot;, Gyro_X)" language="JAVA" />
+        <watch expression="Gyro_X" language="JAVA" />
+        <watch expression="getFloatFromData(Gyro_X)" language="JAVA" />
+        <watch expression="angleXZ" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
       <expression>
-        <expression-string>CommonData.WEEK_DATA_LIST.length</expression-string>
+        <expression-string>angleXZ</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>dayOfWeek[1]</expression-string>
+        <expression-string>getFloatFromData(Gyro_X)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>dayOfWeek[0]</expression-string>
+        <expression-string>Gyro_X</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>dayOfWeek[i]</expression-string>
+        <expression-string>String.format(&quot;%.4f&quot;, Gyro_X)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>obj</expression-string>
+        <expression-string>MappingUtil.name(this, scheduleVo.getType().getName()).equalsIgnoreCase(TypeValueObject.PUSH_UP.getName())</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>day</expression-string>
+        <expression-string>MappingUtil.name(this, scheduleVo.getType().getName()).equals(TypeValueObject.PUSH_UP.getName())</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>scheduleVos</expression-string>
+        <expression-string>MappingUtil.name(this, scheduleVo.getType().getName()).equals(TypeValueObject.valueOf())</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>mEmailInfoObj</expression-string>
+        <expression-string>MappingUtil.name(this, scheduleVo.getType().getName()).equals(getResources().getString(R.string.push_up))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>MappingUtil.name(this, scheduleVo.getType().getName()) == getResources().getString(R.string.push_up)</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/content/res/Resources.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Temp/MainActivity_sub.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="936" column="34" selection-start-line="936" selection-start-column="34" selection-end-line="936" selection-end-column="34" />
+        <state relative-caret-position="186">
+          <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/app/Activity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="6047" column="16" selection-start-line="6047" selection-start-column="16" selection-end-line="6047" selection-end-column="16" />
+        <state relative-caret-position="479">
+          <caret line="36" column="39" lean-forward="true" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/workout_bg_ready.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxhdpi/workout_bg_now_img.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values-v21/strings_ex.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1767">
+          <caret line="93" column="43" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/ValueObject/TypeValueObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
           <folding>
-            <element signature="e#108268#108269#0" expanded="true" />
-            <element signature="e#108322#108323#0" expanded="true" />
-            <element signature="e#256255#256256#0" expanded="true" />
-            <element signature="e#256297#256298#0" expanded="true" />
+            <element signature="e#2758#2759#0" expanded="true" />
+            <element signature="e#2788#2789#0" expanded="true" />
+            <element signature="e#2819#2820#0" expanded="true" />
+            <element signature="e#2851#2852#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_exercise_main.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3686">
+          <caret line="194" column="44" selection-start-line="194" selection-start-column="44" selection-end-line="194" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_plan_add_recyclerview.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1349">
+          <caret line="71" column="47" selection-start-line="71" selection-start-column="33" selection-end-line="71" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Temp/MainActivity1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/Temp_Backup/SenserProject_20190929/app/src/main/java/com/bpm202/SensorProject/Main/Temp/MainActivity_sub.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/History/TESTHistoryCalendarFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/WeeksPlanActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="37" column="21" lean-forward="true" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Exercise/ExerciseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+          <folding>
+            <element signature="e#14778#14779#0" expanded="true" />
+            <element signature="e#14823#14824#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a7c9f23b9da71c41d8d50b636a222ac/jars/classes.jar!/android/support/v4/app/FragmentActivity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="43" column="32" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/WeeksPlanActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Settings/SettingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Settings/SettingFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchedulesFrgment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="153" column="42" selection-start-line="153" selection-start-column="42" selection-end-line="153" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4681#4682#0" expanded="true" />
+            <element signature="e#4724#4725#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Exercise/ExerciseFrgment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="540" column="52" selection-start-line="540" selection-start-column="52" selection-end-line="540" selection-end-column="52" />
-          <folding>
-            <element signature="e#20828#20851#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0fa37139f43c54d410f13612642e9f7d/jars/classes.jar!/android/support/v7/widget/Toolbar.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2022">
-          <caret line="526" column="16" selection-start-line="526" selection-start-column="16" selection-end-line="526" selection-end-column="16" />
-          <folding>
-            <element signature="e#16330#16331#0" expanded="true" />
-            <element signature="e#16393#16394#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/MainActivity_sub.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="153" column="20" selection-start-line="153" selection-start-column="20" selection-end-line="153" selection-end-column="20" />
-          <folding>
-            <element signature="e#5098#5120#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/BaseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/layout_action_bar.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/plan_icon_menu.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="28" column="7" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-          <folding>
-            <element signature="e#841#862#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/schedules_edit_menu.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/main.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/selector_tab2.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/selector_tab.xml">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+          <caret line="58" column="19" lean-forward="true" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_schedules.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="18" column="8" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/selector_btn_plan.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Exercise/ExerciseManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="114">
-          <caret line="6" column="11" lean-forward="true" selection-end-line="6" selection-end-column="11" />
+          <caret line="6" column="38" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/selector_btn_record.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Exercise/ReadyTimeUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="11" lean-forward="true" selection-end-line="6" selection-end-column="11" />
+        <state relative-caret-position="133">
+          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/selector_btn_setting.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="55" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/selector_btn_today.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_example_run.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchdulesManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
-          <folding>
-            <element signature="e#4816#4817#0" expanded="true" />
-            <element signature="e#4890#4891#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/wheel_slide.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/later_raise_front.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="156" column="43" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/MainDataManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="41" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Util/UtilForApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="13" column="43" selection-start-line="11" selection-start-column="8" selection-end-line="13" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Data/SignUpRemoteDataSource.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Util/MappingUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="37" column="62" selection-start-line="37" selection-start-column="62" selection-end-line="37" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/PlansViewPagerFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="77" column="85" selection-start-line="77" selection-start-column="85" selection-end-line="77" selection-end-column="85" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6349#6350#0" expanded="true" />
-            <element signature="e#6410#6411#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_plan_list.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_schedules_view_pager.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="73" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchedulesViewPagerFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="87" column="84" selection-start-line="87" selection-start-column="84" selection-end-line="87" selection-end-column="84" />
-          <folding>
-            <element signature="e#1247#1248#0" expanded="true" />
-            <element signature="e#1302#1303#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_schedule.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" column="13" lean-forward="true" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_schedules_add_pager.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/BaseFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/History/HistoryCalendarActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
-          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/setting_icon_menu.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/History/HistoryDateActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        <state relative-caret-position="76">
+          <caret line="29" column="32" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/History/HistoryFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="33" column="74" selection-start-line="33" selection-start-column="74" selection-end-line="33" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/SplashActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="88" column="36" lean-forward="true" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/History/HistoryCalendarFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Account/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2603">
-          <caret line="159" column="21" selection-start-line="155" selection-start-column="12" selection-end-line="159" selection-end-column="21" />
+        <state relative-caret-position="751">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Settings/SettingFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/History/HistoryDateFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+        <state relative-caret-position="73">
+          <caret line="25" column="24" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
+        <state relative-caret-position="459">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/ValueObject/EmailInfoObj.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/PlanManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="11" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        <state relative-caret-position="114">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/plan_activity.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchedulesViewPagerFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="133">
+          <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+          <folding>
+            <element signature="e#1192#1193#0" expanded="true" />
+            <element signature="e#1247#1248#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting2.xml">
-      <provider editor-type-id="android-designer2" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchdulesBaseFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5092">
-          <caret line="268" column="41" selection-start-line="268" selection-start-column="41" selection-end-line="268" selection-end-column="41" />
+        <state relative-caret-position="76">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Account/AccountManager.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchedulesAddViewPagerFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="10" column="41" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="41" />
+        <state relative-caret-position="342">
+          <caret line="42" column="13" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Settings/SettingActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Temp/ManagerBLE.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1444">
-          <caret line="98" column="48" selection-start-line="98" selection-start-column="48" selection-end-line="98" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Account/JoinActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1767">
-          <caret line="112" column="39" selection-start-line="112" selection-start-column="39" selection-end-line="112" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/ValueObject/PersonalInfoObj.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
+        <state relative-caret-position="76">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Account/SignUpActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2888">
-          <caret line="174" column="55" selection-start-line="174" selection-start-column="55" selection-end-line="174" selection-end-column="55" />
+        <state relative-caret-position="284">
+          <caret line="188" column="80" selection-start-line="188" selection-start-column="80" selection-end-line="188" selection-end-column="80" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Data/SignUpRemoteDataSource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2090">
-          <caret line="110" column="45" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="45" />
+        <state relative-caret-position="393">
+          <caret line="323" column="44" selection-start-line="323" selection-start-column="44" selection-end-line="323" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/ValueObject/MemberObj.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Exercise/MainExerciseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="24" />
+        <state relative-caret-position="444">
+          <caret line="515" column="42" lean-forward="true" selection-start-line="515" selection-start-column="42" selection-end-line="515" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/WeeksPlanActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Exercise/MainExerciseFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="127">
+          <caret line="175" lean-forward="true" selection-start-line="175" selection-end-line="175" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Exercise/NoSettingExerciseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+        <state relative-caret-position="76">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/History/MainHistoryFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/MainPlanFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2954">
+          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2295#2296#0" expanded="true" />
+            <element signature="e#2343#2344#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/PlanAddActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/PlansViewPagerFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="51" column="56" selection-start-line="51" selection-start-column="56" selection-end-line="51" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Schedules/SchdulesManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="35" column="37" selection-start-line="35" selection-start-column="37" selection-end-line="35" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Temp/MainDataManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Main/Setting/MainSettingFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="73" selection-end-line="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Util/MappingUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="126" column="36" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Util/QToast.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Util/Util.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bpm202/SensorProject/Util/UtilForApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

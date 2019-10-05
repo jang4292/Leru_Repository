@@ -14,7 +14,6 @@
         android:id="@+id/iv_shadow"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@id/top_layer"
         android:background="@color/lineColor" />
 
     <Button
