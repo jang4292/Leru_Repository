@@ -33,8 +33,10 @@ public class JoinActivity extends AppCompatActivity {
     private EditText etEmail;
     private EditText et_email_code;
 
-    private EditText et_pw;
-    private EditText et_pw_comp;
+//    private EditText et_pw;
+//    private EditText et_pw_comp;
+    private EditText editPassword;
+    private EditText editPasswordConfirm;
     private Toolbar toolbar;
     private AppCompatCheckBox cb_agree_service;
     private AppCompatCheckBox cb_agree_private_information;
@@ -68,6 +70,8 @@ public class JoinActivity extends AppCompatActivity {
         cb_agree_service.setOnCheckedChangeListener(OnAppCompatCheckBoxAgreeServiceChangeListener);
         cb_agree_private_information.setOnCheckedChangeListener(OnAppCompatCheckBoxAgreePrivateInformationChangeListener);
 
+        editPassword = findViewById(R.id.edit_join_password);
+        editPasswordConfirm = findViewById(R.id.edit_join_password_confirm);
 //        et_pw = findViewById(R.id.et_pw);
 //        et_pw_comp = findViewById(R.id.et_pw_comp);
 
@@ -145,7 +149,8 @@ public class JoinActivity extends AppCompatActivity {
                 btn_duplicate.setEnabled(false);
                 et_email_code.setEnabled(false);
                 btn_code_confirm.setEnabled(false);
-                et_pw.requestFocus();
+                editPassword.requestFocus();
+//                et_pw.requestFocus();
                 QToast.showToast(getApplicationContext(), R.string.email_code_confirm_msg);
             } else {
                 QToast.showToast(getApplicationContext(), R.string.password_do_not_match);
@@ -162,8 +167,10 @@ public class JoinActivity extends AppCompatActivity {
                 QToast.showToast(JoinActivity.this, R.string.email_code_failed_msg);
             }
         } else {
-            String pw = et_pw.getText().toString().trim();
-            String pwConf = et_pw_comp.getText().toString().trim();
+//            String pw = et_pw.getText().toString().trim();
+//            String pwConf = et_pw_comp.getText().toString().trim();
+            String pw = editPassword.getText().toString().trim();
+            String pwConf = editPasswordConfirm.getText().toString().trim();
 
             boolean isPassword = pw.equals(pwConf);
             if (!isPassword) {
@@ -171,10 +178,20 @@ public class JoinActivity extends AppCompatActivity {
                 return;
             }
 
+            if(!cb_agree_service.isChecked()) {
+                QToast.showToast(JoinActivity.this, R.string.check_box_agree_service);
+                return;
+            }
+
+            if(!cb_agree_private_information.isChecked()) {
+                QToast.showToast(JoinActivity.this, R.string.check_box_agree_private_information);
+                return;
+            }
+
             Intent intent = new Intent(this, SignUpActivity.class);
             intent.putExtra(CommonData.IS_EMAIL_SIGN_UP, true);
             intent.putExtra(CommonData.ID, etEmail.getText().toString().trim());
-            intent.putExtra(CommonData.PW, et_pw.getText().toString().trim());
+            intent.putExtra(CommonData.PW, editPassword.getText().toString().trim());
             startActivity(intent);
         }
     };

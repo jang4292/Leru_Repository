@@ -88,7 +88,7 @@
                     android:layout_height="match_parent"
                     android:background="@drawable/input_bg"
                     android:hint="@string/code_input_hint"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:paddingLeft="10dp"
                     android:paddingRight="40dp"
                     android:textColorHint="@color/join_hint_color"
@@ -133,6 +133,7 @@
 
 
             <EditText
+                android:id="@+id/edit_join_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -150,7 +151,7 @@
             <!--android:id="@+id/et_email_code"-->
             <!--style="@style/sign_up_edit_text"-->
             <EditText
-
+                android:id="@+id/edit_join_password_confirm"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
