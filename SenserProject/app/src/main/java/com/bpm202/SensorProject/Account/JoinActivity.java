@@ -2,7 +2,6 @@ package com.bpm202.SensorProject.Account;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -10,8 +9,6 @@ import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import com.bpm202.SensorProject.Data.CommonData;
@@ -33,8 +30,6 @@ public class JoinActivity extends AppCompatActivity {
     private EditText etEmail;
     private EditText et_email_code;
 
-//    private EditText et_pw;
-//    private EditText et_pw_comp;
     private EditText editPassword;
     private EditText editPasswordConfirm;
     private Toolbar toolbar;
@@ -66,15 +61,11 @@ public class JoinActivity extends AppCompatActivity {
         cb_agree_service = findViewById(R.id.cb_agree_service);
         cb_agree_private_information = findViewById(R.id.cb_agree_private_information);
 
-//        cb_agree_service.setOnCheckedChangeListener(new AppCompatCheckBox.OnCheckedChangeListener()
         cb_agree_service.setOnCheckedChangeListener(OnAppCompatCheckBoxAgreeServiceChangeListener);
         cb_agree_private_information.setOnCheckedChangeListener(OnAppCompatCheckBoxAgreePrivateInformationChangeListener);
 
         editPassword = findViewById(R.id.edit_join_password);
         editPasswordConfirm = findViewById(R.id.edit_join_password_confirm);
-//        et_pw = findViewById(R.id.et_pw);
-//        et_pw_comp = findViewById(R.id.et_pw_comp);
-
     }
 
     private boolean isCheckedAgreePrivateInforamtion = false;
@@ -120,6 +111,7 @@ public class JoinActivity extends AppCompatActivity {
                         AccountManager.Instance().setmEmailCode(authCode);
                     }
                 }
+
                 @Override
                 public void onDataNotAvailable() {
                     Util.LoadingProgress.hide();
@@ -150,7 +142,6 @@ public class JoinActivity extends AppCompatActivity {
                 et_email_code.setEnabled(false);
                 btn_code_confirm.setEnabled(false);
                 editPassword.requestFocus();
-//                et_pw.requestFocus();
                 QToast.showToast(getApplicationContext(), R.string.email_code_confirm_msg);
             } else {
                 QToast.showToast(getApplicationContext(), R.string.password_do_not_match);
@@ -159,7 +150,6 @@ public class JoinActivity extends AppCompatActivity {
     };
 
     private View.OnClickListener OnClickButtonNextPage = v -> {
-
         if (AccountManager.Instance().isCheckedAllConfirmed()) {
             if (!AccountManager.Instance().isCheckedEmailOverLapConfirm()) {
                 QToast.showToast(JoinActivity.this, R.string.email_duplicate_check_msg);
@@ -167,8 +157,6 @@ public class JoinActivity extends AppCompatActivity {
                 QToast.showToast(JoinActivity.this, R.string.email_code_failed_msg);
             }
         } else {
-//            String pw = et_pw.getText().toString().trim();
-//            String pwConf = et_pw_comp.getText().toString().trim();
             String pw = editPassword.getText().toString().trim();
             String pwConf = editPasswordConfirm.getText().toString().trim();
 
@@ -178,18 +166,17 @@ public class JoinActivity extends AppCompatActivity {
                 return;
             }
 
-            if(!cb_agree_service.isChecked()) {
+            if (!cb_agree_service.isChecked()) {
                 QToast.showToast(JoinActivity.this, R.string.check_box_agree_service);
                 return;
             }
 
-            if(!cb_agree_private_information.isChecked()) {
+            if (!cb_agree_private_information.isChecked()) {
                 QToast.showToast(JoinActivity.this, R.string.check_box_agree_private_information);
                 return;
             }
 
-            Intent intent = new Intent(this, SignUpActivity.class);
-            intent.putExtra(CommonData.IS_EMAIL_SIGN_UP, true);
+            Intent intent = new Intent(this, JoinDetailsActivity.class);
             intent.putExtra(CommonData.ID, etEmail.getText().toString().trim());
             intent.putExtra(CommonData.PW, editPassword.getText().toString().trim());
             startActivity(intent);

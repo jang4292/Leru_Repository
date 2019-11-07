@@ -34,8 +34,8 @@
     <string name="private_information__agree">(필수) 개인정보 수집 및 이용에 대한 동의</string>
 
 
-    <string name="nick_duplicate_msg">중복된 닉네임 입니다.</string>
-    <string name="nick_confirm_msg">사용 가능한 닉네임 입니다.</string>
+    <string name="nick_duplicate_msg">중복된 네임 입니다.</string>
+    <string name="nick_confirm_msg">사용 가능한 네임 입니다.</string>
 
     <string name="button_next_text">다음 단계로</string>
     <string name="button_confirm_text">확인</string>

@@ -25,15 +25,38 @@
             android:textColor="@color/textColor"
             android:textSize="14dp" />
 
-        <EditText
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/input_bg"
-            android:hint="@string/sign_up_nick_hint"
-            android:inputType="text"
-            android:padding="5dp"
-            android:textColorHint="@color/join_hint_color"
-            android:textSize="16dp" />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edit_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/input_bg"
+                android:gravity="center|left"
+                android:hint="@string/sign_up_nick_hint"
+                android:inputType="text"
+                android:paddingVertical="8dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="40dp"
+                android:textColorHint="@color/join_hint_color"
+                android:textSize="16dp" />
+
+            <Button
+                android:id="@+id/btn_name_check"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="right|center_vertical"
+                android:background="@drawable/common_main_btn_n"
+                android:text="@string/button_duplicate_text"
+                android:textColor="@android:color/white"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
 
         <TextView
             android:layout_width="match_parent"
@@ -44,20 +67,22 @@
             android:textSize="14dp" />
 
         <RadioGroup
+            android:id="@+id/radio_group_sex"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="-5dp"
+            android:checkedButton="@+id/rg_btn_male"
             android:orientation="horizontal">
 
             <RadioButton
-                android:id="@+id/rg_btn1"
+                android:id="@+id/rg_btn_male"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:drawableStart="@drawable/join_male_img" />
 
             <RadioButton
-                android:id="@+id/rg_btn2"
+                android:id="@+id/rg_btn_female"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -102,11 +127,12 @@
             android:textSize="14dp" />
 
         <EditText
+            android:id="@+id/et_height"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/input_bg"
-            android:hint="@string/sign_up_nick_hint"
-            android:inputType="text"
+            android:hint="@string/sign_up_height_hint"
+            android:inputType="number"
             android:padding="5dp"
             android:textColorHint="@color/join_hint_color"
             android:textSize="16dp" />
@@ -120,11 +146,12 @@
             android:textSize="14dp" />
 
         <EditText
+            android:id="@+id/et_weight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/input_bg"
             android:hint="@string/sign_up_weight_hint"
-            android:inputType="text"
+            android:inputType="number"
             android:padding="5dp"
             android:textColorHint="@color/join_hint_color"
             android:textSize="16dp" />
@@ -138,12 +165,13 @@
             android:textSize="14dp" />
 
         <EditText
+            android:id="@+id/et_age"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/input_bg"
             android:hint="@string/sign_up_age_hint"
-            android:inputType="text"
             android:padding="5dp"
+            android:inputType="number"
             android:textColorHint="@color/join_hint_color"
             android:textSize="16dp" />
 
@@ -160,18 +188,20 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/tv_region"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/input_bg"
+                android:gravity="center|left"
                 android:paddingVertical="8dp"
                 android:paddingLeft="10dp"
                 android:paddingRight="40dp"
                 android:text="@string/sign_up_location_hint"
-                android:gravity="center|left"
                 android:textColor="@color/join_hint_color"
                 android:textSize="16dp" />
 
             <Button
+                android:id="@+id/btn_region"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="right|center_vertical"
@@ -183,6 +213,7 @@
         </FrameLayout>
 
         <Button
+            android:id="@+id/btn_sign_up"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

@@ -38,8 +38,11 @@
             android:name=".Account.JoinActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Account.SignUpActivity"
+            android:name=".Account.JoinDetailsActivity"
             android:windowSoftInputMode="stateHidden" />
+        <!--<activity-->
+            <!--android:name=".Account.SignUpActivity"-->
+            <!--android:windowSoftInputMode="stateHidden" />-->
         <activity
             android:name=".Account.RegionActivity"
             android:windowSoftInputMode="stateHidden" />

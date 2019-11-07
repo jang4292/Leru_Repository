@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.bpm202.SensorProject.Data.CommonData;
+import com.bpm202.SensorProject.Data.RegionManager;
 import com.bpm202.SensorProject.Data.SignUpDataSource;
 import com.bpm202.SensorProject.Data.SignUpRepository;
 import com.bpm202.SensorProject.R;
@@ -25,13 +25,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegionActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private RegionAdapter mRegionAdapter;
+    private RecyclerView recyclerMainView;
+    private RecyclerView recyclerSubView;
+
+    private RegionMainAdapter mRegionMainAdapter;
+    private RegionSubAdapter mRegionSubAdapter;
+
     private Toolbar toolbar;
-
-    private List<RegionObj> regionObjList;
-
-    private boolean is2ndDepth = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,49 +41,19 @@ public class RegionActivity extends AppCompatActivity {
     }
 
     private void initView() {
+
         setContentView(R.layout.activity_region);
         toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(R.string.title_location_select);
         toolbar.setTitleTextColor(getResources().getColor(R.color.textColor, null));
-        recyclerView = findViewById(R.id.recycler_view);
+        toolbar.setTitle(R.string.title_location_select);
 
-        mRegionAdapter = new RegionAdapter(RegionActivity.this);
-        recyclerView.setAdapter(mRegionAdapter);
-    }
+        recyclerMainView = findViewById(R.id.recycler_main_view);
+        mRegionMainAdapter = new RegionMainAdapter(RegionActivity.this);
+        recyclerMainView.setAdapter(mRegionMainAdapter);
 
-    /**
-     * 도 지역 추출(또는 광역시 이상의 시)
-     */
-    private List<RegionObj> mainRegion(List<RegionObj> regionObjs) {
-        List<RegionObj> provinceName = new ArrayList<>();
-        String temp = "";
-        for (RegionObj obj : regionObjs) {
-            if (!temp.equals(obj.main)) {
-                temp = obj.main;
-                provinceName.add(obj);
-            }
-        }
-
-        return provinceName;
-    }
-
-    /**
-     * 도지역 안의 도시이름(광역시 이상은 구)
-     *
-     * @param provinceName
-     * @return
-     */
-    private ArrayList<RegionObj> subRegion(String provinceName) {
-        ArrayList<RegionObj> regionObjs = new ArrayList<>();
-        for (RegionObj obj : regionObjList) {
-            if (obj.main.equals(provinceName)) {
-                regionObjs.add(obj);
-            }
-        }
-
-        return regionObjs;
+        recyclerSubView = findViewById(R.id.recycler_sub_view);
+        mRegionSubAdapter = new RegionSubAdapter(RegionActivity.this);
+        recyclerSubView.setAdapter(mRegionSubAdapter);
     }
 
     private void initData() {
@@ -91,8 +61,8 @@ public class RegionActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(List<RegionObj> objList) {
-                regionObjList = objList;
-                mRegionAdapter.setRegionObjs(mainRegion(regionObjList));
+                RegionManager.Instance().initData(objList);
+                mRegionMainAdapter.setRegionObjs(RegionManager.Instance().getData(), mRegionSubAdapter);
             }
 
             @Override
@@ -102,23 +72,13 @@ public class RegionActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-
-        if (is2ndDepth) {
-            is2ndDepth = false;
-            mRegionAdapter.setRegionObjs(mainRegion(regionObjList));
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    private class RegionAdapter extends RecyclerView.Adapter<RegionAdapter.ViewHolder> {
+    private class RegionMainAdapter extends RecyclerView.Adapter<RegionMainAdapter.ViewHolder> {
 
         private Context context;
-        private List<RegionObj> regionObjs;
+        private ArrayList<RegionManager.RegionClass> region;
+        private RegionSubAdapter subAdapter;
 
-        public RegionAdapter(Context context) {
+        public RegionMainAdapter(Context context) {
             this.context = context;
         }
 
@@ -126,7 +86,7 @@ public class RegionActivity extends AppCompatActivity {
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
             View itemView = LayoutInflater.from(context).inflate(R.layout.item_region, viewGroup, false);
-            return new ViewHolder(itemView);
+            return new ViewHolder(itemView, region);
         }
 
         @Override
@@ -136,43 +96,99 @@ public class RegionActivity extends AppCompatActivity {
 
         @Override
         public int getItemCount() {
-            return regionObjs != null ? regionObjs.size() : 0;
+            return region != null ? region.size() : 0;
         }
 
-        public void setRegionObjs(List<RegionObj> regionObjs) {
-            this.regionObjs = regionObjs;
+        public void setRegionObjs(ArrayList<RegionManager.RegionClass> data, RegionSubAdapter subAdapter) {
+            this.region = data;
+            this.subAdapter = subAdapter;
             notifyDataSetChanged();
         }
 
+
         private class ViewHolder extends RecyclerView.ViewHolder {
 
+            private ArrayList<RegionManager.RegionClass> list;
             private final Button btnRegion;
 
-            public ViewHolder(@NonNull View itemView) {
+            public ViewHolder(@NonNull View itemView, ArrayList<RegionManager.RegionClass> arrayList) {
                 super(itemView);
                 btnRegion = itemView.findViewById(R.id.btn_region);
+                list = arrayList;
             }
 
             public void onBinding(int position) {
-                if (is2ndDepth) {
-                    btnRegion.setText(regionObjs.get(position).sub);
-                } else {
-                    btnRegion.setText(regionObjs.get(position).main);
-                }
-
+                btnRegion.setText(list.get(position).getMainRegion());
                 btnRegion.setOnClickListener(v -> {
-                    if (is2ndDepth) {
-                        Intent intent = new Intent();
-                        intent.putExtra(CommonData.REGION_ID, regionObjs.get(position).id);
-                        intent.putExtra(CommonData.REGION_NAME, String.format("%s %s", regionObjs.get(position).main, regionObjs.get(position).sub));
-                        setResult(RESULT_OK, intent);
-                        finish();
-                    } else {
-                        is2ndDepth = true;
-                        setRegionObjs(subRegion(regionObjs.get(position).main));
-                    }
+                    subAdapter.setRegionObjs(list.get(position).getMainRegion(), list.get(position).getSubRegion());
+                });
+            }
+        }
+    }
+
+    private class RegionSubAdapter extends RecyclerView.Adapter<RegionSubAdapter.ViewHolder> {
+
+        private Context context;
+        private ArrayList<String> region;
+        private String mainRegionName;
+
+        public RegionSubAdapter(Context context) {
+            this.context = context;
+        }
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+            View itemView = LayoutInflater.from(context).inflate(R.layout.item_region, viewGroup, false);
+            return new ViewHolder(itemView, mainRegionName, region);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
+            viewHolder.onBinding(mainRegionName, region, position);
+        }
+
+        @Override
+        public int getItemCount() {
+            return region != null ? region.size() : 0;
+        }
+
+        public void setRegionObjs(String mainRegion, ArrayList<String> data) {
+            mainRegionName = mainRegion;
+            this.region = data;
+            notifyDataSetChanged();
+        }
+
+
+        private class ViewHolder extends RecyclerView.ViewHolder {
+
+            private ArrayList<String> list;
+            private final Button btnRegion;
+            private String mainRegionName;
+
+            public ViewHolder(@NonNull View itemView, String mainRegion, ArrayList<String> arrayList) {
+                super(itemView);
+                mainRegionName = mainRegion;
+                btnRegion = itemView.findViewById(R.id.btn_region);
+                list = arrayList;
+            }
+
+            public void onBinding(String mainRegion, ArrayList<String> arrayList, int position) {
+                mainRegionName = mainRegion;
+                list = arrayList;
+
+                btnRegion.setText(list.get(position));
+                btnRegion.setOnClickListener(v -> {
+                    Intent intent = new Intent();
+//                        intent.putExtra(CommonData.REGION_ID, regionObjs.get(position).id);
+//                        intent.putExtra(CommonData.REGION_NAME, String.format("%s %s", regionObjs.get(position).main, regionObjs.get(position).sub));
+                    intent.putExtra(CommonData.REGION_ID, RegionManager.Instance().getCurrentId(mainRegionName, list.get(position)));
+                    intent.putExtra(CommonData.REGION_NAME, String.format("%s %s", mainRegionName, list.get(position)));
+                    setResult(RESULT_OK, intent);
+                    finish();
                 });
             }
         }
     }
 }
+
