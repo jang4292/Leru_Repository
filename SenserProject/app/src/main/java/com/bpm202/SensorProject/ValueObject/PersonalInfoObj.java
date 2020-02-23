@@ -10,6 +10,34 @@ public class PersonalInfoObj extends JsonObj {
     private String gender;   // 성명 (남: M / 여: F)
     private int region;  // 지역
 
+    private int idx;
+    private String regionStr;  // 지역 이름
+    private String email;  // 이메일
+
+    public int getIdx() {
+        return idx;
+    }
+
+    public void setIdx(int idx) {
+        this.idx = idx;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getRegionStr() {
+        return regionStr;
+    }
+
+    public void setRegionStr(String regionStr) {
+        this.regionStr = regionStr;
+    }
+
 
     public String getPhoto() {
         return photo;

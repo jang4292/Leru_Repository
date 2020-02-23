@@ -6,7 +6,7 @@
     android:layout_margin="10dp"
     android:background="@drawable/common_box_bg"
     android:minHeight="120dp"
-    android:padding="15dp">
+    android:padding="10dp">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -20,7 +20,7 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:padding="5dp"
-            android:scaleType="fitXY"
+            android:scaleType="centerInside"
             app:srcCompat="@drawable/ic_example_run" />
 
         <TextView
@@ -32,12 +32,12 @@
             android:gravity="center"
             android:text="Knee Push-Up\nBalance board"
             android:textColor="@color/text_color_item_name_list"
-            android:textSize="26dp"
+            android:textSize="24dp"
             android:textStyle="normal" />
 
     </LinearLayout>
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
@@ -147,5 +147,111 @@
         </LinearLayout>
 
 
+    </LinearLayout>-->
+
+
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:orientation="vertical">
+        <!--android:layout_weight="1"-->
+        <!--android:layout_margin="5dp"-->
+        <!--android:minWidth="40dp"-->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_weight_num"
+                style="@style/schedule_num_tv"
+                android:text="25"
+                app:layout_constraintHorizontal_chainStyle="spread" />
+
+            <TextView
+                android:id="@+id/tv_weight_label"
+                style="@style/schedule_label_tv" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/tv_set_num"
+                style="@style/schedule_num_tv"
+                android:text="03"
+                app:layout_constraintHorizontal_chainStyle="spread" />
+
+            <TextView
+                android:id="@+id/tv_set_label"
+                style="@style/schedule_label_tv" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <!--android:layout_weight="1"-->
+
+            <TextView
+                android:id="@+id/tv_rest_num"
+                style="@style/schedule_num_tv"
+                android:text="15"
+                app:layout_constraintHorizontal_chainStyle="spread" />
+
+            <TextView
+                android:id="@+id/tv_rest_label"
+                style="@style/schedule_label_tv" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <!--android:layout_weight="1"-->
+
+
+            <TextView
+                android:id="@+id/tv_count_num"
+                style="@style/schedule_num_tv"
+                android:text="30"
+                app:layout_constraintHorizontal_chainStyle="spread" />
+
+            <TextView
+                android:id="@+id/tv_count_label"
+                style="@style/schedule_label_tv" />
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="vertical">-->
+        <!--&lt;!&ndash;android:layout_margin="5dp"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_weight="1"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:minWidth="40dp"&ndash;&gt;-->
+
+
+        <!---->
+
+
+    <!--</LinearLayout>-->
+
+
 </LinearLayout>

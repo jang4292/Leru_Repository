@@ -9,6 +9,16 @@ public class MemberObj extends JsonObj {
 
     private PersonalInfoObj info;    // 개인 정보
 
+    private String eMail;
+
+
+    public String getEMail() {
+        return eMail;
+    }
+
+    public void setEmail(String email) {
+        this.eMail = email;
+    }
 
     public String getId() {
         return id;

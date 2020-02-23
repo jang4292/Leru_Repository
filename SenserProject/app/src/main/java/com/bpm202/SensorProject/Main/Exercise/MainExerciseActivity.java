@@ -19,6 +19,7 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,10 +27,16 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bpm202.SensorProject.Data.ExDataSrouce;
+import com.bpm202.SensorProject.Data.ExRepository;
+import com.bpm202.SensorProject.Data.ExVo;
+import com.bpm202.SensorProject.GraphSendTask;
 import com.bpm202.SensorProject.Main.Temp.ManagerBLE;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.MappingUtil;
+import com.bpm202.SensorProject.Util.Util;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
+import com.bpm202.SensorProject.db.SendScheduleData;
 
 import java.util.List;
 import java.util.UUID;
@@ -65,7 +72,8 @@ public class MainExerciseActivity extends AppCompatActivity {
     private TextView tv_rest_time_label;
     private ImageView iv_now_img;
     private boolean isFinished = false;
-    private boolean isDone = true;
+    private long startTime;
+//    private boolean isDone = true;
 
     @Override
     public void onBackPressed() {
@@ -82,8 +90,15 @@ public class MainExerciseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exercise_main);
+        mExStartTime = System.currentTimeMillis();
+
         scheduleVo = (ScheduleValueObject) getIntent().getSerializableExtra("ScheduleValueObject");
         init();
+
+        //        sendData();
+//        scheduleVoCount = 1;
+//        scheduleVoSetCount = 0;
+//        mcheckingTimeHandler.sendEmptyMessageDelayed(400, 1);
     }
 
     private void init() {
@@ -128,6 +143,7 @@ public class MainExerciseActivity extends AppCompatActivity {
         iv_now_img = findViewById(R.id.iv_now_img);
         changeReady(true);
 
+        firstData = 0;
         Message msg = new Message();
         msg.what = 1000;
         msg.arg1 = 5;
@@ -376,7 +392,9 @@ public class MainExerciseActivity extends AppCompatActivity {
             } else if (ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
                 // Show all the supported services and characteristics on the user interface.
                 //서비스를 제공하고 있는지를 보여준다.
-                discoveredGattServices(gatt.getServices());
+                if (gatt != null) {
+                    discoveredGattServices(gatt.getServices());
+                }
             } else if (ACTION_DATA_AVAILABLE.equals(action)) {
                 if (!isRunning) {
                     return;
@@ -390,12 +408,6 @@ public class MainExerciseActivity extends AppCompatActivity {
     };
 
     private int RangeCount = 0;
-    private boolean isCheckedCountRange = false;
-
-    private long mLastClick = 0;
-    private final long CLICK_DELAY = 500;
-
-    private short prev_data = 0;
 
     // for radian -> dgree
     private double RAD2DGR = 180 / Math.PI;
@@ -410,24 +422,13 @@ public class MainExerciseActivity extends AppCompatActivity {
     private double timestamp;
     private double dt;
 
-    private int prev_XZ;
-    private int prev_YZ;
-
     private int firstData = 0;
+    private boolean isMovedDone = false;
 
     public void dataReceived(String uudi_data, String data_string, byte[] row_data) {
         if (isRestTime || isFinished) {
             return;
         }
-
-        if (mLastClick < System.currentTimeMillis() - CLICK_DELAY) {
-            mLastClick = System.currentTimeMillis();
-            pitch = 0;
-            roll = 0;
-            yaw = 0;
-            return;
-        }
-
 
         int stx = getClearDataFromByte(row_data[0]);
         int seq = getClearDataFromByte(row_data[1]);
@@ -450,8 +451,6 @@ public class MainExerciseActivity extends AppCompatActivity {
         double angleYZ = Math.abs(Math.atan2(tempY, tempZ) * 180 / Math.PI) - 180;
 
 
-
-
         /* 각속도를 적분하여 회전각을 추출하기 위해 적분 간격(dt)을 구한다.
          * dt : 센서가 현재 상태를 감지하는 시간 간격
          * NS2S : nano second -> second */
@@ -471,79 +470,139 @@ public class MainExerciseActivity extends AppCompatActivity {
             yaw = yaw + Gyro_Z * dt;
         }
 
-        short exericeseData = range;
-        short minimum = 0;
-        short maximum = 15;
         if (MappingUtil.isUsingRangeType(this, scheduleVo.getType().getName())) {
-            minimum = 0;
-            maximum = 70;
             if (firstData == 0) {
-                firstData = (int) angleXZ;
-                isDone = false;
+                firstData = (int) range;
+                startTime = System.currentTimeMillis();
             }
 
-            prev_XZ = (int) angleXZ;
-            exericeseData = (short) Math.abs(prev_XZ - firstData);
-            Log.e("Test", "exericeseData : " + exericeseData);
-        }
+            if (!isMovedDone && (firstData - (int) range) > 30) {
+                isMovedDone = true;
+            }
 
-        if (!isCheckedCountRange && exericeseData > minimum && exericeseData < maximum) {
-            isCheckedCountRange = true;
-            if (scheduleVoSetCount != 0) {
-                if (!isDone) {
-                    isDone = true;
-                    return;
-                }
-                int tempCount = scheduleVoCount - (++RangeCount);
-                if (tempCount != 0) {
-                    iv_start_word.setVisibility(View.GONE);
-                    tv_start_count.setVisibility(View.VISIBLE);
-                    iv_now_img.setVisibility(View.VISIBLE);
-                    tv_start_count.setText(String.valueOf(tempCount));
-                    firstData = 0;
+            if (isMovedDone && (firstData - (int) range) <= 5) {
+                isMovedDone = false;
+                if (scheduleVoSetCount != 0) {
+                    mcheckingTimeHandler.removeMessages(400);
+                    mcheckingTimeHandler.sendEmptyMessageDelayed(400, 1);
                 } else {
-                    scheduleVoSetCount--;
-                    RangeCount = 0;
-                    if (scheduleVoSetCount > 0) {
-
-                        tv_rest_time_label.setVisibility(View.VISIBLE);
-                        iv_now_img.setVisibility(View.GONE);
-                        tv_start_count.setVisibility(View.GONE);
-                        Message msg = new Message();
-                        msg.what = 300;
-                        msg.arg1 = scheduleVoRest;
-                        mRestTimeHandler.sendMessage(msg);
-                        isRestTime = true;
-                    } else {
-                        iv_now_img.setVisibility(View.GONE);
-                        tv_start_count.setVisibility(View.GONE);
-                        isFinished = true;
-                        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                        builder.setTitle(scheduleVo.getType().getName() + "을 끝냈습니다.");
-                        builder.setMessage("오늘의 운동으로 이동 하겠습니다.");
-
-                        builder.setCancelable(false);
-                        builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                onBackPressed();
-                            }
-                        });
-                        builder.show();
-                    }
+                    isFinished = true;
+                    onBackPressed();
                 }
-            } else {
-                isFinished = true;
-                onBackPressed();
+            }
+        } else {
 
+            if (firstData == 0) {
+                firstData = (int) angleYZ;
+                startTime = System.currentTimeMillis();
             }
 
-            prev_data = exericeseData;
-            Log.d("TEST_Data", "isCheckedCountRange = false; RangeCount : " + RangeCount);
-        } else if (isCheckedCountRange && exericeseData > 50) {
-            isCheckedCountRange = false;
+            int absAngleYZ = Math.abs((firstData - (int) angleYZ));
+
+            if (!isMovedDone && absAngleYZ > 60) {
+                isMovedDone = true;
+            }
+
+            if (isMovedDone && absAngleYZ <= 5) {
+                isMovedDone = false;
+                if (scheduleVoSetCount != 0) {
+                    mcheckingTimeHandler.removeMessages(400);
+                    mcheckingTimeHandler.sendEmptyMessageDelayed(400, 1);
+                } else {
+                    isFinished = true;
+                    onBackPressed();
+                }
+            }
         }
     }
+
+    private Handler mcheckingTimeHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+
+            switch (msg.what) {
+                case 400:
+                    int tempCount = scheduleVoCount - (++RangeCount);
+                    if (tempCount != 0) {
+                        iv_start_word.setVisibility(View.GONE);
+                        tv_start_count.setVisibility(View.VISIBLE);
+                        iv_now_img.setVisibility(View.VISIBLE);
+                        tv_start_count.setText(String.valueOf(tempCount));
+                    } else {
+                        scheduleVoSetCount--;
+                        RangeCount = 0;
+
+                        scheduleVo.setSetCnt(scheduleVoSetCount);
+                        exercisePost(scheduleVo, scheduleVoSetCount - scheduleVo.getSetCnt());
+                        if (scheduleVoSetCount > 0) {
+
+                            tv_rest_time_label.setVisibility(View.VISIBLE);
+                            iv_now_img.setVisibility(View.GONE);
+                            tv_start_count.setVisibility(View.GONE);
+                            Message msg1 = new Message();
+                            msg1.what = 300;
+                            msg1.arg1 = scheduleVoRest;
+                            mRestTimeHandler.sendMessage(msg1);
+                            isRestTime = true;
+                        } else {
+                            iv_now_img.setVisibility(View.GONE);
+                            tv_start_count.setVisibility(View.GONE);
+                            isFinished = true;
+
+                            scheduleVo.setSuccess(true);
+//                            notifyDataSetChanged();
+//                            ExerciseManager.Instance().setSTATE(ExerciseManager.STATE.FINISH);
+//                            float startPos1 = statusLayout.getHeight();
+//                            tvDesc.setText(getString(R.string.play_good));
+//                            tvDesc.setVisibility(View.VISIBLE);
+//                            statusLayout.animate().translationY(startPos1);
+//                            mCircleView.setImageDrawable(null);
+
+
+
+                            sendData();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(MainExerciseActivity.this);
+                            builder.setTitle(scheduleVo.getType().getName() + "을 끝냈습니다.");
+                            builder.setMessage("오늘의 운동으로 이동 하겠습니다.");
+
+                            builder.setCancelable(false);
+                            builder.setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    onBackPressed();
+                                }
+                            });
+                            builder.show();
+                        }
+                    }
+                    break;
+            }
+        }
+    private void exercisePost(ScheduleValueObject scheduleVo, int set) {
+        ExVo.Builder builder = new ExVo.Builder();
+        builder.setCount(scheduleVo.getCount());
+        builder.setCountMax(scheduleVo.getCount());
+        builder.setSetCnt(set);
+        builder.setSetMax(scheduleVo.getSetCnt());
+        builder.setRest(scheduleVo.getRest());
+        builder.setType(scheduleVo.getType());
+        builder.setDuration((int) Util.Time.getDuration(startTime));
+        ExVo vo = builder.create();
+
+        ExRepository.getInstance().addExercise(vo, new ExDataSrouce.UploadCallback() {
+            @Override
+            public void onUploaded() {
+
+            }
+
+            @Override
+            public void onDataNotAvailable() {
+
+            }
+        });
+    }
+    };
+
 
 
     private float getFloatFromData(short value) {
@@ -602,11 +661,13 @@ public class MainExerciseActivity extends AppCompatActivity {
         } else {
             Log.w(TAG, "BluetoothAdapter disconnect");
         }
+        firstData = 0;
     }
 
     @Override
     public void onResume() {
         super.onResume();
+//        firstData = 0;
         registerReceiver(mGattUpdateReceiver, makeGattUpdateIntentFilter());
     }
 
@@ -625,4 +686,33 @@ public class MainExerciseActivity extends AppCompatActivity {
 
 
     }
+
+    // 운동 시작 시간을 저장하기 위한 변수
+    private long mExStartTime = 0;
+
+    private void sendData() {
+        SendScheduleData data = new SendScheduleData();
+        String exName = MappingUtil.name(getApplicationContext(), scheduleVo.getType().getName());
+        data.name = exName.replace("\n", "");
+        data.day = scheduleVo.getDay().name();
+        data.setCnt = scheduleVo.getSetCnt();
+        data.count = scheduleVo.getCount();
+        data.weight = scheduleVo.getWeight();
+        data.rest = scheduleVo.getRest();
+        data.sTime = data.getCurrentTime(mExStartTime);
+        data.eTime = data.getCurrentTime(System.currentTimeMillis());
+
+        new GraphSendTask(getApplicationContext(), graphSendTaskHandler).execute(data, data);
+    }
+
+
+    Handler graphSendTaskHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            String str = (String) msg.obj;
+            str = TextUtils.isEmpty(str) ? "str is null" : str;
+            Log.e("str", str);
+        }
+    };
 }

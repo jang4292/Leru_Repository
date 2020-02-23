@@ -16,6 +16,13 @@ public class AppPreferences {
     public static final String KEY_SAVE_ACCOUNT = "key_save_account";
     public static final String KEY_CHECKED_BUTTON_ACCOUNT = "key_checked_button_account";
 
+    public static final String KEY_MEMBER_INFO = "key_save_account";
+
+
+    public static final String KEY_DATE_INFO = "KEY_DATE_INFO";
+    public static final String IS_ENTER_LOGIN = "IS_ENTER_LOGIN";
+
+
     private final String APP_NAME;
     private Context mContext;
 

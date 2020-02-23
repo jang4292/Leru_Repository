@@ -38,7 +38,7 @@ public class ManagerBLE {
 
         bLEScanner = bluetoothAdapter.getBluetoothLeScanner();
         if (bLEScanner == null) { // Checks if Bluetooth LE Scanner is available.
-            Toast.makeText(context, "Can not find BLE Scanner", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Can not find BLE Scanner", Toast.LENGTH_LONG).show();
             return false;
         }
 

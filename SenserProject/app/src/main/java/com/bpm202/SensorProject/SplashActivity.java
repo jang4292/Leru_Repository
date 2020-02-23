@@ -22,7 +22,10 @@ public class SplashActivity extends Activity {
 
     public static final String TAG = SignInRepository.class.getSimpleName();
 
+//    public static MemberObj memberObject;
+
     private FrameLayout content_layer;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,8 +47,12 @@ public class SplashActivity extends Activity {
 
     private SignInDataSource.SignInCallback callback = new SignInDataSource.SignInCallback() {
 
+
         @Override
         public void onResponse(String token, MemberObj memberObj) {
+
+            LoginActivity.setMemberObject(memberObj);
+            new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.IS_ENTER_LOGIN, false);
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -72,6 +79,7 @@ public class SplashActivity extends Activity {
         if (isTest) {
             content_layer = findViewById(R.id.content_layer);
         } else {
+            new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.IS_ENTER_LOGIN, false);
             new TimerHandler().sendEmptyMessageDelayed(0, DelayTime);
         }
     }

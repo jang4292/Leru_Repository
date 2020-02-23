@@ -17,10 +17,12 @@ import com.bpm202.SensorProject.Data.SignInDataSource;
 import com.bpm202.SensorProject.Data.SignInRepository;
 import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.R;
+import com.bpm202.SensorProject.SplashActivity;
 import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.Util.Util;
 import com.bpm202.SensorProject.ValueObject.EmailInfoObj;
 import com.bpm202.SensorProject.ValueObject.MemberObj;
+import com.bpm202.SensorProject.ValueObject.PersonalInfoObj;
 
 public class LoginActivity extends Activity {
 
@@ -36,6 +38,14 @@ public class LoginActivity extends Activity {
 
     private boolean isCheckedAutoLogin;
     private String _eMail;
+    private static MemberObj memberObject;
+
+    public static MemberObj getMemberObject() {
+        return memberObject;
+    }
+    public static MemberObj setMemberObject(MemberObj obj) {
+        return memberObject = obj;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -105,8 +115,12 @@ public class LoginActivity extends Activity {
 
                 _eMail = email;
                 final EmailInfoObj mEmailInfoObj = new EmailInfoObj(email, password);
+//                mEmailInfoObj = new EmailInfoObj(email, password);
+
+//                memberObject.setEmailInfo(mEmailInfoObj);
 
                 Util.LoadingProgress.show(LoginActivity.this);
+                new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.IS_ENTER_LOGIN, false);
                 new Handler().postDelayed(() -> {
 
                     SignInRepository.getInstance().signInWithEmail(mEmailInfoObj, callback);
@@ -129,11 +143,14 @@ public class LoginActivity extends Activity {
 
         @Override
         public void onResponse(String token, MemberObj memberObj) {
+            memberObject = memberObj;
 
             new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.KEY_AUTO_LOGIN, isCheckedAutoLogin);
             new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.KEY_TOKEN, token);
             new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.KEY_CHECKED_BUTTON_ACCOUNT, isCheckedSaveAccount);
             new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.KEY_SAVE_ACCOUNT, _eMail);
+            new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.IS_ENTER_LOGIN, true);
+            saveUserInfo(memberObj);
 
             App.setToken(token);
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
@@ -148,4 +165,16 @@ public class LoginActivity extends Activity {
             Util.LoadingProgress.hide();
         }
     };
+
+    private void saveUserInfo(MemberObj memberObj){
+        PersonalInfoObj info = memberObj.getInfo();
+        AccountManager.Instance().getPersonalInfoObj().setEmail(et_email.getText().toString().trim());
+        AccountManager.Instance().getPersonalInfoObj().setNickname(info.getNickname());
+        AccountManager.Instance().getPersonalInfoObj().setHeight(info.getHeight());
+        AccountManager.Instance().getPersonalInfoObj().setWeight(info.getWeight());
+        AccountManager.Instance().getPersonalInfoObj().setAge(info.getAge());
+        AccountManager.Instance().getPersonalInfoObj().setGender(info.getGender());
+        AccountManager.Instance().getPersonalInfoObj().setRegion(info.getRegion());
+        AccountManager.Instance().getPersonalInfoObj().setPhoto("");
+    }
 }
