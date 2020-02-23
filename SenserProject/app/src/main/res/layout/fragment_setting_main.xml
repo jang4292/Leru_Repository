@@ -197,7 +197,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:minHeight="30dp"
-                        android:text="@string/text_view_weight_string"
+                        android:text="@string/text_view_age_string"
                         android:textColor="@color/text_color_setting_text_label"
                         android:textSize="14dp" />
 

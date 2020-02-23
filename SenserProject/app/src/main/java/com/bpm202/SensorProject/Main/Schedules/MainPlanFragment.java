@@ -83,7 +83,8 @@ public class MainPlanFragment extends BaseFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.action_plan_icon:
+//            case R.id.action_plan_icon:
+            case R.id.action_add_icon:
                 startActivityForResult(new Intent(getActivity(), PlanAddActivity.class), 3000);
                 break;
         }

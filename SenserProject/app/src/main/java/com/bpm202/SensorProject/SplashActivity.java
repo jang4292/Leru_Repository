@@ -11,18 +11,23 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.bpm202.SensorProject.Account.AccountManager;
 import com.bpm202.SensorProject.Account.LoginActivity;
 import com.bpm202.SensorProject.Common.AppPreferences;
 import com.bpm202.SensorProject.Data.SignInDataSource;
 import com.bpm202.SensorProject.Data.SignInRepository;
 import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.ValueObject.MemberObj;
+import com.bpm202.SensorProject.ValueObject.PersonalInfoObj;
 
 public class SplashActivity extends Activity {
 
     public static final String TAG = SignInRepository.class.getSimpleName();
 
+//    public static MemberObj memberObject;
+
     private FrameLayout content_layer;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,8 +49,14 @@ public class SplashActivity extends Activity {
 
     private SignInDataSource.SignInCallback callback = new SignInDataSource.SignInCallback() {
 
+
         @Override
         public void onResponse(String token, MemberObj memberObj) {
+            saveUserInfo(memberObj);
+
+            LoginActivity.setMemberObject(memberObj);
+            // 0129
+//            new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.IS_ENTER_LOGIN, false);
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
@@ -72,6 +83,8 @@ public class SplashActivity extends Activity {
         if (isTest) {
             content_layer = findViewById(R.id.content_layer);
         } else {
+            // 0129
+//            new AppPreferences(getApplicationContext()).setStringPref(AppPreferences.IS_ENTER_LOGIN, false);
             new TimerHandler().sendEmptyMessageDelayed(0, DelayTime);
         }
     }
@@ -97,5 +110,18 @@ public class SplashActivity extends Activity {
                 return false;
             });
         }
+    }
+
+    private void saveUserInfo(MemberObj memberObj){
+        String email = new AppPreferences(getApplicationContext()).getStringPref(AppPreferences.KEY_SAVE_ACCOUNT);
+        PersonalInfoObj info = memberObj.getInfo();
+        AccountManager.Instance().getPersonalInfoObj().setEmail(email.trim());
+        AccountManager.Instance().getPersonalInfoObj().setNickname(info.getNickname());
+        AccountManager.Instance().getPersonalInfoObj().setHeight(info.getHeight());
+        AccountManager.Instance().getPersonalInfoObj().setWeight(info.getWeight());
+        AccountManager.Instance().getPersonalInfoObj().setAge(info.getAge());
+        AccountManager.Instance().getPersonalInfoObj().setGender(info.getGender());
+        AccountManager.Instance().getPersonalInfoObj().setRegion(info.getRegion());
+        AccountManager.Instance().getPersonalInfoObj().setPhoto("");
     }
 }

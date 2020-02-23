@@ -14,9 +14,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.bpm202.SensorProject.Account.AccountManager;
 import com.bpm202.SensorProject.BaseActivity;
+import com.bpm202.SensorProject.Common.AppPreferences;
+import com.bpm202.SensorProject.Data.RegionManager;
 import com.bpm202.SensorProject.Data.ScheduleDataSource;
 import com.bpm202.SensorProject.Data.ScheduleRepository;
+import com.bpm202.SensorProject.Data.SignUpDataSource;
+import com.bpm202.SensorProject.Data.SignUpRepository;
 import com.bpm202.SensorProject.Main.Exercise.MainExerciseFragment;
 import com.bpm202.SensorProject.Main.History.MainHistoryFragment;
 import com.bpm202.SensorProject.Main.Schedules.MainPlanFragment;
@@ -26,8 +31,12 @@ import com.bpm202.SensorProject.Main.Temp.ManagerBLE;
 import com.bpm202.SensorProject.R;
 import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.Util.Util;
+import com.bpm202.SensorProject.ValueObject.PersonalInfoObj;
+import com.bpm202.SensorProject.ValueObject.RegionObj;
 import com.bpm202.SensorProject.ValueObject.ScheduleValueObject;
+import com.bpm202.SensorProject.db.DBUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseActivity {
@@ -59,8 +68,45 @@ public class MainActivity extends BaseActivity {
             initView();
             initBottomMenu();
             initData();
+//            boolean isEnterLogin = Boolean.parseBoolean(new AppPreferences(getApplicationContext()).getStringPref(AppPreferences.IS_ENTER_LOGIN));
+//            if (isEnterLogin) {
+//                saveUserDB();
+//            }
+            // 0129 수정
+            saveUserDB();
+
         }
 
+    }
+
+    private void saveUserDB() {
+        SignUpRepository.getInstance().region(new SignUpDataSource.RegionCallback() {
+
+            @Override
+            public void onResponse(List<RegionObj> objList) {
+                RegionManager.Instance().initData(objList);
+
+                PersonalInfoObj obj = AccountManager.Instance().getPersonalInfoObj();
+                RegionObj regionObj = objList.get(obj.getRegion() - 1);
+                String regionStr = String.format("%s %s", regionObj.main, regionObj.sub);
+                AccountManager.Instance().getPersonalInfoObj().setRegionStr(regionStr);
+
+                PersonalInfoObj newPersonalInfoObj = AccountManager.Instance().getPersonalInfoObj();
+                DBUser db = new DBUser(getApplicationContext());
+                db.open();
+//                ArrayList<PersonalInfoObj> lists = db.selectDB(newPersonalInfoObj);
+                String token = new AppPreferences(getApplicationContext()).getStringPref(AppPreferences.KEY_TOKEN);
+                ArrayList<PersonalInfoObj> lists = db.selectTokenDB(token);
+                if (lists.isEmpty()) {
+                    db.insertDB(newPersonalInfoObj);
+                }
+                db.close();
+            }
+
+            @Override
+            public void onDataNotAvailable() {
+            }
+        });
     }
 
     private boolean initBLE() {
@@ -158,7 +204,7 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(MainActivity.this, "today", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "today", Toast.LENGTH_SHORT).show();
                 btnBottomToday.setSelected(true);
                 btnBottomPlan.setSelected(false);
                 btnBottomRecord.setSelected(false);
@@ -186,7 +232,7 @@ public class MainActivity extends BaseActivity {
             public void onClick(View v) {
 
 
-                Toast.makeText(MainActivity.this, "plan", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(MainActivity.this, "plan", Toast.LENGTH_SHORT).show();
                 btnBottomToday.setSelected(false);
                 btnBottomPlan.setSelected(true);
                 btnBottomRecord.setSelected(false);

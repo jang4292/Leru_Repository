@@ -22,6 +22,10 @@ import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.Util.Util;
 import com.bpm202.SensorProject.ValueObject.EmailInfoObj;
 import com.bpm202.SensorProject.ValueObject.MemberObj;
+import com.bpm202.SensorProject.ValueObject.PersonalInfoObj;
+import com.bpm202.SensorProject.db.DBUser;
+
+import java.util.ArrayList;
 
 public class JoinDetailsActivity extends AppCompatActivity {
 
@@ -160,6 +164,7 @@ public class JoinDetailsActivity extends AppCompatActivity {
         AccountManager.Instance().getPersonalInfoObj().setAge(Integer.parseInt(age));
         AccountManager.Instance().getPersonalInfoObj().setGender(sex);
         AccountManager.Instance().getPersonalInfoObj().setPhoto("");
+        AccountManager.Instance().getPersonalInfoObj().setRegionStr(tvRegion.getText().toString().trim());
 
         MemberObj memberObj = new MemberObj();
         memberObj.setInfo(AccountManager.Instance().getPersonalInfoObj());
@@ -172,6 +177,9 @@ public class JoinDetailsActivity extends AppCompatActivity {
                 new AppPreferences(JoinDetailsActivity.this).setStringPref(AppPreferences.KEY_TOKEN, token);
                 App.setToken(token);
                 Util.LoadingProgress.hide();
+
+                saveUserDB(token);
+
                 Intent intent = new Intent(JoinDetailsActivity.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
@@ -183,5 +191,19 @@ public class JoinDetailsActivity extends AppCompatActivity {
                 QToast.showToast(JoinDetailsActivity.this, R.string.error_msg);
             }
         });
+    }
+
+    private void saveUserDB(String token) {
+        PersonalInfoObj obj = AccountManager.Instance().getPersonalInfoObj();
+        obj.setEmail(mEmailInfoObj.getEmail().trim());
+        DBUser db = new DBUser(getApplicationContext());
+        db.open();
+//        ArrayList<PersonalInfoObj> lists = db.selectDB(obj);
+        // Auto Login 처리시 발생되는 문제로 인해 사용자 정보를 Token으로 수정
+        ArrayList<PersonalInfoObj> lists = db.selectTokenDB(token);
+        if (lists.isEmpty()) {
+            db.insertDB(obj);
+        }
+        db.close();
     }
 }
