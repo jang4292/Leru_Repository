@@ -42,14 +42,6 @@
     </item>-->
 
     <item
-        android:id="@+id/action_add_icon"
-        android:icon="@android:drawable/ic_input_add"
-        android:title="@string/button_edit"
-        android:iconTint="@color/white"
-        android:visible="true"
-        app:showAsAction="always" />
-
-    <item
         android:id="@+id/action_plan_icon"
         android:icon="@drawable/workout_plan_icon_white"
         android:title="@string/button_edit"

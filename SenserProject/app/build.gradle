@@ -11,23 +11,6 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-
-        debug {
-            minifyEnabled false
-            android.applicationVariants.all { variant ->
-                variant.outputs.all { output ->
-                    def sdf = new Date().format("YYYY-MM-dd")
-                    def outputFile = output.outputFile
-                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        def fileName = outputFile.name.replace("app-debug",
-                                "202Sensor(${variant.versionCode})_debug_Ver${variant.versionName}_${sdf}")
-                        outputFileName = fileName
-
-                    }
-                }
-            }
-        }
-
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -53,10 +36,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'org.jetbrains:annotations:15.0'
-
-    compile files('libs/httpclient-4.1.1.jar')
-    compile files('libs/httpcore-4.1.jar')
-    compile files('libs/httpmime-4.1.1.jar')
 
     // 안드로이드 로컬 DB
     def room_version = "1.1.1"

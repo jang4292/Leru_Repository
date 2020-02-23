@@ -22,10 +22,6 @@ import com.bpm202.SensorProject.Util.QToast;
 import com.bpm202.SensorProject.Util.Util;
 import com.bpm202.SensorProject.ValueObject.EmailInfoObj;
 import com.bpm202.SensorProject.ValueObject.MemberObj;
-import com.bpm202.SensorProject.ValueObject.PersonalInfoObj;
-import com.bpm202.SensorProject.db.DBUser;
-
-import java.util.ArrayList;
 
 public class JoinDetailsActivity extends AppCompatActivity {
 
@@ -164,7 +160,6 @@ public class JoinDetailsActivity extends AppCompatActivity {
         AccountManager.Instance().getPersonalInfoObj().setAge(Integer.parseInt(age));
         AccountManager.Instance().getPersonalInfoObj().setGender(sex);
         AccountManager.Instance().getPersonalInfoObj().setPhoto("");
-        AccountManager.Instance().getPersonalInfoObj().setRegionStr(tvRegion.getText().toString().trim());
 
         MemberObj memberObj = new MemberObj();
         memberObj.setInfo(AccountManager.Instance().getPersonalInfoObj());
@@ -174,8 +169,6 @@ public class JoinDetailsActivity extends AppCompatActivity {
         SignUpRepository.getInstance().signUpWithEmail(memberObj, new SignUpDataSource.SignUpCallback() {
             @Override
             public void onResponse(String token, MemberObj memberObj) {
-                saveUserDB();
-
                 new AppPreferences(JoinDetailsActivity.this).setStringPref(AppPreferences.KEY_TOKEN, token);
                 App.setToken(token);
                 Util.LoadingProgress.hide();
@@ -190,17 +183,5 @@ public class JoinDetailsActivity extends AppCompatActivity {
                 QToast.showToast(JoinDetailsActivity.this, R.string.error_msg);
             }
         });
-    }
-
-    private void saveUserDB() {
-        PersonalInfoObj obj = AccountManager.Instance().getPersonalInfoObj();
-        obj.setEmail(mEmailInfoObj.getEmail());
-        DBUser db = new DBUser(getApplicationContext());
-        db.open();
-        ArrayList<PersonalInfoObj> lists = db.selectDB(obj);
-        if (lists.isEmpty()) {
-            db.insertDB(obj);
-        }
-        db.close();
     }
 }

@@ -33,21 +33,11 @@ public class CustomCalendar extends LinearLayout {
     private GridView gridview;
     private int mMonth;
     private int mYear;
-    //    public static int mMonth;
-//    public static int mYear;
     private GregorianCalendar calendar;
 
     public CustomCalendar(Context context) {
         super(context);
         initView();
-    }
-
-    public String getCurrentDate() {
-        if (mMonth < 10) {
-            return "" + mYear + "-" + "0" + mMonth;
-        } else {
-            return "" + mYear + "-" + mMonth;
-        }
     }
 
     public CustomCalendar(Context context, @Nullable AttributeSet attrs) {

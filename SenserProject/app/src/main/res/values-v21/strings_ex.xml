@@ -93,15 +93,15 @@
 
     <string-array name="ex_using_range_type">
         <!--<item>@string/push_up</item>-->
-        <!--<item>@string/pull_up</item>-->
-        <!--<item>@string/barbell_deadlift</item>-->
-        <!--<item>@string/dumbbell_deadlift</item>-->
-        <!--<item>@string/barbell_bench_press</item>-->
-        <!--<item>@string/dumbbell_bench_press</item>-->
-        <!--<item>@string/front_lateral_raise</item>-->
-        <!--<item>@string/side_lateral_raise</item>-->
-        <item>@string/over_lateral_raise</item> // ok
-        <item>@string/lat_pull_down</item> // ok
-        <!--<item>@string/ab_slide</item>-->
+        <item>@string/pull_up</item>
+        <item>@string/barbell_deadlift</item>
+        <item>@string/dumbbell_deadlift</item>
+        <item>@string/barbell_bench_press</item>
+        <item>@string/dumbbell_bench_press</item>
+        <item>@string/front_lateral_raise</item>
+        <item>@string/side_lateral_raise</item>
+        <item>@string/over_lateral_raise</item>
+        <item>@string/lat_pull_down</item>
+        <item>@string/ab_slide</item>
     </string-array>
 </resources>

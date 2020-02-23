@@ -7,28 +7,16 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
-import android.widget.TextView;
 
-import com.bpm202.SensorProject.Account.LoginActivity;
 import com.bpm202.SensorProject.BaseFragment;
 import com.bpm202.SensorProject.Common.AppPreferences;
 import com.bpm202.SensorProject.Main.MainActivity;
 import com.bpm202.SensorProject.R;
-import com.bpm202.SensorProject.SplashActivity;
-import com.bpm202.SensorProject.ValueObject.MemberObj;
-
-import org.jetbrains.annotations.NotNull;
 
 public class MainSettingFragment extends BaseFragment {
 
 
     private static MainSettingFragment instance = null;
-    private TextView tvAccountData;
-    private TextView tvNameData;
-    private TextView tvGenderData;
-    private TextView tvHeightData;
-    private TextView tvWeightData;
-    private TextView tvAgeData;
 
     public static MainSettingFragment newInstance() {
         if (instance == null) {
@@ -76,41 +64,6 @@ public class MainSettingFragment extends BaseFragment {
         });
 //            initBottomMenu();
 //        }
-
-        tvAccountData = v.findViewById(R.id.tv_account_data);
-        tvNameData = v.findViewById(R.id.tv_name_data);
-        tvGenderData = v.findViewById(R.id.tv_gender_data);
-        tvHeightData = v.findViewById(R.id.tv_height_data);
-        tvWeightData = v.findViewById(R.id.tv_weight_data);
-        tvAgeData = v.findViewById(R.id.tv_age_data);
-
-        setData(LoginActivity.getMemberObject());
-    }
-
-    private void setData(@NotNull MemberObj obj) {
-        String strAccount = new AppPreferences(getContext()).getStringPref(AppPreferences.KEY_SAVE_ACCOUNT);
-//        Log.d("TEST", "Email : " + obj.getEmailInfo().getEmail());
-        Log.d("TEST", "Email : " + strAccount);
-//        Log.d("TEST", "Email : " + obj.getEMail());
-        Log.d("TEST", "Name : " + obj.getInfo().getNickname());
-        Log.d("TEST", "Gender : " + obj.getInfo().getGender());
-        Log.d("TEST", "Height : " + obj.getInfo().getHeight());
-        Log.d("TEST", "Weight : " + obj.getInfo().getWeight());
-        Log.d("TEST", "Age : " + obj.getInfo().getAge());
-
-
-
-//        tvAccountData.setText(obj.getEMail());
-//        tvAccountData.setText(obj.getEmailInfo().getEmail());
-        tvAccountData.setText(strAccount);
-        tvNameData .setText(obj.getInfo().getNickname());
-        tvGenderData .setText(obj.getInfo().getGender());
-        tvHeightData .setText(String.valueOf(obj.getInfo().getHeight()));
-        tvWeightData .setText(String.valueOf(obj.getInfo().getWeight()));
-        tvAgeData .setText(String.valueOf(obj.getInfo().getAge()));
-
-
-
     }
 
     @Override
